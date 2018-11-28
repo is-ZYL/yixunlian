@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.User">
+        <id column="user_id" jdbcType="VARCHAR" property="userId"/>
+        <result column="open_id" jdbcType="VARCHAR" property="openId"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="u_nickname" jdbcType="VARCHAR" property="uNickname"/>
+        <result column="wx_nickname" jdbcType="VARCHAR" property="wxNickname"/>
+        <result column="head_url" jdbcType="VARCHAR" property="headUrl"/>
+        <result column="change_head_url" jdbcType="VARCHAR" property="changeHeadUrl"/>
+        <result column="u_sex" jdbcType="INTEGER" property="uSex"/>
+        <result column="ubirthday" jdbcType="DATE" property="ubirthday"/>
+        <result column="u_card" jdbcType="VARCHAR" property="uCard"/>
+        <result column="u_phone" jdbcType="VARCHAR" property="uPhone"/>
+        <result column="u_balance" jdbcType="DECIMAL" property="uBalance"/>
+        <result column="is_put_forward" jdbcType="INTEGER" property="isPutForward"/>
+        <result column="is_pay" jdbcType="INTEGER" property="isPay"/>
+        <result column="is_vip" jdbcType="INTEGER" property="isVip"/>
+        <result column="is_authentication" jdbcType="INTEGER" property="isAuthentication"/>
+        <result column="utype_id" jdbcType="VARCHAR" property="utypeId"/>
+        <result column="egid_id" jdbcType="VARCHAR" property="egidId"/>
+        <result column="egid_name" jdbcType="VARCHAR" property="egidName"/>
+        <result column="address_name" jdbcType="VARCHAR" property="addressName"/>
+        <result column="province_citycode" jdbcType="VARCHAR" property="provinceCitycode"/>
+        <result column="city_citycode" jdbcType="VARCHAR" property="cityCitycode"/>
+        <result column="area_citycode" jdbcType="VARCHAR" property="areaCitycode"/>
+        <result column="memberid" jdbcType="VARCHAR" property="memberid"/>
+        <result column="member_start_time" jdbcType="TIMESTAMP" property="memberStartTime"/>
+        <result column="member_end_time" jdbcType="TIMESTAMP" property="memberEndTime"/>
+        <result column="creditrd_num" jdbcType="INTEGER" property="creditrdNum"/>
+        <result column="userReferee_uid" jdbcType="VARCHAR" property="userrefereeUid"/>
+        <result column="userReferee_name" jdbcType="VARCHAR" property="userrefereeName"/>
+        <result column="userManager_uid" jdbcType="VARCHAR" property="usermanagerUid"/>
+        <result column="userManager_name" jdbcType="VARCHAR" property="usermanagerName"/>
+        <result column="introduction_idfront" jdbcType="VARCHAR" property="introductionIdfront"/>
+        <result column="introduction_idback" jdbcType="VARCHAR" property="introductionIdback"/>
+        <result column="introduction_license" jdbcType="VARCHAR" property="introductionLicense"/>
+        <result column="u_name" jdbcType="VARCHAR" property="uName"/>
+        <result column="user_type" jdbcType="INTEGER" property="userType"/>
+        <result column="pubactivities_ispay" jdbcType="INTEGER" property="pubactivitiesIspay"/>
+        <result column="user_isactivation" jdbcType="INTEGER" property="userIsactivation"/>
+        <result column="member_days" jdbcType="INTEGER" property="memberDays"/>
+        <result column="resource_strategy_isexperience" jdbcType="INTEGER" property="resourceStrategyIsexperience"/>
+        <result column="experience_time" jdbcType="TIMESTAMP" property="experienceTime"/>
+        <result column="experience_end_time" jdbcType="TIMESTAMP" property="experienceEndTime"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="utype_name" jdbcType="VARCHAR" property="utypeName"/>
+        <result column="professional_title" jdbcType="VARCHAR" property="professionalTitle"/>
+        <result column="can_provide" jdbcType="VARCHAR" property="canProvide"/>
+        <result column="need" jdbcType="VARCHAR" property="need"/>
+        <result column="belief_in_life" jdbcType="VARCHAR" property="beliefInLife"/>
+        <result column="closed_user_status" jdbcType="INTEGER" property="closedUserStatus"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="resource_add_time" jdbcType="TIMESTAMP" property="resourceAddTime"/>
+        <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
+        <result column="experienceutype_id" jdbcType="VARCHAR" property="experienceutypeId"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    user_id, open_id, password, u_nickname, head_url, change_head_url, u_sex, ubirthday,
+    u_card, u_phone, u_balance, is_put_forward, is_pay, is_vip, is_authentication, utype_id,
+    egid_id, egid_name, address_name, province_citycode, city_citycode, area_citycode,
+    memberid, member_start_time, member_end_time, creditrd_num, userReferee_uid, userReferee_name,
+    userManager_uid, userManager_name, introduction_idfront, introduction_idback, introduction_license,
+    u_name, user_type, pubactivities_ispay, user_isactivation, member_days, resource_strategy_isexperience,
+    experience_time, experience_end_time, remark, utype_name, professional_title, can_provide,
+    need, belief_in_life, closed_user_status, created, updated,resource_add_time, experienceutype_id
+  </sql>
+    <select id="selectByPrimaryKey1" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from td_user
+        where user_id = #{userId,jdbcType=VARCHAR}
+    </select>
+
+
+    <!--
+           select *, COUNT(userManager_uid) from td_user group by userManager_uid having COUNT(userManager_uid)>=2 AND memberid
+           ='111' ORDER BY COUNT(userManager_uid) DESC
+       -->
+    <select id="selectUserListCountByKeywords" parameterType="java.util.Map" resultType="java.util.HashMap">
+        select
+        <include refid="Base_Column_List"/>, COUNT(userManager_uid)
+        from td_user
+        group by userManager_uid having COUNT(userManager_uid)>= #{count}
+
+        <if test="map.uNickname!=null and map.uNickname !=''">
+            and u_nickname = #{map.uNickname}
+        </if>
+        <if test="map.egidId!=null and map.egidId !=''">
+            and egid_id = #{map.egidId}
+        </if>
+        <if test="map.citycode!=null and map.citycode !=''">
+            and citycode = #{map.citycode}
+        </if>
+        <if test="map.memberid!=null and map.memberid !=''">
+            and memberid = #{map.memberid}
+        </if>
+        ORDER BY COUNT(userManager_uid) DESC
+    </select>
+
+
+    <select id="queryResourceListResultByKeywords" parameterType="java.util.Map" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from td_user
+        where userManager_uid = #{maps.usermanagerUid}
+        and u_nickname like concat( '%',#{maps.keyWord},'%')
+        or userReferee_name like concat( '%',#{maps.keyWord},'%')
+        or memberid like concat( '%',#{maps.keyWord},'%')
+        order by created desc
+    </select>
+
+
+</mapper>

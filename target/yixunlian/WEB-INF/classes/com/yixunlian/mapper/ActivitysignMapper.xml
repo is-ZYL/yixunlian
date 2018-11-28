@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.ActivitysignMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.Activitysign">
+        <id column="activity_signid" jdbcType="VARCHAR" property="activitySignid"/>
+        <result column="activity_signname" jdbcType="VARCHAR" property="activitySignname"/>
+        <result column="activity_signsex" jdbcType="VARCHAR" property="activitySignsex"/>
+        <result column="activity_signphone" jdbcType="VARCHAR" property="activitySignphone"/>
+        <result column="province_citycode" jdbcType="VARCHAR" property="provinceCitycode"/>
+        <result column="city_citycode" jdbcType="VARCHAR" property="cityCitycode"/>
+        <result column="area_citycode" jdbcType="VARCHAR" property="areaCitycode"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    activity_signid, activity_signname, activity_signsex, activity_signphone, province_citycode, 
+    city_citycode, area_citycode, created, updated
+  </sql>
+</mapper>

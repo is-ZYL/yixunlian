@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.OaDepartmentMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.OaDepartment">
+        <id column="DEPARTMENT_ID" jdbcType="VARCHAR" property="departmentId"/>
+        <result column="NAME" jdbcType="VARCHAR" property="name"/>
+        <result column="NAME_EN" jdbcType="VARCHAR" property="nameEn"/>
+        <result column="BIANMA" jdbcType="VARCHAR" property="bianma"/>
+        <result column="PARENT_ID" jdbcType="VARCHAR" property="parentId"/>
+        <result column="BZ" jdbcType="VARCHAR" property="bz"/>
+        <result column="HEADMAN" jdbcType="VARCHAR" property="headman"/>
+        <result column="TEL" jdbcType="VARCHAR" property="tel"/>
+        <result column="FUNCTIONS" jdbcType="VARCHAR" property="functions"/>
+        <result column="ADDRESS" jdbcType="VARCHAR" property="address"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    DEPARTMENT_ID, NAME, NAME_EN, BIANMA, PARENT_ID, BZ, HEADMAN, TEL, FUNCTIONS, ADDRESS
+  </sql>
+</mapper>

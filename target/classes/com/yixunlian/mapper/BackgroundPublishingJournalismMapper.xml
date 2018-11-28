@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.BackgroundPublishingJournalismMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.BackgroundPublishingJournalism">
+        <id column="background_journalism_typeid" jdbcType="VARCHAR" property="backgroundJournalismTypeid"/>
+        <result column="journalism_type" jdbcType="VARCHAR" property="journalismType"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    background_journalism_typeid, journalism_type, created, updated
+  </sql>
+</mapper>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!-- 会员天数 -->
+    <bean id="userMemberDay" class="com.yixunlian.job.UserJob"/>
+    <bean id="jobDetailOne" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <!-- 调用目标任务 -->
+        <property name="targetObject" ref="userMemberDay"/>
+        <!-- 调用目标方法 -->
+        <property name="targetMethod" value="updateUserMemberDays"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+
+    <!--文件清理-->
+    <bean id="clearFile" class="com.yixunlian.job.FileJob"/>
+    <bean id="jobDetailTwo" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="clearFile"/>
+        <property name="targetMethod" value="delFolder"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+
+
+    <!--job测试-->
+    <bean id="jobtest" class="com.yixunlian.job.JobTest"/>
+    <bean id="jobDetailThree" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="jobtest"/>
+        <property name="targetMethod" value="test"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+
+
+    <!-- 配置触发器1 会员天数-->
+    <bean id="cutMemberDay" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <!-- 配置任务细节 -->
+        <property name="jobDetail" ref="jobDetailOne"/>
+        <!-- 配置调度时间表达式  每天的凌晨0点执行一次-->
+        <property name="cronExpression" value="0 0 0 * * ?"/>
+    </bean>
+    <!-- 配置触发器2 文件清理 -->
+    <bean id="clearFileTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <!-- 配置任务细节 -->
+        <property name="jobDetail" ref="jobDetailTwo"/>
+        <!-- 配置调度时间表达式  每月的一号凌晨0点执行一次-->
+        <property name="cronExpression" value="0 0 0 1 1/1 ? "/>
+    </bean>
+
+    <!-- 配置触发器3 job测试 -->
+    <bean id="jobTestTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <!-- 配置任务细节 -->
+        <property name="jobDetail" ref="jobDetailThree"/>
+        <!-- 配置调度时间表达式  每月的一号凌晨0点执行一次-->
+        <property name="cronExpression" value="0 0/1 * * * ?"/>
+    </bean>
+
+    <!-- 配置调度器 -->
+    <bean id="schedulerFactory" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="cutMemberDay"/>
+                <ref bean="clearFileTrigger"/>
+               <!-- <ref bean="jobTestTrigger"/>-->
+            </list>
+        </property>
+    </bean>
+
+</beans>

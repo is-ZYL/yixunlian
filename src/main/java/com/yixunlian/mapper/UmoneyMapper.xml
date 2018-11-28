@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.UmoneyMapper">
+  <resultMap id="BaseResultMap" type="com.yixunlian.pojo.Umoney">
+    <id column="umoney_id" jdbcType="VARCHAR" property="umoneyId" />
+    <result column="already_presented" jdbcType="DECIMAL" property="alreadyPresented" />
+    <result column="can_presented" jdbcType="DECIMAL" property="canPresented" />
+    <result column="to_raised" jdbcType="DECIMAL" property="toRaised" />
+    <result column="pay_taxes" jdbcType="DECIMAL" property="payTaxes" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="put_money" jdbcType="DECIMAL" property="putMoney" />
+    <result column="put_time" jdbcType="TIMESTAMP" property="putTime" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+    <result column="updated" jdbcType="TIMESTAMP" property="updated" />
+    <result column="actualarrival_amount" jdbcType="DECIMAL" property="actualarrivalAmount" />
+    <result column="taxrevenue_id" jdbcType="VARCHAR" property="taxrevenueId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    umoney_id, already_presented, can_presented, to_raised, pay_taxes, user_id, put_money, 
+    put_time, created, updated, actualarrival_amount, taxrevenue_id
+  </sql>
+
+</mapper>

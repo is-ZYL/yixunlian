@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.OaStaffMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.OaStaff">
+        <id column="STAFF_ID" jdbcType="VARCHAR" property="staffId"/>
+        <result column="NAME" jdbcType="VARCHAR" property="name"/>
+        <result column="NAME_EN" jdbcType="VARCHAR" property="nameEn"/>
+        <result column="BIANMA" jdbcType="VARCHAR" property="bianma"/>
+        <result column="DEPARTMENT_ID" jdbcType="VARCHAR" property="departmentId"/>
+        <result column="FUNCTIONS" jdbcType="VARCHAR" property="functions"/>
+        <result column="TEL" jdbcType="VARCHAR" property="tel"/>
+        <result column="EMAIL" jdbcType="VARCHAR" property="email"/>
+        <result column="SEX" jdbcType="VARCHAR" property="sex"/>
+        <result column="BIRTHDAY" jdbcType="VARCHAR" property="birthday"/>
+        <result column="NATION" jdbcType="VARCHAR" property="nation"/>
+        <result column="JOBTYPE" jdbcType="VARCHAR" property="jobtype"/>
+        <result column="JOBJOINTIME" jdbcType="VARCHAR" property="jobjointime"/>
+        <result column="FADDRESS" jdbcType="VARCHAR" property="faddress"/>
+        <result column="POLITICAL" jdbcType="VARCHAR" property="political"/>
+        <result column="PJOINTIME" jdbcType="VARCHAR" property="pjointime"/>
+        <result column="SFID" jdbcType="VARCHAR" property="sfid"/>
+        <result column="MARITAL" jdbcType="VARCHAR" property="marital"/>
+        <result column="DJOINTIME" jdbcType="VARCHAR" property="djointime"/>
+        <result column="POST" jdbcType="VARCHAR" property="post"/>
+        <result column="POJOINTIME" jdbcType="VARCHAR" property="pojointime"/>
+        <result column="EDUCATION" jdbcType="VARCHAR" property="education"/>
+        <result column="SCHOOL" jdbcType="VARCHAR" property="school"/>
+        <result column="MAJOR" jdbcType="VARCHAR" property="major"/>
+        <result column="FTITLE" jdbcType="VARCHAR" property="ftitle"/>
+        <result column="CERTIFICATE" jdbcType="VARCHAR" property="certificate"/>
+        <result column="CONTRACTLENGTH" jdbcType="INTEGER" property="contractlength"/>
+        <result column="CSTARTTIME" jdbcType="VARCHAR" property="cstarttime"/>
+        <result column="CENDTIME" jdbcType="VARCHAR" property="cendtime"/>
+        <result column="ADDRESS" jdbcType="VARCHAR" property="address"/>
+        <result column="USER_ID" jdbcType="VARCHAR" property="userId"/>
+        <result column="BZ" jdbcType="VARCHAR" property="bz"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    STAFF_ID, NAME, NAME_EN, BIANMA, DEPARTMENT_ID, FUNCTIONS, TEL, EMAIL, SEX, BIRTHDAY, 
+    NATION, JOBTYPE, JOBJOINTIME, FADDRESS, POLITICAL, PJOINTIME, SFID, MARITAL, DJOINTIME, 
+    POST, POJOINTIME, EDUCATION, SCHOOL, MAJOR, FTITLE, CERTIFICATE, CONTRACTLENGTH, 
+    CSTARTTIME, CENDTIME, ADDRESS, USER_ID, BZ
+  </sql>
+</mapper>

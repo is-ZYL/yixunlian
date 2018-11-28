@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.SendgetmailMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.Sendgetmail">
+        <id column="mail_id" jdbcType="VARCHAR" property="mailId"/>
+        <result column="mail" jdbcType="VARCHAR" property="mail"/>
+        <result column="senduser_id" jdbcType="VARCHAR" property="senduserId"/>
+        <result column="getuser_id" jdbcType="VARCHAR" property="getuserId"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    mail_id, mail, senduser_id, getuser_id, created, updated
+  </sql>
+</mapper>

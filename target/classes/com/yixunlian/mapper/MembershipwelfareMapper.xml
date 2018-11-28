@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.MembershipwelfareMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.Membershipwelfare">
+        <id column="welfare_id" jdbcType="VARCHAR" property="welfareId"/>
+        <result column="welfare_imgurl" jdbcType="VARCHAR" property="welfareImgurl"/>
+        <result column="welfare_sharecount" jdbcType="INTEGER" property="welfareSharecount"/>
+        <result column="welfare_title" jdbcType="VARCHAR" property="welfareTitle"/>
+        <result column="welfare_context" jdbcType="VARCHAR" property="welfareContext"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
+        <result column="welfare_condition" jdbcType="INTEGER" property="welfareCondition"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    welfare_id, welfare_imgurl, welfare_sharecount, welfare_title, welfare_context, created, 
+    updated, welfare_condition
+  </sql>
+</mapper>

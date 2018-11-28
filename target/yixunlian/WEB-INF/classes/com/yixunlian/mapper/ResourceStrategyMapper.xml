@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.ResourceStrategyMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.ResourceStrategy">
+        <id column="resource_strategy_id" jdbcType="VARCHAR" property="resourceStrategyId"/>
+        <result column="user_id" jdbcType="VARCHAR" property="userId"/>
+        <result column="resource_strategy_qrcodeurl" jdbcType="VARCHAR" property="resourceStrategyQrcodeurl"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
+    </resultMap>
+    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.yixunlian.pojo.ResourceStrategy">
+        <result column="resource_strategy_context" jdbcType="LONGVARCHAR" property="resourceStrategyContext"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    resource_strategy_id, user_id, resource_strategy_qrcodeurl, created, updated
+  </sql>
+    <sql id="Blob_Column_List">
+    resource_strategy_context
+  </sql>
+</mapper>

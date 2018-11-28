@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.WeixinMymenuMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.WeixinMymenu">
+        <id column="MYMENU_ID" jdbcType="VARCHAR" property="mymenuId"/>
+        <result column="WXUSERNAME" jdbcType="VARCHAR" property="wxusername"/>
+        <result column="USERNAME" jdbcType="VARCHAR" property="username"/>
+        <result column="TITLE" jdbcType="VARCHAR" property="title"/>
+        <result column="TYPE" jdbcType="VARCHAR" property="type"/>
+        <result column="CONTENT" jdbcType="VARCHAR" property="content"/>
+        <result column="XID" jdbcType="VARCHAR" property="xid"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    MYMENU_ID, WXUSERNAME, USERNAME, TITLE, TYPE, CONTENT, XID
+  </sql>
+</mapper>

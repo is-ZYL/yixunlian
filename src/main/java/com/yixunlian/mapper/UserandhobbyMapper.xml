@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.UserandhobbyMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.Userandhobby">
+        <id column="uAndh_id" jdbcType="VARCHAR" property="uandhId"/>
+        <result column="user_id" jdbcType="VARCHAR" property="userId"/>
+        <result column="hobby_id" jdbcType="VARCHAR" property="hobbyId"/>
+        <result column="hobby_name" jdbcType="VARCHAR" property="hobbyName"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    uAndh_id, user_id, hobby_id,hobby_name, created, updated
+  </sql>
+</mapper>

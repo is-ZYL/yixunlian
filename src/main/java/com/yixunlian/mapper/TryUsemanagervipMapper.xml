@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.TryUsemanagervipMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.TryUsemanagervip">
+        <id column="try_useVip_id" jdbcType="VARCHAR" property="tryUsevipId"/>
+        <result column="try_useVip_days" jdbcType="INTEGER" property="tryUsevipDays"/>
+        <result column="try_useVip_startDay" jdbcType="DATE" property="tryUsevipStartday"/>
+        <result column="utype_id" jdbcType="VARCHAR" property="utypeId"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    try_useVip_id, try_useVip_days, try_useVip_startDay, utype_id, created, updated
+  </sql>
+</mapper>

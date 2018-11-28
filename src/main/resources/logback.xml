@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+<configuration debug="false">
+    &lt;!&ndash;定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径&ndash;&gt;
+    <property name="LOG_HOME" value="logs/"/>
+    <property name="APP_NAME" value="yixunlian"/>
+    &lt;!&ndash; 控制台输出 &ndash;&gt;
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            &lt;!&ndash;格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符&ndash;&gt;
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    &lt;!&ndash; 按照每天生成日志文件 debug&ndash;&gt;
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_HOME}/history/${APP_NAME}-default.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            &lt;!&ndash;日志文件输出的文件名&ndash;&gt;
+            <FileNamePattern>${LOG_HOME}/history/${APP_NAME}-debug-%d{yyyy-MM-dd}.log</FileNamePattern>
+            &lt;!&ndash;日志文件保留天数&ndash;&gt;
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            &lt;!&ndash;格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符&ndash;&gt;
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+        &lt;!&ndash;日志文件最大的大小&ndash;&gt;
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>10MB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
+
+
+    &lt;!&ndash; MyBatis日志 &ndash;&gt;
+    <appender name="mybatis-log-file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_HOME}/${APP_NAME}-mybatis-current.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/history/${APP_NAME}-mybatis-%d{yyyy-MM-dd}.log.zip
+            </fileNamePattern>
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+        <encoder charset="UTF-8">
+            <Pattern>[%d{HH:mm:ss}] [%thread] |%level| %marker %logger{50} -> %X{rpid} %msg %n%ex</Pattern>
+        </encoder>
+    </appender>
+
+
+    &lt;!&ndash; 文件输出日志(ERROR) &ndash;&gt;
+    <appender name="error-file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_HOME}/${APP_NAME}-error.log</File>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>error</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/history/${APP_NAME}-error-%d{yyyy-MM}.log.zip</fileNamePattern>
+            <maxHistory>12</maxHistory>
+        </rollingPolicy>
+        <encoder charset="UTF-8">
+            <Pattern>[%d{dd|HH:mm:ss}] [%thread] |%level| %marker %logger{50} -> %X{rpid} %msg %n%ex</Pattern>
+        </encoder>
+    </appender>
+
+
+    <logger name="com.example.mapper" level="INFO">
+        <appender-ref ref="mybatis-log-file"/>
+    </logger>
+
+    <logger name="search-log" level="ERROR">
+    </logger>
+
+    <logger name="com.example.mapper" level="DEBUG">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    &lt;!&ndash; 日志输出级别 &ndash;&gt;
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>-->
+<configuration scan="true" scanPeriod="1 seconds">
+
+    <!-- <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+       <resetJUL>true</resetJUL>
+    </contextListener> -->
+
+    <!-- 控制台打印 -->
+    <appender name="CON" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>logbak: %date [%level] %logger{36} %msg%n</pattern>
+            <!-- <pattern>logbak: %d[HH:mm:ss.SSS]   %logger{36} -  %msg%n</pattern>
+                 <pattern>logbak: %date [%level] [%thread] %logger{80} [%file : %line] %msg%n</pattern>
+            -->
+        </encoder>
+    </appender>
+
+    <!-- 日志文件打印 -->
+    <appender name="logfile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--See also http://logback.qos.ch/manual/appenders.html#RollingFileAppender-->
+        <File>c:/run_log/yxl.log</File>
+        <encoder>
+            <pattern>logbak: %date [%level] [%thread] %logger{80} [%file : %line] %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <maxIndex>9</maxIndex>
+            <FileNamePattern>c:/run_log/yxl.log.%i</FileNamePattern>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>5120KB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
+
+    <logger name="org.springframework.web" level="ERROR"/>
+
+    <!--
+    <logger name="org.jdbcdslog.ConnectionLogger" level="trace" />
+    <logger name="org.jdbcdslog.StatementLogger" level="trace" />
+    <logger name="org.jdbcdslog.SlowQueryLogger" level="trace" />
+    <logger name="org.jdbcdslog.ResultSetLogger" level="trace" />
+    -->
+
+    <!--<logger name="org.activiti.engine.impl.cfg" level="ERROR"/>
+    <logger name="com.client" level="debug"/>
+    <logger name="java.sql" level="debug"/>
+    <logger name="com.mybatis" level="debug"/>
+    <logger name="com.frame" level="debug"/> -->
+    <root level="INFO">
+        <appender-ref ref="CON"/>
+        <appender-ref ref="logfile"/>
+    </root>
+</configuration>

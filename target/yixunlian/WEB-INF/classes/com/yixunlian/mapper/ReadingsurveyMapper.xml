@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.ReadingsurveyMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.Readingsurvey">
+        <id column="readingsurvey_id" jdbcType="VARCHAR" property="readingsurveyId"/>
+        <result column="readingsurvey_context" jdbcType="VARCHAR" property="readingsurveyContext"/>
+        <result column="readingsurvey_status" jdbcType="INTEGER" property="readingsurveyStatus"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    readingsurvey_id, readingsurvey_context, readingsurvey_status, created, updated
+  </sql>
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.CreditratingMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.Creditrating">
+        <id column="creditrd_id" jdbcType="VARCHAR" property="creditrdId"/>
+        <result column="credit_rating" jdbcType="INTEGER" property="creditRating"/>
+        <result column="creditrating_max" jdbcType="INTEGER" property="creditratingMax"/>
+        <result column="creditrating_mix" jdbcType="INTEGER" property="creditratingMix"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    creditrd_id, credit_rating, creditrating_max, creditrating_mix, created, updated
+  </sql>
+</mapper>

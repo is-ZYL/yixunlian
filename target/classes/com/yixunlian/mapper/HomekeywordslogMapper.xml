@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.HomekeywordslogMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.Homekeywordslog">
+        <id column="homekeywords_id" jdbcType="VARCHAR" property="homekeywordsId"/>
+        <result column="homekeywords_name" jdbcType="VARCHAR" property="homekeywordsName"/>
+        <result column="homekeywords_imgurl" jdbcType="VARCHAR" property="homekeywordsImgurl"/>
+        <result column="homekeywords_order" jdbcType="INTEGER" property="homekeywordsOrder"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    homekeywords_id, homekeywords_name, homekeywords_imgurl, homekeywords_order
+  </sql>
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.UtypeAndvipmemberCurriculumMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.UtypeAndvipmemberCurriculum">
+        <id column="utype_andvipmember_curriculum_id" jdbcType="VARCHAR" property="utypeAndvipmemberCurriculumId"/>
+        <result column="vip_member_curriculum_id" jdbcType="VARCHAR" property="vipMemberCurriculumId"/>
+        <result column="utype_id" jdbcType="VARCHAR" property="utypeId"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    utype_andvipmember_curriculum_id, vip_member_curriculum_id, utype_id, created, updated
+  </sql>
+</mapper>

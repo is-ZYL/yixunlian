@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.OaDatajurMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.OaDatajur">
+        <id column="DATAJUR_ID" jdbcType="VARCHAR" property="datajurId"/>
+        <result column="DEPARTMENT_IDS" jdbcType="VARCHAR" property="departmentIds"/>
+        <result column="STAFF_ID" jdbcType="VARCHAR" property="staffId"/>
+        <result column="DEPARTMENT_ID" jdbcType="VARCHAR" property="departmentId"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    DATAJUR_ID, DEPARTMENT_IDS, STAFF_ID, DEPARTMENT_ID
+  </sql>
+</mapper>

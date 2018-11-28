@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.UenrollandactivityMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.Uenrollandactivity">
+        <id column="uAndactivityEnroll_id" jdbcType="VARCHAR" property="uandactivityenrollId"/>
+        <result column="user_id" jdbcType="VARCHAR" property="userId"/>
+        <result column="u_nickname" jdbcType="VARCHAR" property="uNickname"/>
+        <result column="u_sex" jdbcType="INTEGER" property="uSex"/>
+        <result column="u_phone" jdbcType="VARCHAR" property="uPhone"/>
+        <result column="head_url" jdbcType="VARCHAR" property="headUrl"/>
+        <result column="change_head_url" jdbcType="VARCHAR" property="changeHeadUrl"/>
+        <result column="activity_id" jdbcType="VARCHAR" property="activityId"/>
+        <result column="organizer_id" jdbcType="VARCHAR" property="organizerId"/>
+        <result column="activitycategory_id" jdbcType="VARCHAR" property="activitycategoryId"/>
+        <result column="deal_status" jdbcType="INTEGER" property="dealStatus"/>
+        <result column="usersign_status" jdbcType="INTEGER" property="usersignStatus"/>
+        <result column="payment_status" jdbcType="INTEGER" property="paymentStatus"/>
+        <result column="payment_num" jdbcType="DECIMAL" property="paymentNum"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+    </resultMap>
+    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.yixunlian.pojo.Uenrollandactivity">
+        <result column="remar" jdbcType="LONGVARCHAR" property="remar"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    uAndactivityEnroll_id, user_id, u_nickname, u_sex, u_phone, head_url, change_head_url,
+    activity_id, organizer_id, activitycategory_id, deal_status, usersign_status, payment_status,
+    payment_num, status, created, updated, remark
+  </sql>
+    <sql id="Blob_Column_List">
+    remar
+  </sql>
+</mapper>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="yixunlian:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="yixunlian.war">
+      <element id="artifact" artifact-name="yixunlian:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.RoleMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.system.Role">
+        <id column="ROLE_ID" jdbcType="VARCHAR" property="roleId"/>
+        <result column="ROLE_NAME" jdbcType="VARCHAR" property="roleName"/>
+        <result column="RIGHTS" jdbcType="VARCHAR" property="rights"/>
+        <result column="PARENT_ID" jdbcType="VARCHAR" property="parentId"/>
+        <result column="ADD_QX" jdbcType="VARCHAR" property="addQx"/>
+        <result column="DEL_QX" jdbcType="VARCHAR" property="delQx"/>
+        <result column="EDIT_QX" jdbcType="VARCHAR" property="editQx"/>
+        <result column="CHA_QX" jdbcType="VARCHAR" property="chaQx"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    ROLE_ID, ROLE_NAME, RIGHTS, PARENT_ID, ADD_QX, DEL_QX, EDIT_QX, CHA_QX, created, 
+    updated
+  </sql>
+</mapper>

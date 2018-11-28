@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.ActivityMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.Activity">
+        <id column="activity_id" jdbcType="VARCHAR" property="activityId"/>
+        <result column="user_id" jdbcType="VARCHAR" property="userId"/>
+        <result column="user_nick_name" jdbcType="VARCHAR" property="userNickName"/>
+        <result column="activity_name" jdbcType="VARCHAR" property="activityName"/>
+        <result column="activitycategory_id" jdbcType="VARCHAR" property="activitycategoryId"/>
+        <result column="activitycategory_name" jdbcType="VARCHAR" property="activitycategoryName"/>
+        <result column="activitysign_starttime" jdbcType="TIMESTAMP" property="activitysignStarttime"/>
+        <result column="activitysign_endtime" jdbcType="TIMESTAMP" property="activitysignEndtime"/>
+        <result column="activitystart_time" jdbcType="TIMESTAMP" property="activitystartTime"/>
+        <result column="activityend_time" jdbcType="TIMESTAMP" property="activityendTime"/>
+        <result column="activity_countpersons" jdbcType="INTEGER" property="activityCountpersons"/>
+        <result column="activity_chargestatus" jdbcType="INTEGER" property="activityChargestatus"/>
+        <result column="activity_chargemethod" jdbcType="INTEGER" property="activityChargemethod"/>
+        <result column="activity_type" jdbcType="INTEGER" property="activityType"/>
+        <result column="province_citycode" jdbcType="VARCHAR" property="provinceCitycode"/>
+        <result column="address_name" jdbcType="VARCHAR" property="addressName"/>
+        <result column="precision_demand_address_name" jdbcType="VARCHAR" property="precisionDemandAddressName"/>
+        <result column="city_citycode" jdbcType="VARCHAR" property="cityCitycode"/>
+        <result column="citycode" jdbcType="VARCHAR" property="citycode"/>
+        <result column="area_citycode" jdbcType="VARCHAR" property="areaCitycode"/>
+        <result column="precision_demand_province_id" jdbcType="VARCHAR" property="precisionDemandProvinceId"/>
+        <result column="precision_demand_city_id" jdbcType="VARCHAR" property="precisionDemandCityId"/>
+        <result column="precision_demand_area_id" jdbcType="VARCHAR" property="precisionDemandAreaId"/>
+        <result column="lng" jdbcType="VARCHAR" property="lng"/>
+        <result column="lat" jdbcType="VARCHAR" property="lat"/>
+        <result column="activity_coverImgurl" jdbcType="VARCHAR" property="activityCoverimgurl"/>
+        <result column="activity_isextract" jdbcType="INTEGER" property="activityIsextract"/>
+        <result column="activity_detailsurl" jdbcType="VARCHAR" property="activityDetailsurl"/>
+        <result column="activitymusic_id" jdbcType="VARCHAR" property="activitymusicId"/>
+        <result column="online_status" jdbcType="INTEGER" property="onlineStatus"/>
+        <result column="activity_signupstatus" jdbcType="INTEGER" property="activitySignupstatus"/>
+        <result column="activity_status" jdbcType="INTEGER" property="activityStatus"/>
+        <result column="activity_qrcode" jdbcType="VARCHAR" property="activityQrcode"/>
+        <result column="share_abstract" jdbcType="VARCHAR" property="shareAbstract"/>
+        <result column="views" jdbcType="INTEGER" property="views"/>
+        <result column="join_num" jdbcType="INTEGER" property="joinNum"/>
+        <result column="payment_result" jdbcType="INTEGER" property="paymentResult"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+    </resultMap>
+    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.yixunlian.pojo.Activity">
+        <result column="undercarriage_reason" jdbcType="LONGVARCHAR" property="undercarriageReason"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    activity_id, user_id, user_nick_name, activity_name,ctivitycategory_id,activitycategory_name,activitysign_starttime,activitysign_endtime,activitystart_time, activityend_time, activity_countpersons,activity_chargestatus, activity_chargemethod, activity_type,address_name,
+precision_demand_address_name, province_citycode, city_citycode,citycode, area_citycode, precision_demand_province_id, precision_demand_city_id,precision_demand_area_id, lng, lat, activity_coverImgurl,activity_isextract, activity_detailsurl,activitymusic_id, online_status, activity_signupstatus, activity_status, activity_qrcode,share_abstract, views, join_num, payment_result,created, updated, remark
+  </sql>
+
+    <sql id="Blob_Column_List">
+    undercarriage_reason
+    </sql>
+
+    <select id="queryActivityListByMaps" parameterType="java.util.Map" resultMap="BaseResultMap">
+        select DISTINCT
+        <include refid="Base_Column_List"/>
+        from td_activity
+        where activity_isextract = 1 and activity_signupstatus != 2 and online_status = 0
+        <if test="map.citycode!=null and map.citycode !=''">
+            and citycode = #{map.citycode}
+        </if>
+        <if test="map.activity_type!=null and map.activity_type !=''">
+            and activity_type = #{map.activity_type}
+        </if>
+        <if test="map.activity_chargestatus!=null and map.activity_chargestatus !=''">
+            and activity_chargestatus = #{map.activity_chargestatus}
+        </if>
+
+    </select>
+
+    <select id="queryViewsNums" resultType="java.lang.Long">
+        select SUM(views)
+        from td_activity
+        where activity_isextract = 1 and activity_signupstatus != 2 and online_status = 0
+    </select>
+</mapper>

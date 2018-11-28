@@ -1,0 +1,1533 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="GROUP_BY_SEVERITY" value="true" />
+  </component>
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="yixunlian:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="df1a58cd-3d14-4fef-b2d6-c1cb6ce604fa" name="Default" comment="'活动创建10%'" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/../文档All(1)/gm-common/target/" />
+    <ignored path="$PROJECT_DIR$/../文档All(1)/gm-parent/target/" />
+    <ignored path="$PROJECT_DIR$/../../../../文档All(1)/gm-common/target/" />
+    <ignored path="$PROJECT_DIR$/../../../../文档All(1)/gm-parent/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/yixunlian$yixunlian.ic" NAME="yixunlian Coverage Results" MODIFIED="1542765518097" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="yixunlian@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="yixunlian@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="yixunlian" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="ActivityController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/ActivityController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="578" column="76" selection-start-line="578" selection-start-column="76" selection-end-line="578" selection-end-column="76" />
+              <folding>
+                <element signature="docComment;class#ActivityController#0" />
+                <element signature="e#1095#1110#0" />
+                <element signature="docComment;field#SUCCESS#0;class#ActivityController#0" />
+                <element signature="docComment;field#FAIL#0;class#ActivityController#0" />
+                <element signature="method#test3#0;class#ActivityController#0" />
+                <element signature="docComment;method#activityUserUpdateHeadUrl#0;class#ActivityController#0" />
+                <element signature="method#activityUserUpdateHeadUrl#0;class#ActivityController#0" />
+                <element signature="method#activityUserSaveInfo#0;class#ActivityController#0" />
+                <element signature="docComment;method#activitySaveInfoByToken#0;class#ActivityController#0" />
+                <element signature="method#activitySaveInfoByToken#0;class#ActivityController#0" />
+                <element signature="docComment;method#updateActivityInfoByToken#0;class#ActivityController#0" />
+                <element signature="method#updateActivityInfoByToken#0;class#ActivityController#0" />
+                <element signature="docComment;method#getActivityDetailByToken#0;class#ActivityController#0" />
+                <element signature="method#getActivityDetailByToken#0;class#ActivityController#0" />
+                <element signature="docComment;method#getActivityUserDetail#0;class#ActivityController#0" />
+                <element signature="method#getActivityUserDetail#0;class#ActivityController#0" />
+                <element signature="docComment;method#getActivitycategoryListByToken#0;class#ActivityController#0" />
+                <element signature="method#getActivitycategoryListByToken#0;class#ActivityController#0" />
+                <element signature="docComment;method#getActivityMusicListByToken#0;class#ActivityController#0" />
+                <element signature="method#getActivityMusicListByToken#0;class#ActivityController#0" />
+                <element signature="method#getActivityActivityFillInItemByToken#0;class#ActivityController#0" />
+                <element signature="method#getObtainedActivityListByToken#0;class#ActivityController#0" />
+                <element signature="docComment;method#getOverActivityListByToken#0;class#ActivityController#0" />
+                <element signature="method#getOverActivityListByToken#0;class#ActivityController#0" />
+                <element signature="docComment;method#getReportedActivityListByToken#0;class#ActivityController#0" />
+                <element signature="docComment;method#getDraftsActivityListByToken#0;class#ActivityController#0" />
+                <element signature="method#getDraftsActivityListByToken#0;class#ActivityController#0" />
+                <element signature="docComment;method#getViewUserManagementListByToken#0;class#ActivityController#0" />
+                <element signature="method#getViewUserManagementListByToken#0;class#ActivityController#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActivityResult.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/ActivityResult.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="87" column="1" lean-forward="true" selection-start-line="87" selection-start-column="1" selection-end-line="87" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActivityService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/ActivityService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="301">
+              <caret line="540" column="59" lean-forward="true" selection-start-line="540" selection-start-column="59" selection-end-line="540" selection-end-column="59" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Activity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Activity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="138" column="16" lean-forward="true" selection-start-line="138" selection-start-column="16" selection-end-line="138" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserService.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/UserService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="774" column="5" lean-forward="true" selection-start-line="774" selection-start-column="5" selection-end-line="774" selection-end-column="5" />
+              <folding>
+                <element signature="e#27449#27450#0" expanded="true" />
+                <element signature="e#27508#27509#0" expanded="true" />
+                <element signature="e#27652#27653#0" expanded="true" />
+                <element signature="e#27710#27711#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="230" column="33" lean-forward="true" selection-start-line="230" selection-start-column="33" selection-end-line="230" selection-end-column="33" />
+              <folding>
+                <element signature="e#17147#17148#0" expanded="true" />
+                <element signature="e#17203#17204#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EngagendustryService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/EngagendustryService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="40" column="38" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TaskServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/job/TaskServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="124">
+              <caret line="162" column="25" selection-start-line="162" selection-start-column="25" selection-end-line="162" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="spring-beans.schema" />
+        <option value="FxmlFile" />
+        <option value="HTML File" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Activity</find>
+      <find>保存</find>
+      <find>boolean</find>
+      <find>报名</find>
+      <find>活动报名</find>
+      <find>草稿</find>
+      <find>活动专区</find>
+      <find>设置归属</find>
+      <find>return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);</find>
+      <find>ResponseEntity</find>
+      <find>.ok</find>
+      <find>status(HttpStatus.OK).body</find>
+      <find>资源</find>
+      <find>getmyresource</find>
+      <find>page</find>
+      <find>activitys</find>
+      <find>andEqualTo</find>
+      <find>活动报名填写</find>
+      <find>活动报名填写表</find>
+      <find>td_activitysign</find>
+      <find>活动提成表</find>
+      <find>提成</find>
+      <find>Memberupdateextract</find>
+      <find>活动提成</find>
+      <find>Extractproject</find>
+      <find>填写项</find>
+      <find>用户体验</find>
+      <find>logger</find>
+      <find>获取行业</find>
+      <find>bool</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>支付</replace>
+      <replace>1</replace>
+      <replace>TokenUtils.getDataByKey(token)</replace>
+      <replace>tokenUtils.rService</replace>
+      <replace>用户查询资源列表 29</replace>
+      <replace>30</replace>
+      <replace>import com.github.abel533.mapper.Mapper;</replace>
+      <replace />
+      <replace>return Result.error(&quot;204&quot;, &quot;token值错误&quot;);</replace>
+      <replace>Criteria</replace>
+      <replace>HttpUtils</replace>
+      <replace>ObjectUtils.NULL</replace>
+      <replace>null</replace>
+      <replace>MemberSettlement</replace>
+      <replace>setUPhone</replace>
+      <replace>getUNickname</replace>
+      <replace>queryOneByUser</replace>
+      <replace>getuPhone</replace>
+      <replace>setuPhone</replace>
+      <replace>getuNickname</replace>
+      <replace>public</replace>
+      <replace>Const.SUCCESS</replace>
+      <replace>Const.FAIL</replace>
+      <replace>TIME</replace>
+      <replace>DAY</replace>
+      <replace>DateUtils</replace>
+      <replace>return Result.error(&quot;500&quot;, &quot;服务器异常&quot;);</replace>
+      <replace>Result</replace>
+      <replace>success</replace>
+      <replace>log</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>D:\apache-maven-3.3.9-bin\maven_jar\dom4j\dom4j\1.6.1\dom4j-1.6.1.jar!\org\dom4j</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/util/myutils/file/FileNameUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/weixin/muban/WeChatUtils.java" />
+        <option value="$PROJECT_DIR$/../../../../文档All(1)/gm-common/src/main/java/com/gm/common/util/PingYinUtil.java" />
+        <option value="$PROJECT_DIR$/../../../../文档All(1)/gm-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/../../../../文档All(1)/gm-common/pom.xml" />
+        <option value="$PROJECT_DIR$/../../../../文档All(1)/gm-common/src/main/java/com/gm/common/spring/exetend/converter/json/CallbackMappingJackson2HttpMessageConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/OrganizerInfoService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/weixinpay/CommonUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/myutils/RandomUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/OrganizerInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/UtilTrim.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/myutils/DateUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gm/common/util/UuidUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/job/UserJob.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/myutils/DateUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/UmoneyService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/myutils/userutils/UserUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/UserprofitService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/MD5.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gm/common/util/ObjectUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/myutils/Tools.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/RandomString.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/util/ReadExcel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/ObjectExcelView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/entity/job/TaskService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/ScheduleJob.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/entity/job/ScheduleJob.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Activity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/baseservice/BaseService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/UenrollandactivityMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/baseservice/GetService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/UenrollandactivityService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/myutils/ListUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/entity/EasyUIResult.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/entity/Result.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Uenrollandactivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Address.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/AddressController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/ActivityFillInItemService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/ActivityController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Extractproject.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/ExtractprojectService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/EngagendustryService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/myutils/ObjectUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/entity/ActivityResult.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/ActivityService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/entity/job/TaskServiceImpl.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="true" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="userSettingsFile" value="D:\apache-maven-3.3.9-bin\apache-maven-3.3.9\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="yixunlian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yixunlian" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yixunlian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yixunlian" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yixunlian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yixunlian" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yixunlian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yixunlian" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yixunlian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yixunlian" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yixunlian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yixunlian" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="yixunlian" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yixunlian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yixunlian" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="yixunlian" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yixunlian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yixunlian" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="yixunlian" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+              <item name="job" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SearchEverywhereHistoryKey" value="Tool&#9;PSI&#9;JAVA://util.myutils.Tools&#10;isPhone&#9;null&#9;null&#10;UserController&#9;null&#9;null" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="last_opened_file_path" value="D:/idea_workSpace/sw-yxl" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.41149426" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.yixunlian.service" />
+      <recent name="com.yixunlian.mapper" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.yixunlian.entity" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\yuanyuana\Desktop\易迅连\项目代码\易迅连11\yixunlian\src\main\java\com\yixunlian\mapper" />
+      <recent name="C:\Users\yuanyuana\Desktop\易迅连\项目代码\易迅连11\yixunlian\src\main\webapp\WEB-INF\lib" />
+      <recent name="C:\Users\yuanyuana\Desktop\易迅连\项目代码\易迅连11\yixunlian\src\main\java\com\yixunlian\controller\front" />
+      <recent name="C:\Users\yuanyuana\Desktop\易迅连\项目代码\易迅连11\yixunlian\src\main\java\com\yixunlian\controller" />
+      <recent name="C:\Users\yuanyuana\Desktop\易迅连\项目代码\易迅连11\yixunlian\src\main\java\com\yixunlian\pojo" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.yixunlian.pojo" />
+      <recent name="com.yixunlian.entity.job" />
+      <recent name="com.yixunlian.mapper" />
+      <recent name="util.weixin" />
+      <recent name="com.yixunlian.entity.weixin.resp" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\yuanyuana\Desktop\yixunlian\src\main\java\com\yixunlian\mapper" />
+      <recent name="D:\idea_workSpace" />
+      <recent name="C:\Users\yuanyuana\Desktop\yixunlian\src\main\webapp" />
+      <recent name="C:\Users\yuanyuana\Desktop\yixunlian\src\main\webapp\WEB-INF" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.yixunlian">
+    <configuration name="ActivityController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yixunlian.controller.front.ActivityController" />
+      <module name="yixunlian" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yixunlian.controller.front.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="CronUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yixunlian.entity.job.CronUtil" />
+      <module name="yixunlian" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yixunlian.entity.job.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="DateUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="util.myutils.DateUtils" />
+      <module name="yixunlian" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="util.myutils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="FormDate" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.gm.common.util.FormDate" />
+      <module name="yixunlian" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="util.myutils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="RandomString" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="util.RandomString" />
+      <module name="yixunlian" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration name="yixunlian" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.10" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8" />
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
+      <deployment>
+        <artifact name="yixunlian:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_yixunlian_3" />
+        <option name="HTTP_PORT" value="80" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="65253" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="yixunlian:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Tomcat Server.yixunlian" />
+      <item itemvalue="Application.ActivityController" />
+      <item itemvalue="Application.CronUtil" />
+      <item itemvalue="Application.FormDate" />
+      <item itemvalue="Application.DateUtils" />
+      <item itemvalue="Application.RandomString" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.RandomString" />
+        <item itemvalue="Application.DateUtils" />
+        <item itemvalue="Application.FormDate" />
+        <item itemvalue="Application.ActivityController" />
+        <item itemvalue="Application.CronUtil" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="df1a58cd-3d14-4fef-b2d6-c1cb6ce604fa" name="Default" comment="" />
+      <created>1538115663643</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1538115663643</updated>
+      <workItem from="1538115665821" duration="22043000" />
+      <workItem from="1538184751448" duration="25483000" />
+      <workItem from="1538453158403" duration="1478000" />
+      <workItem from="1538636048160" duration="8837000" />
+      <workItem from="1538901007082" duration="2672000" />
+      <workItem from="1538961906643" duration="4826000" />
+      <workItem from="1538977405168" duration="210000" />
+      <workItem from="1538977676321" duration="479000" />
+      <workItem from="1538978216459" duration="27043000" />
+      <workItem from="1539051321347" duration="36316000" />
+      <workItem from="1539134203049" duration="41508000" />
+      <workItem from="1539220600157" duration="39234000" />
+      <workItem from="1539306885701" duration="39750000" />
+      <workItem from="1539351053746" duration="9000" />
+      <workItem from="1539408899978" duration="8897000" />
+      <workItem from="1539436566898" duration="7000" />
+      <workItem from="1539568836866" duration="28244000" />
+      <workItem from="1539652845041" duration="29521000" />
+      <workItem from="1539738882410" duration="23377000" />
+      <workItem from="1539773390793" duration="341000" />
+      <workItem from="1539825561555" duration="21813000" />
+      <workItem from="1539859809158" duration="5000" />
+      <workItem from="1539912038119" duration="30707000" />
+      <workItem from="1539945207010" duration="8000" />
+      <workItem from="1540007181780" duration="1784000" />
+      <workItem from="1540171221813" duration="27732000" />
+      <workItem from="1540257208620" duration="23645000" />
+      <workItem from="1540292324073" duration="7000" />
+      <workItem from="1540343441639" duration="29569000" />
+      <workItem from="1540384691736" duration="941000" />
+      <workItem from="1540535999984" duration="6991000" />
+      <workItem from="1540548237585" duration="15000" />
+      <workItem from="1540548264483" duration="5202000" />
+      <workItem from="1540609631474" duration="4182000" />
+      <workItem from="1540693325648" duration="2111000" />
+      <workItem from="1540775879772" duration="32528000" />
+      <workItem from="1540818657339" duration="4622000" />
+      <workItem from="1540862535471" duration="23674000" />
+      <workItem from="1541121589679" duration="25540000" />
+      <workItem from="1541213259623" duration="3592000" />
+      <workItem from="1541300235769" duration="22667000" />
+      <workItem from="1541381876145" duration="26902000" />
+      <workItem from="1541415945345" duration="415000" />
+      <workItem from="1541416433165" duration="4850000" />
+      <workItem from="1541467356412" duration="23166000" />
+      <workItem from="1541492232403" duration="8957000" />
+      <workItem from="1541502868399" duration="81000" />
+      <workItem from="1541504399954" duration="636000" />
+      <workItem from="1541553914281" duration="20768000" />
+      <workItem from="1541640576593" duration="23964000" />
+      <workItem from="1541726465662" duration="23634000" />
+      <workItem from="1541830334717" duration="10480000" />
+      <workItem from="1542003409152" duration="9342000" />
+      <workItem from="1542093809041" duration="2928000" />
+      <workItem from="1542158981415" duration="11662000" />
+      <workItem from="1542179029346" duration="3968000" />
+      <workItem from="1542185864867" duration="803000" />
+      <workItem from="1542187439617" duration="606000" />
+      <workItem from="1542188092941" duration="3200000" />
+      <workItem from="1542245591058" duration="5986000" />
+      <workItem from="1542252067883" duration="22218000" />
+      <workItem from="1542332053567" duration="21957000" />
+      <workItem from="1542422127583" duration="15091000" />
+      <workItem from="1542517850321" duration="8718000" />
+      <workItem from="1542591967912" duration="24059000" />
+      <workItem from="1542677188248" duration="16611000" />
+      <workItem from="1542711174938" duration="7000" />
+      <workItem from="1542763435756" duration="20494000" />
+      <workItem from="1542850451364" duration="28778000" />
+      <workItem from="1542884504092" duration="38000" />
+      <workItem from="1542936736124" duration="26590000" />
+      <workItem from="1542967902472" duration="1511000" />
+      <workItem from="1543056637814" duration="2895000" />
+      <workItem from="1543117233372" duration="2560000" />
+      <workItem from="1543130693913" duration="18563000" />
+      <workItem from="1543155707058" duration="256000" />
+      <workItem from="1543196281061" duration="28546000" />
+      <workItem from="1543282311156" duration="12101000" />
+      <workItem from="1543368544001" duration="25042000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="Test01_test - 2018.10.09 at 16h 52m 31s.xml">
+      <configuration name="Test01.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test01_test - 2018.10.09 at 16h 53m 05s.xml">
+      <configuration name="Test01.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test01_test - 2018.10.09 at 16h 55m 41s.xml">
+      <configuration name="Test01.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test01_test - 2018.10.09 at 16h 56m 31s.xml">
+      <configuration name="Test01.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test01_test - 2018.10.09 at 16h 59m 45s.xml">
+      <configuration name="Test01.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test01_test - 2018.10.09 at 17h 01m 00s.xml">
+      <configuration name="Test01.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test01_test - 2018.10.09 at 17h 09m 16s.xml">
+      <configuration name="Test01.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test01_test - 2018.10.09 at 17h 10m 27s.xml">
+      <configuration name="Test01.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test01_test - 2018.10.09 at 17h 13m 20s.xml">
+      <configuration name="Test01.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test01_test - 2018.10.09 at 17h 17m 06s.xml">
+      <configuration name="Test01.test" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1066730000" />
+  </component>
+  <component name="TodoView" selected-index="3">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" order="7" weight="0.21588947" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.42284417" side_tool="true" weight="0.26770294" />
+      <window_info anchor="bottom" id="Application Servers" order="10" weight="0.32868758" />
+      <window_info anchor="right" id="Maven Projects" order="7" weight="0.16641453" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info id="Designer" order="1" />
+      <window_info anchor="bottom" id="Tail" order="15" />
+      <window_info anchor="right" id="Database" order="6" weight="0.2322239" />
+      <window_info id="Structure" order="0" sideWeight="0.5017301" side_tool="true" weight="0.25366747" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.24962178" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49924356" weight="0.26079446" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49924356" weight="0.328152" />
+      <window_info active="true" anchor="bottom" id="Messages" order="7" sideWeight="0.5771558" visible="true" weight="0.26770294" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info anchor="bottom" id="Java Enterprise" order="9" weight="0.328152" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.329849" />
+      <window_info anchor="bottom" x="1045" y="545" width="1680" height="301" id="Run" order="1" sideWeight="0.5869894" weight="0.5146805" />
+      <window_info anchor="bottom" id="Spring" order="13" weight="0.329849" />
+      <window_info anchor="bottom" id="Terminal" order="14" weight="0.328152" />
+      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.4982699" weight="0.23524962" />
+      <window_info id="Web" order="3" sideWeight="0.5017301" side_tool="true" weight="0.25366747" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.328152" />
+      <window_info anchor="right" id="SciView" order="8" weight="0.32980332" />
+      <window_info id="Favorites" order="2" sideWeight="0.5017301" side_tool="true" weight="0.13161875" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection Results" order="16" weight="0.3298791" />
+      <window_info anchor="bottom" id="Database Console" order="16" weight="0.3298791" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32980332" />
+    </layout>
+    <layout-to-restore>
+      <window_info anchor="bottom" id="Application Servers" order="10" weight="0.32868758" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="bottom" id="Spring" order="13" weight="0.329849" />
+      <window_info anchor="bottom" id="Database Console" order="16" weight="0.3298791" />
+      <window_info anchor="bottom" x="1045" y="545" width="1680" height="301" id="Run" order="1" sideWeight="0.5960666" weight="0.15889464" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.24962178" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="3" sideWeight="0.5017301" side_tool="true" weight="0.13161875" />
+      <window_info anchor="bottom" id="Terminal" order="14" weight="0.328152" />
+      <window_info anchor="bottom" id="Inspection Results" order="17" weight="0.3298791" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.40393344" side_tool="true" weight="0.41105354" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.57488656" weight="0.23143351" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49924356" weight="0.328152" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Tail" order="15" />
+      <window_info anchor="bottom" id="Java Enterprise" order="9" weight="0.328152" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.329849" />
+      <window_info anchor="right" id="Maven Projects" order="7" weight="0.16641453" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4982699" visible="true" weight="0.18229954" />
+      <window_info anchor="right" id="SciView" order="8" />
+      <window_info anchor="right" id="Database" order="6" weight="0.2322239" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info id="Web" order="4" sideWeight="0.5017301" side_tool="true" weight="0.25366747" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info id="Structure" order="1" sideWeight="0.5017301" side_tool="true" weight="0.25366747" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32980332" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.328152" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3851468" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="'活动创建10%'" />
+    <option name="LAST_COMMIT_MESSAGE" value="'活动创建10%'" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/UserService.java</url>
+          <line>765</line>
+          <properties />
+          <option name="timeStamp" value="806" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/UserService.java</url>
+          <line>763</line>
+          <properties />
+          <option name="timeStamp" value="807" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/UserService.java</url>
+          <line>761</line>
+          <properties />
+          <option name="timeStamp" value="808" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/UserService.java</url>
+          <line>762</line>
+          <properties />
+          <option name="timeStamp" value="809" />
+        </line-breakpoint>
+      </breakpoints>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="810" />
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
+        <watch expression="user" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/job/TaskService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="9" column="28" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/job/ScheduleJob.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/ScheduleJob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="63" column="9" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/filter/DateConvert.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/quartz-scheduler/quartz/2.3.0/quartz-2.3.0-sources.jar!/org/quartz/JobBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="95" column="7" lean-forward="true" selection-start-line="95" selection-start-column="7" selection-end-line="95" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/job/BeanUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.16.20/lombok-1.16.20.jar!/lombok/Data.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="13" column="34" lean-forward="true" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/UenrollandactivityMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="32" column="9" lean-forward="true" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/baseservice/GetService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="96" column="48" selection-start-line="96" selection-start-column="48" selection-end-line="96" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/java/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="99" column="22" selection-start-line="99" selection-start-column="22" selection-end-line="99" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/EasyUIResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="36" column="52" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/ResultEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/Result.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4300">
+          <caret line="203" column="14" selection-start-line="203" selection-start-column="14" selection-end-line="203" selection-end-column="14" />
+          <folding>
+            <element signature="e#3340#3341#0" expanded="true" />
+            <element signature="e#3391#3392#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/PageData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/github/pagehelper/pagehelper/3.7.5/pagehelper-3.7.5-sources.jar!/com/github/pagehelper/Page.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/github/abel533/mapper/2.3.4/mapper-2.3.4-sources.jar!/com/github/abel533/mapper/Mapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/github/pagehelper/pagehelper/3.7.5/pagehelper-3.7.5-sources.jar!/com/github/pagehelper/PageInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1900">
+          <caret line="101" column="36" selection-start-line="101" selection-start-column="36" selection-end-line="101" selection-end-column="36" />
+          <folding>
+            <element signature="e#2543#2544#0" expanded="true" />
+            <element signature="e#2572#2573#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/github/pagehelper/pagehelper/3.7.5/pagehelper-3.7.5-sources.jar!/com/github/pagehelper/SqlUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="52" column="44" selection-start-line="52" selection-start-column="44" selection-end-line="52" selection-end-column="44" />
+          <folding>
+            <element signature="e#3479#3480#0" expanded="true" />
+            <element signature="e#3515#3516#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/github/pagehelper/pagehelper/3.7.5/pagehelper-3.7.5-sources.jar!/com/github/pagehelper/PageHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="93" column="21" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="21" />
+          <folding>
+            <element signature="e#2021#2022#0" expanded="true" />
+            <element signature="e#2078#2079#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/ActivitysignService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="36" column="50" lean-forward="true" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/UenrollandactivityService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-424">
+          <caret line="35" column="38" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/myutils/ListUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="206" column="9" lean-forward="true" selection-start-line="206" selection-start-column="9" selection-end-line="206" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.16.20/lombok-1.16.20-sources.jar!/lombok/Synchronized.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="48" column="30" lean-forward="true" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/ActivityInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="33" column="19" lean-forward="true" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/java/src.zip!/java/lang/System.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="397" column="7" lean-forward="true" selection-start-line="397" selection-start-column="7" selection-end-line="397" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/java/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="655" column="7" lean-forward="true" selection-start-line="655" selection-start-column="7" selection-end-line="655" selection-end-column="7" />
+          <folding>
+            <element signature="e#24549#24550#0" expanded="true" />
+            <element signature="e#24603#24604#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/java/src.zip!/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="584" column="9" selection-start-line="584" selection-start-column="9" selection-end-line="584" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/github/abel533/mapper/2.3.4/mapper-2.3.4-sources.jar!/com/github/abel533/entity/Example.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="97" column="5" lean-forward="true" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="5" />
+          <folding>
+            <element signature="e#2888#2889#0" expanded="true" />
+            <element signature="e#2919#2920#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/ActivityFillInItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="24" column="7" lean-forward="true" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/ActivityFillInItemService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="102" column="7" lean-forward="true" selection-start-line="102" selection-start-column="7" selection-end-line="102" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Address.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/AddressService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="32" column="21" lean-forward="true" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/AddressController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="28" column="114" lean-forward="true" selection-start-line="28" selection-start-column="114" selection-end-line="28" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Extractproject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="15" column="19" lean-forward="true" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/baseservice/BaseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="93" column="7" lean-forward="true" selection-start-line="93" selection-start-column="7" selection-end-line="93" selection-end-column="7" />
+          <folding>
+            <element signature="e#1333#1334#0" expanded="true" />
+            <element signature="e#1382#1383#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/ExtractprojectService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="32" column="48" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Uenrollandactivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="13" column="38" lean-forward="true" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Activitysign.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="16" column="25" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/java/src.zip!/java/util/logging/Level.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="65" column="45" selection-start-line="65" selection-start-column="45" selection-end-line="65" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/job/JobManage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="84" column="20" lean-forward="true" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/EngagendustryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="40" column="38" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="138" column="16" lean-forward="true" selection-start-line="138" selection-start-column="16" selection-end-line="138" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext-transaction.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/ActivityResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="87" column="1" lean-forward="true" selection-start-line="87" selection-start-column="1" selection-end-line="87" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/myutils/ObjectUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="72" column="14" lean-forward="true" selection-start-line="72" selection-start-column="14" selection-end-line="72" selection-end-column="14" />
+          <folding>
+            <element signature="e#2030#2031#0" expanded="true" />
+            <element signature="e#2101#2102#0" expanded="true" />
+            <element signature="e#2240#2241#0" expanded="true" />
+            <element signature="e#2309#2310#0" expanded="true" />
+            <element signature="e#2466#2467#0" expanded="true" />
+            <element signature="e#2534#2535#0" expanded="true" />
+            <element signature="e#2691#2692#0" expanded="true" />
+            <element signature="e#2759#2760#0" expanded="true" />
+            <element signature="e#2924#2925#0" expanded="true" />
+            <element signature="e#2979#2980#0" expanded="true" />
+            <element signature="e#3138#3139#0" expanded="true" />
+            <element signature="e#3189#3190#0" expanded="true" />
+            <element signature="e#3349#3350#0" expanded="true" />
+            <element signature="e#3406#3407#0" expanded="true" />
+            <element signature="e#3565#3566#0" expanded="true" />
+            <element signature="e#3618#3619#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="541" column="36" lean-forward="true" selection-start-line="541" selection-start-column="36" selection-end-line="541" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="230" column="33" lean-forward="true" selection-start-line="230" selection-start-column="33" selection-end-line="230" selection-end-column="33" />
+          <folding>
+            <element signature="e#17147#17148#0" expanded="true" />
+            <element signature="e#17203#17204#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/ActivityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="578" column="76" selection-start-line="578" selection-start-column="76" selection-end-line="578" selection-end-column="76" />
+          <folding>
+            <element signature="docComment;class#ActivityController#0" />
+            <element signature="e#1095#1110#0" />
+            <element signature="docComment;field#SUCCESS#0;class#ActivityController#0" />
+            <element signature="docComment;field#FAIL#0;class#ActivityController#0" />
+            <element signature="method#test3#0;class#ActivityController#0" />
+            <element signature="docComment;method#activityUserUpdateHeadUrl#0;class#ActivityController#0" />
+            <element signature="method#activityUserUpdateHeadUrl#0;class#ActivityController#0" />
+            <element signature="method#activityUserSaveInfo#0;class#ActivityController#0" />
+            <element signature="docComment;method#activitySaveInfoByToken#0;class#ActivityController#0" />
+            <element signature="method#activitySaveInfoByToken#0;class#ActivityController#0" />
+            <element signature="docComment;method#updateActivityInfoByToken#0;class#ActivityController#0" />
+            <element signature="method#updateActivityInfoByToken#0;class#ActivityController#0" />
+            <element signature="docComment;method#getActivityDetailByToken#0;class#ActivityController#0" />
+            <element signature="method#getActivityDetailByToken#0;class#ActivityController#0" />
+            <element signature="docComment;method#getActivityUserDetail#0;class#ActivityController#0" />
+            <element signature="method#getActivityUserDetail#0;class#ActivityController#0" />
+            <element signature="docComment;method#getActivitycategoryListByToken#0;class#ActivityController#0" />
+            <element signature="method#getActivitycategoryListByToken#0;class#ActivityController#0" />
+            <element signature="docComment;method#getActivityMusicListByToken#0;class#ActivityController#0" />
+            <element signature="method#getActivityMusicListByToken#0;class#ActivityController#0" />
+            <element signature="method#getActivityActivityFillInItemByToken#0;class#ActivityController#0" />
+            <element signature="method#getObtainedActivityListByToken#0;class#ActivityController#0" />
+            <element signature="docComment;method#getOverActivityListByToken#0;class#ActivityController#0" />
+            <element signature="method#getOverActivityListByToken#0;class#ActivityController#0" />
+            <element signature="docComment;method#getReportedActivityListByToken#0;class#ActivityController#0" />
+            <element signature="docComment;method#getDraftsActivityListByToken#0;class#ActivityController#0" />
+            <element signature="method#getDraftsActivityListByToken#0;class#ActivityController#0" />
+            <element signature="docComment;method#getViewUserManagementListByToken#0;class#ActivityController#0" />
+            <element signature="method#getViewUserManagementListByToken#0;class#ActivityController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/ActivityService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="540" column="59" lean-forward="true" selection-start-line="540" selection-start-column="59" selection-end-line="540" selection-end-column="59" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/job/TaskServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="162" column="25" selection-start-line="162" selection-start-column="25" selection-end-line="162" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="774" column="5" lean-forward="true" selection-start-line="774" selection-start-column="5" selection-end-line="774" selection-end-column="5" />
+          <folding>
+            <element signature="e#27449#27450#0" expanded="true" />
+            <element signature="e#27508#27509#0" expanded="true" />
+            <element signature="e#27652#27653#0" expanded="true" />
+            <element signature="e#27710#27711#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArquillianSettingsConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>yixunlian:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.41149426" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="Copyright.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.4814815" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.41149426" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>@types/node</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>gm-common</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.41149426" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: aopalliance:aopalliance:1.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.41149426" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.41149426" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.WeixinKeyMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.WeixinKey">
+        <id column="KEY_ID" jdbcType="VARCHAR" property="keyId"/>
+        <result column="USERNAME" jdbcType="VARCHAR" property="username"/>
+        <result column="APPID" jdbcType="VARCHAR" property="appid"/>
+        <result column="APPSECRET" jdbcType="VARCHAR" property="appsecret"/>
+        <result column="ACCESS_TOKEN" jdbcType="VARCHAR" property="accessToken"/>
+        <result column="CREATETIME" jdbcType="VARCHAR" property="createtime"/>
+        <result column="BZ" jdbcType="VARCHAR" property="bz"/>
+        <result column="WXUSERNAME" jdbcType="VARCHAR" property="wxusername"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    KEY_ID, USERNAME, APPID, APPSECRET, ACCESS_TOKEN, CREATETIME, BZ, WXUSERNAME
+  </sql>
+</mapper>

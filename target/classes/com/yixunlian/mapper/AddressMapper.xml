@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.AddressMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.TbAddress">
+        <id column="citycode" jdbcType="VARCHAR" property="citycode"/>
+        <result column="cityname" jdbcType="VARCHAR" property="cityname"/>
+        <result column="pidcode" jdbcType="VARCHAR" property="pidcode"/>
+        <result column="simplename" jdbcType="VARCHAR" property="simplename"/>
+        <result column="citylevel" jdbcType="INTEGER" property="citylevel"/>
+        <result column="areacode" jdbcType="VARCHAR" property="areacode"/>
+        <result column="postcode" jdbcType="VARCHAR" property="postcode"/>
+        <result column="py" jdbcType="VARCHAR" property="py"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    citycode, cityname, pidcode, simplename, citylevel, areacode, postcode, py, created, 
+    updated
+  </sql>
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.TaxrevenueMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.Taxrevenue">
+        <id column="taxrevenue_id" jdbcType="VARCHAR" property="taxrevenueId"/>
+        <result column="taxrevenue_rate" jdbcType="DECIMAL" property="taxrevenueRate"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
+        <result column="taxrevenue_status" jdbcType="INTEGER" property="taxrevenueStatus"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    taxrevenue_id, taxrevenue_rate, created, updated, taxrevenue_status
+  </sql>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.JournalismMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.Journalism">
+        <id column="journalism_id" jdbcType="VARCHAR" property="journalismId"/>
+        <result column="journalism_name" jdbcType="VARCHAR" property="journalismName"/>
+        <result column="journalism_date" jdbcType="TIMESTAMP" property="journalismDate"/>
+        <result column="journalism_syso_name" jdbcType="VARCHAR" property="journalismSysoName"/>
+        <result column="journalism_browsingtimes" jdbcType="INTEGER" property="journalismBrowsingtimes"/>
+        <result column="journalism_sharetimes" jdbcType="INTEGER" property="journalismSharetimes"/>
+        <result column="readingsurvey_id" jdbcType="VARCHAR" property="readingsurveyId"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
+        <result column="journalism_show_img" jdbcType="VARCHAR" property="journalismShowImg"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+    </resultMap>
+    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.yixunlian.pojo.Journalism">
+        <result column="journalism_url" jdbcType="LONGVARCHAR" property="journalismUrl"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    journalism_id, journalism_name, journalism_date, journalism_syso_name, journalism_browsingtimes,
+    journalism_sharetimes, readingsurvey_id, created, updated, journalism_show_img, remark
+  </sql>
+    <sql id="Blob_Column_List">
+    journalism_url
+  </sql>
+</mapper>

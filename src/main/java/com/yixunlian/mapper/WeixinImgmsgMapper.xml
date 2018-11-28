@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.WeixinImgmsgMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.WeixinImgmsg">
+        <id column="IMGMSG_ID" jdbcType="VARCHAR" property="imgmsgId"/>
+        <result column="KEYWORD" jdbcType="VARCHAR" property="keyword"/>
+        <result column="CREATETIME" jdbcType="VARCHAR" property="createtime"/>
+        <result column="STATUS" jdbcType="INTEGER" property="status"/>
+        <result column="BZ" jdbcType="VARCHAR" property="bz"/>
+        <result column="TITLE1" jdbcType="VARCHAR" property="title1"/>
+        <result column="DESCRIPTION1" jdbcType="VARCHAR" property="description1"/>
+        <result column="IMGURL1" jdbcType="VARCHAR" property="imgurl1"/>
+        <result column="TOURL1" jdbcType="VARCHAR" property="tourl1"/>
+        <result column="TITLE2" jdbcType="VARCHAR" property="title2"/>
+        <result column="DESCRIPTION2" jdbcType="VARCHAR" property="description2"/>
+        <result column="IMGURL2" jdbcType="VARCHAR" property="imgurl2"/>
+        <result column="TOURL2" jdbcType="VARCHAR" property="tourl2"/>
+        <result column="TITLE3" jdbcType="VARCHAR" property="title3"/>
+        <result column="DESCRIPTION3" jdbcType="VARCHAR" property="description3"/>
+        <result column="IMGURL3" jdbcType="VARCHAR" property="imgurl3"/>
+        <result column="TOURL3" jdbcType="VARCHAR" property="tourl3"/>
+        <result column="TITLE4" jdbcType="VARCHAR" property="title4"/>
+        <result column="DESCRIPTION4" jdbcType="VARCHAR" property="description4"/>
+        <result column="IMGURL4" jdbcType="VARCHAR" property="imgurl4"/>
+        <result column="TOURL4" jdbcType="VARCHAR" property="tourl4"/>
+        <result column="TITLE5" jdbcType="VARCHAR" property="title5"/>
+        <result column="DESCRIPTION5" jdbcType="VARCHAR" property="description5"/>
+        <result column="IMGURL5" jdbcType="VARCHAR" property="imgurl5"/>
+        <result column="TOURL5" jdbcType="VARCHAR" property="tourl5"/>
+        <result column="TITLE6" jdbcType="VARCHAR" property="title6"/>
+        <result column="DESCRIPTION6" jdbcType="VARCHAR" property="description6"/>
+        <result column="IMGURL6" jdbcType="VARCHAR" property="imgurl6"/>
+        <result column="TOURL6" jdbcType="VARCHAR" property="tourl6"/>
+        <result column="TITLE7" jdbcType="VARCHAR" property="title7"/>
+        <result column="DESCRIPTION7" jdbcType="VARCHAR" property="description7"/>
+        <result column="IMGURL7" jdbcType="VARCHAR" property="imgurl7"/>
+        <result column="TOURL7" jdbcType="VARCHAR" property="tourl7"/>
+        <result column="TITLE8" jdbcType="VARCHAR" property="title8"/>
+        <result column="DESCRIPTION8" jdbcType="VARCHAR" property="description8"/>
+        <result column="IMGURL8" jdbcType="VARCHAR" property="imgurl8"/>
+        <result column="TOURL8" jdbcType="VARCHAR" property="tourl8"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    IMGMSG_ID, KEYWORD, CREATETIME, STATUS, BZ, TITLE1, DESCRIPTION1, IMGURL1, TOURL1, 
+    TITLE2, DESCRIPTION2, IMGURL2, TOURL2, TITLE3, DESCRIPTION3, IMGURL3, TOURL3, TITLE4, 
+    DESCRIPTION4, IMGURL4, TOURL4, TITLE5, DESCRIPTION5, IMGURL5, TOURL5, TITLE6, DESCRIPTION6, 
+    IMGURL6, TOURL6, TITLE7, DESCRIPTION7, IMGURL7, TOURL7, TITLE8, DESCRIPTION8, IMGURL8, 
+    TOURL8
+  </sql>
+</mapper>

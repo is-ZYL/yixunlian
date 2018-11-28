@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.UtypeMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.Utype">
+        <id column="utype_id" jdbcType="VARCHAR" property="utypeId"/>
+        <result column="user_type" jdbcType="VARCHAR" property="userType"/>
+        <result column="user_day" jdbcType="VARCHAR" property="userDay"/>
+        <result column="utype_charge" jdbcType="INTEGER" property="utypeCharge"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    utype_id, user_type, user_day, utype_charge, created, updated
+  </sql>
+</mapper>

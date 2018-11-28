@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.WeixinTextmsgMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.WeixinTextmsg">
+        <id column="TEXTMSG_ID" jdbcType="VARCHAR" property="textmsgId"/>
+        <result column="KEYWORD" jdbcType="VARCHAR" property="keyword"/>
+        <result column="CONTENT" jdbcType="VARCHAR" property="content"/>
+        <result column="CREATETIME" jdbcType="VARCHAR" property="createtime"/>
+        <result column="STATUS" jdbcType="INTEGER" property="status"/>
+        <result column="BZ" jdbcType="VARCHAR" property="bz"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    TEXTMSG_ID, KEYWORD, CONTENT, CREATETIME, STATUS, BZ
+  </sql>
+</mapper>

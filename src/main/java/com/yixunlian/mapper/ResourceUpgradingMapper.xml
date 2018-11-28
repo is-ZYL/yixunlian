@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.ResourceUpgradingMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.ResourceUpgrading">
+        <id column="ru_id" jdbcType="VARCHAR" property="ruId"/>
+        <result column="ascription_user_id" jdbcType="VARCHAR" property="ascriptionUserId"/>
+        <result column="resource_user_id" jdbcType="VARCHAR" property="resourceUserId"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    ru_id, ascription_user_id, resource_user_id, created, updated, remark
+  </sql>
+</mapper>

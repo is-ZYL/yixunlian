@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.ActivityprojectandacsignMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.Activityprojectandacsign">
+        <id column="activityproject_id" jdbcType="VARCHAR" property="activityprojectId"/>
+        <result column="activityproject_name" jdbcType="VARCHAR" property="activityprojectName"/>
+        <result column="activityproject_money" jdbcType="DECIMAL" property="activityprojectMoney"/>
+        <result column="uAndactivityEnroll_id" jdbcType="VARCHAR" property="uandactivityenrollId"/>
+        <result column="activity_id" jdbcType="VARCHAR" property="activityId"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    activityproject_id, activityproject_name, activityproject_money, uAndactivityEnroll_id, 
+    activity_id, created, updated
+  </sql>
+</mapper>

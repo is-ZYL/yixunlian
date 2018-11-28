@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.DbFhdbMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.DbFhdb">
+        <id column="FHDB_ID" jdbcType="VARCHAR" property="fhdbId"/>
+        <result column="USERNAME" jdbcType="VARCHAR" property="username"/>
+        <result column="BACKUP_TIME" jdbcType="VARCHAR" property="backupTime"/>
+        <result column="TABLENAME" jdbcType="VARCHAR" property="tablename"/>
+        <result column="SQLPATH" jdbcType="VARCHAR" property="sqlpath"/>
+        <result column="TYPE" jdbcType="INTEGER" property="type"/>
+        <result column="DBSIZE" jdbcType="VARCHAR" property="dbsize"/>
+        <result column="BZ" jdbcType="VARCHAR" property="bz"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    FHDB_ID, USERNAME, BACKUP_TIME, TABLENAME, SQLPATH, TYPE, DBSIZE, BZ
+  </sql>
+</mapper>

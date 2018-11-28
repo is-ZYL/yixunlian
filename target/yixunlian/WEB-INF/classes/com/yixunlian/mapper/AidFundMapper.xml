@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.AidFundMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.AidFund">
+        <id column="af_id" jdbcType="VARCHAR" property="afId"/>
+        <result column="background_transfer_money" jdbcType="DECIMAL" property="backgroundTransferMoney"/>
+        <result column="user_id" jdbcType="VARCHAR" property="userId"/>
+        <result column="activity_id" jdbcType="VARCHAR" property="activityId"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
+        <result column="transfer_type" jdbcType="INTEGER" property="transferType"/>
+        <result column="transfer_single_number" jdbcType="VARCHAR" property="transferSingleNumber"/>
+        <result column="transf_time" jdbcType="TIMESTAMP" property="transfTime"/>
+        <result column="payment_method" jdbcType="VARCHAR" property="paymentMethod"/>
+        <result column="payment_status" jdbcType="INTEGER" property="paymentStatus"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    af_id, background_transfer_money, user_id, activity_id, created, updated, transfer_type, 
+    transfer_single_number, transf_time, payment_method, payment_status, remark
+  </sql>
+</mapper>

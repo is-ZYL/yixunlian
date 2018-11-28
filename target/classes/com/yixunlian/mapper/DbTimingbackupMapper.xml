@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.DbTimingbackupMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.DbTimingbackup">
+        <id column="TIMINGBACKUP_ID" jdbcType="VARCHAR" property="timingbackupId"/>
+        <result column="JOBNAME" jdbcType="VARCHAR" property="jobname"/>
+        <result column="CREATE_TIME" jdbcType="VARCHAR" property="createTime"/>
+        <result column="TABLENAME" jdbcType="VARCHAR" property="tablename"/>
+        <result column="STATUS" jdbcType="INTEGER" property="status"/>
+        <result column="FHTIME" jdbcType="VARCHAR" property="fhtime"/>
+        <result column="TIMEEXPLAIN" jdbcType="VARCHAR" property="timeexplain"/>
+        <result column="BZ" jdbcType="VARCHAR" property="bz"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    TIMINGBACKUP_ID, JOBNAME, CREATE_TIME, TABLENAME, STATUS, FHTIME, TIMEEXPLAIN, BZ
+  </sql>
+</mapper>

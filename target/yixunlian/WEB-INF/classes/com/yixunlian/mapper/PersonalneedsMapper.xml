@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.PersonalneedsMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.Personalneeds">
+        <id column="personalneeds_id" jdbcType="VARCHAR" property="personalneedsId"/>
+        <result column="personalneeds_type" jdbcType="VARCHAR" property="personalneedsType"/>
+        <result column="created" jdbcType="TIMESTAMP" property="created"/>
+        <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    personalneeds_id, personalneeds_type, created, updated
+  </sql>
+</mapper>

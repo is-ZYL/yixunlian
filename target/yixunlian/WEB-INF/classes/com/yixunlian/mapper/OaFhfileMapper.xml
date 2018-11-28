@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.OaFhfileMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.OaFhfile">
+        <id column="FHFILE_ID" jdbcType="VARCHAR" property="fhfileId"/>
+        <result column="NAME" jdbcType="VARCHAR" property="name"/>
+        <result column="FILEPATH" jdbcType="VARCHAR" property="filepath"/>
+        <result column="CTIME" jdbcType="VARCHAR" property="ctime"/>
+        <result column="BZ" jdbcType="VARCHAR" property="bz"/>
+        <result column="USERNAME" jdbcType="VARCHAR" property="username"/>
+        <result column="DEPARTMENT_ID" jdbcType="VARCHAR" property="departmentId"/>
+        <result column="FILESIZE" jdbcType="VARCHAR" property="filesize"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    FHFILE_ID, NAME, FILEPATH, CTIME, BZ, USERNAME, DEPARTMENT_ID, FILESIZE
+  </sql>
+</mapper>

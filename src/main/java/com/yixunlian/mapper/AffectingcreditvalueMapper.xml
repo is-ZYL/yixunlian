@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yixunlian.mapper.AffectingcreditvalueMapper">
+    <resultMap id="BaseResultMap" type="com.yixunlian.pojo.Affectingcreditvalue">
+        <id column="affectingcreditvalue_id" jdbcType="VARCHAR" property="affectingcreditvalueId"/>
+        <result column="affectingcreditvalue_name" jdbcType="VARCHAR" property="affectingcreditvalueName"/>
+        <result column="affectingcreditvalue_num" jdbcType="INTEGER" property="affectingcreditvalueNum"/>
+        <result column="user_id" jdbcType="VARCHAR" property="userId"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    affectingcreditvalue_id, affectingcreditvalue_name, affectingcreditvalue_num, user_id
+  </sql>
+</mapper>
