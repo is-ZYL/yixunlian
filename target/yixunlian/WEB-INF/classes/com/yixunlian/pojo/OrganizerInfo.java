@@ -1,13 +1,12 @@
 package com.yixunlian.pojo;
 
-import util.myutils.UuidUtil;
 import lombok.*;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import util.myutils.UuidUtil;
 
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Date;
 
 /**
  * td_organizer_info
@@ -55,6 +54,16 @@ public class OrganizerInfo extends BasePojo {
      */
     private String detailInfo;
 
+    /**
+     * 会员号
+     */
+    private String memberid;
+
+    /**
+     * 信用值分数
+     */
+    private Integer creditrdNum;
+
     public static OrganizerInfo getcInstance() {
         return new OrganizerInfo();
     }
@@ -66,9 +75,6 @@ public class OrganizerInfo extends BasePojo {
 
     public OrganizerInfo init() {
         this.organizerInfoId = UuidUtil.get32UUID();
-        Date date = new Date();
-        this.setCreated(date);
-        this.setUpdated(date);
         return this;
     }
 }

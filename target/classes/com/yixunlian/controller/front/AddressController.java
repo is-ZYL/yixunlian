@@ -26,11 +26,13 @@ public class AddressController {
      * @return 返回地址集合
      */
     @RequestMapping(value = "getAddressListByPid", method = RequestMethod.GET)
-    public ResponseEntity<List<Address>> getAddressListByPid(@RequestParam(value = "pidcode", defaultValue = "100000") String pidcode) {
+    public ResponseEntity<List<Address>> getAddressListByPid(@RequestParam(value = "pidcode", defaultValue = "100000") String pidcode, @RequestParam(defaultValue = "0") Integer type) {
         try {
             List<Address> list = this.service.getAddressListByPid(pidcode);
-            //添加全部到数据中
-            list.add(0, Address.builder().citycode("000000").areacode("000000").cityname("全部").simplename("全部").pidcode("000000").citylevel(1).postcode("000000").py("all").build());
+            if (1 == type) {
+                //添加全部到数据中
+                list.add(0, Address.builder().citycode("000000").areacode("000000").cityname("全部").simplename("全部").pidcode("000000").citylevel(1).postcode("000000").py("all").build());
+            }
             return ResponseEntity.ok(list);
         } catch (Exception e) {
             e.printStackTrace();

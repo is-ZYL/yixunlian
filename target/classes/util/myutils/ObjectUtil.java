@@ -143,7 +143,7 @@ public class ObjectUtil {
      * @return
      */
     public static boolean isNull(List<Object> list) {
-        return null == list || list.isEmpty();
+        return null == list || list.isEmpty() ;
     }
 
     /**

@@ -38,7 +38,7 @@ import java.io.PrintWriter;
 @RestController
 public class CoreController extends BaseController {
 
-    @GetMapping(value = "signature", produces = "text/plain;charset=utf-8")
+    @GetMapping(value = "signature", produces = "text/plain;CHARSET=utf-8")
     public String authGet(HttpServletRequest request) {
         // 微信加密签名
         String signature = request.getParameter("signature");
@@ -63,7 +63,7 @@ public class CoreController extends BaseController {
         return "非法请求";
     }
 
-    @PostMapping(produces = "application/xml; charset=UTF-8")
+    @PostMapping(produces = "application/xml; CHARSET=UTF-8")
     public String post(HttpServletRequest request) {
         // 微信加密签名
         String signature = request.getParameter("signature");

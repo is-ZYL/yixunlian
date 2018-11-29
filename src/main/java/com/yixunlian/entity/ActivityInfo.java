@@ -10,10 +10,7 @@
  */
 package com.yixunlian.entity;
 
-import com.yixunlian.pojo.Activity;
-import com.yixunlian.pojo.ActivityChargeItem;
-import com.yixunlian.pojo.ActivityFillInItem;
-import com.yixunlian.pojo.Extractproject;
+import com.yixunlian.pojo.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -60,5 +57,10 @@ public class ActivityInfo {
      * 活动报名填写项
      */
     private List<ActivityFillInItem> fillInItems;
+
+    /**
+     * 活动主办方信息
+     */
+    private OrganizerInfo organizerInfo;
 
 }

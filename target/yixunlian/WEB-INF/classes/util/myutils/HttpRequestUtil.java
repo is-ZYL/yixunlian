@@ -167,7 +167,7 @@ public class HttpRequestUtil {
                         hasParams = true;
                     }
                     if (charset != null && !"".equals(charset)) {
-                        //builder.append(key).append("=").append(URLDecoder.(value, charset));
+                        //builder.append(key).append("=").append(URLDecoder.(value, CHARSET));
                         builder.append(key).append("=").append(urlEncode(value, charset));
                     } else {
                         builder.append(key).append("=").append(value);

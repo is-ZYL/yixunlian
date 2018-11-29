@@ -84,6 +84,8 @@ public class ActivityService extends BaseService<Activity> {
     private ActivitysignService activitysignService;
     @Resource(name = "extractprojectService")
     private ExtractprojectService extractprojectService;
+    @Resource(name = "organizerInfoService")
+    private OrganizerInfoService organizerInfoService;
 
     /**
      * 通过用户id查询参与的活动
@@ -388,11 +390,11 @@ public class ActivityService extends BaseService<Activity> {
      * @param activityChargestatus 活动费用 0 免费 1 收费
      * @param activityType         活动类型 0 为线上，1 线下
      * @param searchVal            输入框中的内容
-     * @param page
-     * @param row
+     * @param page                 当前页
+     * @param row                  每页显示条数
      * @return
      */
-    public PageInfo<ActivityInfo> queryActivityListBySearch(User u, String provinceCitycode, String cityCitycode, String areaCitycode, Integer activityChargestatus, Integer activityType, String searchVal, Integer page, Integer row) {
+    public List<ActivityInfo> queryActivityListBySearch(User u, String provinceCitycode, String cityCitycode, String areaCitycode, Integer activityChargestatus, Integer activityType, String searchVal, Integer page, Integer row) {
         Example example = new Example(Activity.class);
         //活动条件筛选：已经上架/活动未结束（未开始/进行中）/报名未结束
         Criteria criteria = example.createCriteria()
@@ -401,27 +403,27 @@ public class ActivityService extends BaseService<Activity> {
                 .andNotEqualTo("activitySignupstatus", 2);
 
         //根据省匹配
-        if (ObjectUtil.isNotNull(provinceCitycode) && !"000000".equals(provinceCitycode)) {
+        if (ObjectUtil.notEmpty(provinceCitycode) && !"000000".equals(provinceCitycode)) {
             criteria.andEqualTo("provinceCitycode", provinceCitycode);
         }
         //根据市/县匹配
-        if (ObjectUtil.isNotNull(cityCitycode) && !"000000".equals(cityCitycode)) {
+        if (ObjectUtil.notEmpty(cityCitycode) && !"000000".equals(cityCitycode)) {
             criteria.andEqualTo("cityCitycode", cityCitycode);
         }
         //根据区匹配
-        if (ObjectUtil.isNotNull(areaCitycode) && !"000000".equals(areaCitycode)) {
+        if (ObjectUtil.notEmpty(areaCitycode) && !"000000".equals(areaCitycode)) {
             criteria.andEqualTo("areaCitycode", areaCitycode);
         }
         //根据活动费用匹配
-        if (ObjectUtil.isNotNull(activityChargestatus)) {
+        if (null != activityChargestatus) {
             criteria.andEqualTo("activityChargestatus", activityChargestatus);
         }
         //根据活动类型匹配
-        if (ObjectUtil.isNotNull(activityType)) {
+        if (null != activityType) {
             criteria.andEqualTo("activityType", activityType);
         }
         //根据主办方名称/活动名称匹配
-        if (ObjectUtil.isNotNull(searchVal)) {
+        if (ObjectUtil.notEmpty(searchVal)) {
             criteria.andLike("activityName", "%" + searchVal + "%");
             criteria.andLike("userNickName", "%" + searchVal + "%");
         }
@@ -436,10 +438,10 @@ public class ActivityService extends BaseService<Activity> {
             //查询活动的报名人数
             Integer activityJoinNum = ueService.queryTotalCount(Uenrollandactivity.getUenrollAndActivity().toBuilder().activityId(a.getActivityId()).build());
             a.setJoinNum(activityJoinNum);
-            activityInfo.toBuilder().activity(a).build();
+            activityInfo.setActivity(a);
             activityInfos.add(activityInfo);
         }
-        return new PageInfo<>(activityInfos);
+        return activityInfos;
     }
 
     /**
@@ -522,7 +524,7 @@ public class ActivityService extends BaseService<Activity> {
             for (Activity activity : activities1) {
                 ActivityResult activityResult = new ActivityResult();
                 //当前活动是否设置分享提成:0为否,1为是
-                if (activity.getActivityIsextract() == 1) {
+                if (null != activity.getActivityIsextract() && activity.getActivityIsextract() == 1) {
                     List<Extractproject> e = ext.queryListByActivity(activity);
                     //设置该活动是否设置项目提成
                     boolean isSetExtractProject = ObjectUtil.isNotNull(e);
@@ -656,14 +658,14 @@ public class ActivityService extends BaseService<Activity> {
             Example example = new Example(Activity.class);
             Criteria criteria = example.createCriteria();
             //活动上下架情况，活动发布者上架为0，下架为1，草稿为4，管理员上架为2，下架为3 onlineStatus
-            criteria.andEqualTo("activityStatus", 4);
+            criteria.andEqualTo("onlineStatus", 4);
             PageHelper.startPage(page, row);
             List<Activity> activities1 = activityMapper.selectByExample(example);
             //循环得出当前活动的精准需求人数以及是否设置邀约提成
             for (Activity activity : activities1) {
                 ActivityResult activityResult = new ActivityResult();
                 //当前活动是否设置分享提成:0为否,1为是
-                if (activity.getActivityIsextract() == 1) {
+                if (null != activity.getActivityIsextract() && 1 == activity.getActivityIsextract()) {
                     List<Extractproject> e = ext.queryListByActivity(activity);
                     if (ObjectUtil.isNull(e)) {
                         //说明该活动未设置项目提成
@@ -767,9 +769,13 @@ public class ActivityService extends BaseService<Activity> {
      * @return
      */
     public String saveSelectiveByActivityInfoAndUser(User u, ActivityInfo activityInfo) {
+        log.debug("活动保存为草稿[{}]", activityInfo);
+        //是否是活动更新
+        boolean update = false;
         Activity activity = activityInfo.getActivity();
-        activity.setUserId(u.getUserId());
-        activity.init();
+        if (null != activity.getActivityId()) {
+            update = true;
+        }
         if (0 == activityInfo.getType()) {
             //保存为活动草稿
             activity.setOnlineStatus(4);
@@ -777,18 +783,28 @@ public class ActivityService extends BaseService<Activity> {
             //活动发布
             activity.setOnlineStatus(0);
         }
-        //保存至数据库
-        super.saveSelective(activity);
+        activity.setUserId(u.getUserId());
+        if (!update) {
+            activity.init();
+            //保存至数据库
+            super.saveSelective(activity);
+        } else {
+            super.updateSelective(activity);
+            //删除之前的数据
+            ac.deleteByWhere(ActivityChargeItem.getInstance().toBuilder().activityId(activity.getActivityId()).build());
+            ext.deleteByWhere(Extractproject.getExtractproject().toBuilder().activityId(activity.getActivityId()).build());
+            af.deleteByWhere(ActivityFillInItem.getInstance().toBuilder().activityId(activity.getActivityId()).build());
+        }
         List<ActivityChargeItem> c;
         List<Extractproject> e;
         //保存收费项目
-        if (1 == activity.getActivityChargestatus()) {
+        if (null != activity.getActivityChargestatus() && 1 == activity.getActivityChargestatus()) {
             c = activityInfo.getChargeItemList();
             Integer i = ac.saveSelective(activity, c);
             log.info("活动保存--共保存收费项目——" + i + "——条");
         }
         //保存提成项目
-        if (1 == activity.getActivityIsextract()) {
+        if (null != activity.getActivityIsextract() && 1 == activity.getActivityIsextract()) {
             e = activityInfo.getExtractprojectList();
             Integer i = ext.saveSelective(activity, e);
             log.info("活动保存--共保存提成项目——" + i + "——条");
@@ -821,21 +837,21 @@ public class ActivityService extends BaseService<Activity> {
         List<ActivityChargeItem> c;
         List<Extractproject> e;
         //保存收费项目
-        if (1 == activity.getActivityChargestatus()) {
+        if (null != activity.getActivityChargestatus() && 1 == activity.getActivityChargestatus()) {
             c = activityInfo.getChargeItemList();
-            Integer i = ac.updateSelective(activity, c);
+            Integer i = ac.saveSelective(activity, c);
             log.info("活动保存--共保存收费项目——" + i + "——条");
         }
         //保存提成项目
-        if (1 == activity.getActivityIsextract()) {
+        if (null != activity.getActivityIsextract() && 1 == activity.getActivityIsextract()) {
             e = activityInfo.getExtractprojectList();
-            Integer i = ext.updateSelective(activity, e);
-            log.info("活动保存--共更新提成项目——" + i + "——条");
+            Integer i = ext.saveSelective(activity, e);
+            log.info("活动保存--共保存提成项目——" + i + "——条");
         }
         //保存报名填写项
         List<ActivityFillInItem> f = activityInfo.getFillInItems();
-        Integer i = af.updateSelective(activity, f);
-        log.info("活动保存--共更新报名填写项——" + i + "——条");
+        Integer i = af.saveSelective(activity, f);
+        log.info("活动保存--共保存报名填写项——" + i + "——条");
         return result;
     }
 
@@ -1003,7 +1019,9 @@ public class ActivityService extends BaseService<Activity> {
         //查询活动的报名人数
         Integer activityJoinNum = ueService.queryTotalCount(Uenrollandactivity.getUenrollAndActivity().toBuilder().activityId(activityId).build());
         activity.setJoinNum(activityJoinNum);
-        return new ActivityInfo().toBuilder().activity(activity).chargeItemList(ci).extractprojectList(ej).build();
+        OrganizerInfo o = OrganizerInfo.getcInstance().toBuilder().userId(activity.getUserId()).build();
+        o = organizerInfoService.queryOne(o);
+        return new ActivityInfo().toBuilder().activity(activity).organizerInfo(o).chargeItemList(ci).extractprojectList(ej).build();
     }
 
     /**
@@ -1020,11 +1038,11 @@ public class ActivityService extends BaseService<Activity> {
         boolean activityIsOk = checkActivityIsOk(activity);
         if (!userIsOk) {
             log.debug("报名活动，用户身份不合格,封号或者未激活[{},{},{}]", getClass(), 1008, u);
-            return Result.error("403", "用户身份不合格，请联系客服");
+            return Result.error("403", "用户身份不合格");
         }
         if (!activityIsOk) {
             log.debug("报名活动，活动不符合条件[{},{},{}]", getClass(), 1012, activity);
-            return Result.error("403", "用户身份不合格，请联系客服");
+            return Result.error("403", "用户身份不合格");
         }
         //保存用户填写的报名填写项
         for (Activitysign a : activitySigns) {

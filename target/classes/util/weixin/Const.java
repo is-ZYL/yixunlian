@@ -13,7 +13,7 @@ public class Const {
     public static final String OPERATION_CENTER_ID = "3f9660f63a6b4d4cbf51a2bc455ca497";
     public static final String TOTAL_OPERATIONS_CENTER = "总运营中心";
     public static final String TOTAL_OPERATIONS_CENTER_ID = "6f65db38cda342d792f94c3ccc615d5b";
-    public static final String charset = "utf-8";
+    public static final String CHARSET = "utf-8";
     /**
      * 执行成功标识 返回1
      */

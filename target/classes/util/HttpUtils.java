@@ -104,7 +104,7 @@ public class HttpUtils {
                 nameValuePairList.add(new BasicNameValuePair(key, bodys.get(key)));
             }
             UrlEncodedFormEntity formEntity = new UrlEncodedFormEntity(nameValuePairList, "utf-8");
-            formEntity.setContentType("application/x-www-form-urlencoded; charset=UTF-8");
+            formEntity.setContentType("application/x-www-form-urlencoded; CHARSET=UTF-8");
             request.setEntity(formEntity);
         }
 

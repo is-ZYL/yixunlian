@@ -75,6 +75,10 @@ public class UserService extends BaseService<User> {
     private MemberupdateextractService memUpdateEService;
     @Resource(name = "extractprojectService")
     private ExtractprojectService extractprojectService;
+    @Resource(name = "sysUserService")
+    private SysUserService sysUserService;
+    @Resource(name = "roleService")
+    private RoleService roleService;
 
     /**
      * 查询当前区域的最小代理人（市级代理人，省级代理）
@@ -600,10 +604,7 @@ public class UserService extends BaseService<User> {
                         result = u.saveSelectiveByMemberAndUser(user, mem, new Date());
                     }
                 }
-                if (result > 0) {
-                    endResult = true;
-                }
-                return endResult;
+                if (result > 0) endResult = true;
             }
         }
 
@@ -680,14 +681,14 @@ public class UserService extends BaseService<User> {
             } else {
                 //如果分享人也没有归属人 则将归属到运营中心
                 if (ObjectUtil.isNull(shareUser.getUsermanagerUid())) {
-                    user = userService.setSysUserResource(sysUserService, shareUser, roleService);
+                    user = userService.setSysUserResource(shareUser);
                 } else {
                     //归属人为空则设置归属人
                     if (ObjectUtil.isNull(user.getUsermanagerUid()) && ObjectUtil.isNotNull(shareUser.getUsermanagerUid())) {
                         user.setUsermanagerUid(shareUser.getUsermanagerUid());
                         user.setUsermanagerName(shareUser.getUsermanagerName());
                     } else if (ObjectUtil.isNull(user.getUsermanagerUid())) {
-                        user = userService.setSysUserResource(sysUserService, user, roleService);
+                        user = userService.setSysUserResource(user);
                     }
                 }
             }
@@ -707,13 +708,14 @@ public class UserService extends BaseService<User> {
     /**
      * 设置用户归属到用户平台下
      *
-     * @param sysUserService
      * @param user
-     * @param roleService
      * @throws Exception
      */
-    private User setSysUserResource(SysUserService sysUserService, User user, RoleService roleService) throws Exception {
+    public User setSysUserResource(User user) throws Exception {
         Role role = roleService.queryOneByRoleName(Const.OPERATION_CENTER, Const.OPERATION_CENTER_ID);
+        if (ObjectUtil.isNull(role)) {
+            role = roleService.queryOneByRoleName(Const.TOTAL_OPERATIONS_CENTER, Const.TOTAL_OPERATIONS_CENTER_ID);
+        }
         if (ObjectUtil.isNotNull(role)) {
             SysUser sysUser = sysUserService.querySysUserByRole(user, role);
             if (ObjectUtil.isNotNull(sysUser)) {
@@ -765,11 +767,21 @@ public class UserService extends BaseService<User> {
 
         }
         return null;
-
     }
-
-
     /*-------------------------------测试--------------------------------------------*/
+
+    /**
+     * 查询所有会员用户
+     *
+     * @return
+     */
+    public List<User> queryMembers() {
+        User u = User.getInstance();
+        //未封户
+        u.setClosedUserStatus(0);
+        u.setIsVip(1);
+        return super.queryListByWhere(u);
+    }
 
     public List<Map> updateByPrimaryKey1(Map<Object, Object> maps) {
         return userMapper.selectByPrimaryKey1(maps);
@@ -785,16 +797,4 @@ public class UserService extends BaseService<User> {
         return userMapper.selectByExample(example);
     }
 
-    /**
-     * 查询所有会员用户
-     *
-     * @return
-     */
-    public List<User> queryMembers() {
-        User u = User.getInstance();
-        //未封户
-        u.setClosedUserStatus(0);
-        u.setIsVip(1);
-        return super.queryListByWhere(u);
-    }
 }

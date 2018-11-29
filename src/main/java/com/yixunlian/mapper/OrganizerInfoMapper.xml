@@ -5,8 +5,10 @@
         <id column="organizer_info_id" jdbcType="VARCHAR" property="organizerInfoId"/>
         <result column="head_url" jdbcType="VARCHAR" property="headUrl"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>
-        <result column="phone" jdbcType="INTEGER" property="phone"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="memberid" jdbcType="VARCHAR" property="memberid"/>
         <result column="user_id" jdbcType="VARCHAR" property="userId"/>
+        <result column="creditrd_num" jdbcType="INTEGER" property="creditrdNum"/>
         <result column="created" jdbcType="TIMESTAMP" property="created"/>
         <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
         <result column="remark" jdbcType="VARCHAR" property="remark"/>
@@ -15,7 +17,8 @@
         <result column="detail_info" jdbcType="LONGVARCHAR" property="detailInfo"/>
     </resultMap>
     <sql id="Base_Column_List">
-    organizer_info_id, head_url, name, phone, user_id, created, updated, remark
+    organizer_info_id, head_url, name, phone, memberid, user_id, creditrd_num, created,
+    updated, remark
   </sql>
     <sql id="Blob_Column_List">
     detail_info

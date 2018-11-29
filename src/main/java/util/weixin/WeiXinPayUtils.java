@@ -203,7 +203,7 @@ public class WeiXinPayUtils {
             HttpPost httpost = new HttpPost(url);
             httpost.addHeader("Connection", "keep-alive");
             httpost.addHeader("Accept", "*/*");
-            httpost.addHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+            httpost.addHeader("Content-Type", "application/x-www-form-urlencoded; CHARSET=UTF-8");
             httpost.addHeader("Host", "api.mch.weixin.qq.com");
             httpost.addHeader("X-Requested-With", "XMLHttpRequest");
             httpost.addHeader("Cache-Control", "max-age=0");

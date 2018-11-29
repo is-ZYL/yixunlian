@@ -58,7 +58,7 @@ public class UserJob {
             List<User> users = userService.queryListByUserMemberDays();
             log.info("查询出来的vip用户：{}", users);
             for (User user : users) {
-                if (user.getMemberDays() > 0 && user.getIsVip().equals(1)) {
+                if (0 < user.getMemberDays() && 1 == user.getIsVip()) {
                     user.setMemberDays(user.getMemberDays() - 1);
                     if (user.getMemberDays() == 0) {
                         user.setIsVip(0);

@@ -205,7 +205,7 @@ public class ActivityController extends BaseController {
      * @return 1 添加成功 0 添加失败
      */
     @PostMapping("activitySaveInfoByToken")
-    public Result<Integer> activitySaveInfoByToken(@RequestBody ActivityInfo activityInfo) {
+    public Result<String> activitySaveInfoByToken(@RequestBody ActivityInfo activityInfo) {
         logger.info("活动信息为：" + activityInfo);
         if (ObjectUtil.isNull(activityInfo)) {
             logger.error("----------参数为空------------》保存活动信息 2-1");
@@ -228,7 +228,7 @@ public class ActivityController extends BaseController {
             if (0 == activityInfo.getType()) {
                 String result = activityService.saveSelectiveByActivityInfoAndUser(u, activityInfo);
                 if (ObjectUtil.notEmpty(result)) {
-                    return Result.success("200", "活动草稿保存成功");
+                    return Result.success("200", "活动草稿保存成功", result);
                 }
                 return Result.error("209", "活动草稿保存失败");
             } else {
@@ -241,9 +241,9 @@ public class ActivityController extends BaseController {
                 } else {
                     String result = activityService.saveSelectiveByActivityInfoAndUser(u, activityInfo);
                     if (ObjectUtil.notEmpty(result)) {
-                        return Result.success("200", "成功");
+                        return Result.success("200", "成功", result);
                     }
-                    return Result.error("209", "保存失败");
+                    return Result.error("209", "保存失败", null);
                 }
             }
         } catch (IOException e) {
@@ -527,7 +527,7 @@ public class ActivityController extends BaseController {
      * @return 返回活动列表
      */
     @GetMapping(value = "getActivityListByKeywordsAndToken")
-    public Result<PageInfo<ActivityInfo>> getActivityListByKeywordsAndToken(@RequestParam String token, @RequestParam String provinceCitycode, @RequestParam String cityCitycode, @RequestParam String areaCitycode, @RequestParam Integer activityChargestatus, @RequestParam Integer activityType, @RequestParam String searchVal, @RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "10") Integer row) {
+    public Result<List<ActivityInfo>> getActivityListByKeywordsAndToken(@RequestParam String token, @RequestParam(defaultValue = "") String provinceCitycode, @RequestParam(defaultValue = "") String cityCitycode, @RequestParam(defaultValue = "") String areaCitycode, @RequestParam(defaultValue = "") Integer activityChargestatus, @RequestParam(defaultValue = "") Integer activityType, @RequestParam(defaultValue = "") String searchVal, @RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "10") Integer row) {
         String data = TokenUtils.getDataByKey(token);
         if (ObjectUtil.isNull(data)) {
             // token不正确 返回204
@@ -542,7 +542,7 @@ public class ActivityController extends BaseController {
                 logger.error("--------用户不存在---------》关键字匹配已发布的活动 7");
                 return Result.error("206", "用户不存在");
             }
-            PageInfo<ActivityInfo> result = activityService.queryActivityListBySearch(u, provinceCitycode, cityCitycode, areaCitycode, activityChargestatus, activityType, searchVal, page, row);
+            List<ActivityInfo> result = activityService.queryActivityListBySearch(u, provinceCitycode, cityCitycode, areaCitycode, activityChargestatus, activityType, searchVal, page, row);
             return Result.success(result);
         } catch (IOException e) {
             e.printStackTrace();

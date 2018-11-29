@@ -20,6 +20,7 @@ import com.yixunlian.pojo.system.SysUser;
 import com.yixunlian.service.baseservice.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import util.weixin.Const;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -49,9 +50,16 @@ public class SysUserService extends BaseService<SysUser> {
      * @return
      */
     public SysUser querySysUserByRole(User user, Role resultRole) {
+        //如果是查询的总运营中心 直接返回
+        if (Const.TOTAL_OPERATIONS_CENTER.equals(resultRole.getRoleName())) {
+            SysUser sysUser = new SysUser();
+            sysUser.setRoleId(resultRole.getRoleId());
+            return super.queryOne(sysUser);
+        }
+
         Example example = new Example(SysUser.class);
-        Criteria criteria = example.createCriteria();
         //匹配当前用户的区域的运营中心
+        Criteria criteria = example.createCriteria();
         criteria.andEqualTo("citycode", user.getCityCitycode());
         criteria.andEqualTo("roleId", resultRole.getRoleId());
         List<SysUser> uList = sysUserMapper.selectByExample(example);
@@ -62,9 +70,12 @@ public class SysUserService extends BaseService<SysUser> {
             }
         }
         //市级为空的情况下则寻找省级运营中心
-        if (uList.size() == 0 || ObjectUtil.isNull(uList)) {
+        if (ObjectUtil.isNull(uList)) {
+            example.clear();
+            Criteria criteria1 = example.createCriteria();
             //省级
-            criteria.andEqualTo("citycode", user.getProvinceCitycode());
+            criteria1.andEqualTo("citycode", user.getProvinceCitycode());
+            criteria1.andEqualTo("roleId", resultRole.getRoleId());
             List<SysUser> uList1 = sysUserMapper.selectByExample(example);
             for (SysUser user1 : uList1) {
                 if (ObjectUtil.isNotNull(user1)) {

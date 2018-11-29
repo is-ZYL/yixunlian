@@ -26,7 +26,7 @@ public class FileDownload {
 	    response.reset();  
 	    response.setHeader("Content-Disposition", "attachment; filename=\"" + fileName + "\"");  
 	    response.addHeader("Content-Length", "" + data.length);  
-	    response.setContentType("application/octet-stream;charset=UTF-8");  
+	    response.setContentType("application/octet-stream;CHARSET=UTF-8");
 	    OutputStream outputStream = new BufferedOutputStream(response.getOutputStream());  
 	    outputStream.write(data);  
 	    outputStream.flush();  
