@@ -10,6 +10,8 @@
  */
 package com.yixunlian.service;
 
+import com.github.abel533.entity.Example;
+import com.github.abel533.entity.Example.Criteria;
 import com.yixunlian.entity.ActivityResult;
 import com.yixunlian.mapper.UenrollandactivityMapper;
 import com.yixunlian.pojo.Activity;
@@ -18,8 +20,12 @@ import com.yixunlian.pojo.Uenrollandactivity;
 import com.yixunlian.pojo.User;
 import com.yixunlian.service.baseservice.BaseService;
 import org.springframework.stereotype.Service;
+import util.myutils.BigDecimalUtils;
+import util.myutils.ObjectUtil;
+import util.myutils.Tools;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -93,11 +99,74 @@ public class UenrollandactivityService extends BaseService<Uenrollandactivity> {
      * 根据活动id查询活动报名情况
      *
      * @param u
-     * @param activityId
+     * @param activityId     活动id
+     * @param dealStatus     用户每个活动收费对应的支付状态0，为未成交，1为已成交
+     * @param usersignStatus 签到状态，0为未签到，1表示已签到
+     * @param paymentStatus  支付提成给经理人的支付状态 0 未支付  1已支付
+     * @param keywords       关键字搜索  手机号和姓名
      * @return
      */
-    public List<Uenrollandactivity> queryListByWhere(User u, String activityId) {
-        Uenrollandactivity build = Uenrollandactivity.getUenrollAndActivity().toBuilder().organizerId(u.getUserId()).activityId(activityId).status(0).build();
-        return super.queryListByWhere(build);
+    public ActivityResult queryListByWhere(User u, String activityId, Integer dealStatus, Integer usersignStatus, Integer paymentStatus, String keywords) {
+        Example e = new Example(Uenrollandactivity.class);
+        Criteria criteria = e.createCriteria();
+        if (ObjectUtil.notEmpty(activityId)) {
+            criteria.andEqualTo("activityId", activityId);
+        }
+        if (null != dealStatus) {
+            criteria.andEqualTo("dealStatus", dealStatus);
+        }
+        if (null != usersignStatus) {
+            criteria.andEqualTo("usersignStatus", usersignStatus);
+        }
+        if (null != paymentStatus) {
+            criteria.andEqualTo("paymentStatus", paymentStatus);
+        }
+        //根据手机号
+        if (ObjectUtil.notEmpty(keywords) && Tools.isMobile(keywords)) {
+            criteria.andEqualTo("uPhone", keywords);
+        }
+
+        //根据姓名
+        if (ObjectUtil.notEmpty(keywords) && !Tools.isMobile(keywords)) {
+            criteria.andEqualTo("uNickname", keywords);
+        }
+        List<Uenrollandactivity> uenrollandactivities = uenrollandactivityMapper.selectByExample(e);
+        ActivityResult result = ActivityResult.getActivityResult();
+        //报名人数
+        Integer joinTotal = uenrollandactivities.size();
+        //签到人数
+        Integer signInTotal = result.getSignInTotal();
+        //成交人数
+        Integer transactionTotal = result.getTransactionTotal();
+        //成交总金额
+        BigDecimal transactionTotalAmount = result.getTransactionTotalAmount();
+        //提成总金额
+        BigDecimal commissionTotalAmount = result.getCommissionTotalAmount();
+
+        //dealStatus     用户每个活动收费对应的支付状态0，为未成交，1为已成交
+        //usersignStatus 签到状态，0为未签到，1表示已签到
+        //paymentStatus  支付提成给经理人的支付状态 0 未支付  1已支付
+
+        for (Uenrollandactivity ue : uenrollandactivities) {
+            //已签到
+            if (1 == ue.getUsersignStatus()) {
+                signInTotal++;
+            }
+            //已成交
+            if (1 == ue.getDealStatus()) {
+                transactionTotal++;
+                //计算成交总金额
+                transactionTotalAmount = BigDecimalUtils.safeAdd(transactionTotalAmount, ue.getTransactionNum());
+            }
+
+            //已成交
+            if (1 == ue.getDealStatus()) {
+                transactionTotal++;
+                //计算成交总金额
+                BigDecimalUtils.safeAdd(transactionTotalAmount, ue.getTransactionNum());
+            }
+
+        }
+        return null;
     }
 }

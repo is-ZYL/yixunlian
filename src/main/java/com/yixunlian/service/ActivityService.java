@@ -10,11 +10,11 @@
  */
 package com.yixunlian.service;
 
+import cn.hutool.core.date.DateUtil;
 import com.github.abel533.entity.Example;
 import com.github.abel533.entity.Example.Criteria;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import util.myutils.ObjectUtil;
 import com.yixunlian.entity.ActivityInfo;
 import com.yixunlian.entity.ActivityResult;
 import com.yixunlian.entity.Result;
@@ -25,6 +25,7 @@ import com.yixunlian.service.baseservice.GetService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import util.myutils.ListUtils;
+import util.myutils.ObjectUtil;
 import util.myutils.UuidUtil;
 
 import javax.annotation.Resource;
@@ -110,7 +111,7 @@ public class ActivityService extends BaseService<Activity> {
      * @param list
      * @return
      */
-    public PageInfo<Activity> queryPageListByActivity(List<UCollection> list) {
+    public List<Activity> queryPageListByActivity(List<UCollection> list) {
         List<Activity> result = new ArrayList<>();
         for (UCollection uCollection : list) {
             Activity activity = new Activity();
@@ -120,7 +121,7 @@ public class ActivityService extends BaseService<Activity> {
                 result.add(activity1);
             }
         }
-        return new PageInfo<>(result);
+        return result;
     }
 
     /**
@@ -782,6 +783,22 @@ public class ActivityService extends BaseService<Activity> {
         } else {
             //活动发布
             activity.setOnlineStatus(0);
+            //若为活动发布，则判断活动状态
+            Date date = new Date();
+            //活动报名开始
+            if (DateUtil.isIn(date, activity.getActivitysignStarttime(), activity.getActivitysignEndtime()) || date.getTime() >= activity.getActivitysignStarttime().getTime()) {
+                activity.setActivitySignupstatus(1);
+            }
+            //活动开始
+            if (DateUtil.isIn(date, activity.getActivitystartTime(), activity.getActivityendTime()) || date.getTime() >= activity.getActivitystartTime().getTime()) {
+                activity.setActivityStatus(1);
+            }
+
+            //活动结束
+            if (!DateUtil.isIn(date, activity.getActivitystartTime(), activity.getActivityendTime()) && date.getTime() < activity.getActivitystartTime().getTime()) {
+                activity.setActivityStatus(2);
+            }
+
         }
         activity.setUserId(u.getUserId());
         if (!update) {
@@ -1069,6 +1086,8 @@ public class ActivityService extends BaseService<Activity> {
                 .uNickname(u.getuNickname())
                 .uPhone(u.getuPhone())
                 .usersignStatus(0).build();
+        activity.setJoinNum(activity.getJoinNum() + 1);
+        super.updateSelective(activity);
         Integer result = ueService.saveSelective(uenrollandactivity);
         return (result > 0) ? Result.success("报名成功") : Result.error("报名失败");
     }

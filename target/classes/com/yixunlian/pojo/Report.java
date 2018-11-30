@@ -5,7 +5,6 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -113,9 +112,6 @@ public class Report extends BasePojo {
 
     public Report init() {
         this.reportId = UUID.randomUUID().toString().replace("-", "");
-        Date date = new Date();
-        this.setCreated(date);
-        this.setUpdated(date);
         return this;
     }
 }

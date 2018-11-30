@@ -112,7 +112,7 @@ public class ActivityController extends BaseController {
     @PostMapping("activityUserUpdateHeadUrl")
     public Result<OrganizerInfo> activityUserUpdateHeadUrl(@RequestParam String token, OrganizerInfo organizerInfo, @RequestParam String oldUrl) {
         String data = TokenUtils.getDataByKey(token);
-        if (ObjectUtil.isNull(data)) {
+        if (ObjectUtil.isEmpty(data)) {
             // token不正确 返回204
             logger.error("----------token值错误------------》活动主办方更改信息 1");
             return Result.error("204", "token值错误");
@@ -158,7 +158,7 @@ public class ActivityController extends BaseController {
     public Result<Integer> activityUserSaveInfo(@RequestParam String token, OrganizerInfo organizerInfo) {
         logger.info("进入活动主办方，方法[{},{}]" + token, organizerInfo);
         String data = TokenUtils.getDataByKey(token);
-        if (ObjectUtil.isNull(data)) {
+        if (ObjectUtil.isEmpty(data)) {
             // token不正确 返回204
             logger.error("--------token值错误---------》保存活动主办方信息 2");
             return Result.error("204", "token值错误");
@@ -212,7 +212,7 @@ public class ActivityController extends BaseController {
             return Result.error("403", "参数为空");
         }
         String data = TokenUtils.getDataByKey(activityInfo.getToken());
-        if (ObjectUtil.isNull(data)) {
+        if (ObjectUtil.isEmpty(data)) {
             // token不正确 返回204
             logger.error("--------token值错误---------》保存活动信息 2-1");
             return Result.error("204", "token值错误");
@@ -267,7 +267,7 @@ public class ActivityController extends BaseController {
             return Result.error("403", "参数为空");
         }
         String data = TokenUtils.getDataByKey(activityInfo.getToken());
-        if (ObjectUtil.isNull(data)) {
+        if (ObjectUtil.isEmpty(data)) {
             // token不正确 返回204
             logger.error("--------token值错误---------》保存活动信息 2-1");
             return Result.error("204", "token值错误");
@@ -281,7 +281,7 @@ public class ActivityController extends BaseController {
             }
             //保存为草稿
             if (0 == activityInfo.getType()) {
-                if (activityInfo.getActivity().getActivityId() == null) {
+                if (ObjectUtil.isEmpty(activityInfo.getActivity().getActivityId())) {
                     return Result.error("208", "活动信息不符合");
                 }
                 Integer integer = activityService.updateSelectiveByActivityInfoAndUser(u, activityInfo);
@@ -322,7 +322,7 @@ public class ActivityController extends BaseController {
     @GetMapping(value = "getActivityDetailByIdAndToken")
     public Result<ActivityInfo> getActivityDetailByToken(@RequestParam String token, @RequestParam String activityId) {
         String data = TokenUtils.getDataByKey(token);
-        if (ObjectUtil.isNull(data)) {
+        if (ObjectUtil.isEmpty(data)) {
             // token不正确 返回204
             logger.error("--------token值错误---------》查询活动详情 2-2");
             return Result.error("204", "token值错误");
@@ -357,7 +357,7 @@ public class ActivityController extends BaseController {
     @GetMapping(value = "getActivityUserDetail")
     public Result<OrganizerInfo> getActivityUserDetail(@RequestParam String token) {
         String data = TokenUtils.getDataByKey(token);
-        if (ObjectUtil.isNull(data)) {
+        if (ObjectUtil.isEmpty(data)) {
             // token不正确 返回204
             logger.error("--------token值错误---------》查询活动主办方信息 3");
             return Result.error("204", "token值错误");
@@ -389,7 +389,7 @@ public class ActivityController extends BaseController {
     @GetMapping(value = "getActivitycategoryListByToken")
     public Result<List<Activitycategory>> getActivitycategoryListByToken(@RequestParam String token) {
         String data = TokenUtils.getDataByKey(token);
-        if (ObjectUtil.isNull(data)) {
+        if (ObjectUtil.isEmpty(data)) {
             // token不正确 返回204
             logger.error("--------token值错误---------》查询活动类别 4");
             return Result.error("204", "token值错误");
@@ -421,7 +421,7 @@ public class ActivityController extends BaseController {
     @GetMapping(value = "getActivityMusicListByToken")
     public Result<List<Activitymusicurl>> getActivityMusicListByToken(@RequestParam String token) {
         String data = TokenUtils.getDataByKey(token);
-        if (ObjectUtil.isNull(data)) {
+        if (ObjectUtil.isEmpty(data)) {
             // token不正确 返回204
             logger.error("--------token值错误---------》查询活动音乐 5");
             return Result.error("204", "token值错误");
@@ -453,7 +453,7 @@ public class ActivityController extends BaseController {
     @GetMapping(value = "getActivityFillInItemListByToken")
     public Result<List<ActivityFillInItem>> getActivityActivityFillInItemByToken(@RequestParam String token) {
         String data = TokenUtils.getDataByKey(token);
-        if (ObjectUtil.isNull(data)) {
+        if (ObjectUtil.isEmpty(data)) {
             // token不正确 返回204
             logger.error("--------token值错误---------》查询活动必填的报名填写项 6");
             return Result.error("204", "token值错误");
@@ -486,7 +486,7 @@ public class ActivityController extends BaseController {
     @GetMapping(value = "getActivityFillInItemListByActivityId")
     public Result<List<ActivityFillInItem>> getActivityActivityFillInItemByToken(@RequestParam String token, @RequestParam String activityId) {
         String data = TokenUtils.getDataByKey(token);
-        if (ObjectUtil.isNull(data)) {
+        if (ObjectUtil.isEmpty(data)) {
             // token不正确 返回204
             logger.error("--------token值错误---------》查询活动报名填写项 6-1");
             return Result.error("204", "token值错误");
@@ -529,7 +529,7 @@ public class ActivityController extends BaseController {
     @GetMapping(value = "getActivityListByKeywordsAndToken")
     public Result<List<ActivityInfo>> getActivityListByKeywordsAndToken(@RequestParam String token, @RequestParam(defaultValue = "") String provinceCitycode, @RequestParam(defaultValue = "") String cityCitycode, @RequestParam(defaultValue = "") String areaCitycode, @RequestParam(defaultValue = "") Integer activityChargestatus, @RequestParam(defaultValue = "") Integer activityType, @RequestParam(defaultValue = "") String searchVal, @RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "10") Integer row) {
         String data = TokenUtils.getDataByKey(token);
-        if (ObjectUtil.isNull(data)) {
+        if (ObjectUtil.isEmpty(data)) {
             // token不正确 返回204
             logger.error("--------token值错误---------》关键字匹配已发布的活动 7");
             return Result.error("204", "token值错误");
@@ -563,7 +563,7 @@ public class ActivityController extends BaseController {
     @GetMapping(value = "getPublishedActivityListByToken")
     public Result<List<ActivityResult>> getPublishedActivityListByToken(@RequestParam String token, @RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "10") Integer row) {
         String data = TokenUtils.getDataByKey(token);
-        if (ObjectUtil.isNull(data)) {
+        if (ObjectUtil.isEmpty(data)) {
             // token不正确 返回204
             logger.error("--------token值错误---------》主办方查看我已发布的活动 8");
             return Result.error("204", "token值错误");
@@ -597,7 +597,7 @@ public class ActivityController extends BaseController {
     @GetMapping(value = "getObtainedActivityListByToken")
     public Result<PageInfo<Activity>> getObtainedActivityListByToken(@RequestParam String token, @RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "10") Integer row) {
         String data = TokenUtils.getDataByKey(token);
-        if (ObjectUtil.isNull(data)) {
+        if (ObjectUtil.isEmpty(data)) {
             // token不正确 返回204
             logger.error("--------token值错误---------》用户查询我的已下架活动 9");
             return Result.error("204", "token值错误");
@@ -631,7 +631,7 @@ public class ActivityController extends BaseController {
     @GetMapping(value = "getOverActivityListByToken")
     public Result<List<ActivityResult>> getOverActivityListByToken(@RequestParam String token, @RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "10") Integer row) {
         String data = TokenUtils.getDataByKey(token);
-        if (ObjectUtil.isNull(data)) {
+        if (ObjectUtil.isEmpty(data)) {
             // token不正确 返回204
             logger.error("--------token值错误---------》主办方查询我的已结束活动 10");
             return Result.error("204", "token值错误");
@@ -665,7 +665,7 @@ public class ActivityController extends BaseController {
     @GetMapping(value = "getReportedActivityListByToken")
     public Result<List<ActivityResult>> getReportedActivityListByToken(@RequestParam String token, @RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "10") Integer row) {
         String data = TokenUtils.getDataByKey(token);
-        if (ObjectUtil.isNull(data)) {
+        if (ObjectUtil.isEmpty(data)) {
             // token不正确 返回204
             logger.error("--------token值错误---------》主办方查询我的被举报活动 11");
             return Result.error("204", "token值错误");
@@ -699,7 +699,7 @@ public class ActivityController extends BaseController {
     @GetMapping(value = "getDraftsActivityListByToken")
     public Result<List<ActivityResult>> getDraftsActivityListByToken(@RequestParam String token, @RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "10") Integer row) {
         String data = TokenUtils.getDataByKey(token);
-        if (ObjectUtil.isNull(data)) {
+        if (ObjectUtil.isEmpty(data)) {
             // token不正确 返回204
             logger.error("--------token值错误---------》主办方查询草稿箱的活动 12");
             return Result.error("204", "token值错误");
@@ -733,7 +733,7 @@ public class ActivityController extends BaseController {
     @GetMapping(value = "getViewUserManagementListByToken")
     public Result<List<ActivityResult>> getViewUserManagementListByToken(@RequestParam String token, @RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "10") Integer row) {
         String data = TokenUtils.getDataByKey(token);
-        if (ObjectUtil.isNull(data)) {
+        if (ObjectUtil.isEmpty(data)) {
             // token不正确 返回204
             logger.error("--------token值错误---------》主办方查看客户管理 13");
             return Result.error("204", "token值错误");
@@ -759,14 +759,17 @@ public class ActivityController extends BaseController {
     /**
      * 14 根据token 主办方查看活动报名情况
      *
-     * @param token      用户token值
-     * @param activityId 活动id
+     * @param token          用户token值
+     * @param activityId     活动id
+     * @param dealStatus     用户每个活动收费对应的支付状态0，为未成交，1为已成交
+     * @param usersignStatus 签到状态，0为未签到，1表示已签到
+     * @param paymentStatus  支付提成给经理人的支付状态 0 未支付  1已支付
      * @return 返回当前活动的报名详情
      */
     @GetMapping(value = "getEventRegistrationByTokenAndActivityId")
-    public Result<List<Uenrollandactivity>> getEventRegistrationByTokenAndActivityId(@RequestParam String token, @RequestParam String activityId) {
+    public Result<ActivityResult> getEventRegistrationByTokenAndActivityId(@RequestParam String token, @RequestParam String activityId, @RequestParam(defaultValue = "") Integer dealStatus, @RequestParam(defaultValue = "") Integer usersignStatus, @RequestParam(defaultValue = "") Integer paymentStatus, @RequestParam(defaultValue = "") String keywords) {
         String data = TokenUtils.getDataByKey(token);
-        if (ObjectUtil.isNull(data)) {
+        if (ObjectUtil.isEmpty(data)) {
             // token不正确 返回204
             logger.error("--------token值错误---------》主办方查看活动报名情况 14");
             return Result.error("204", "token值错误");
@@ -779,13 +782,20 @@ public class ActivityController extends BaseController {
                 logger.error("--------用户不存在---------》主办方查看活动报名情况 14");
                 return Result.error("206", "用户不存在");
             }
-            if (ObjectUtil.isNull(activityId)) {
+            if (ObjectUtil.isEmpty(activityId)) {
                 //用户为空返回403
                 logger.error("--------参数异常---------》主办方查看活动报名情况 14");
                 return Result.error("207", "参数异常");
             }
-            List<Uenrollandactivity> result = ueService.queryListByWhere(u, activityId);
-            return Result.success(result);
+            Activity activity = activityService.queryById(activityId);
+            if (ObjectUtil.isNotNull(activity) && !activity.getUserId().equals(u.getUserId())) {
+                return Result.error("209", "没有权限查看");
+            }
+            if (0 == activity.getOnlineStatus() || 2 == activity.getOnlineStatus()) {
+                ActivityResult result = ueService.queryListByWhere(u, activityId, dealStatus, usersignStatus, paymentStatus, keywords);
+                return Result.success(result);
+            }
+            return Result.error("403", "活动异常");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -805,7 +815,7 @@ public class ActivityController extends BaseController {
     @GetMapping(value = "userActivitySignUpByTokenAndActivityId")
     public Result userActivitySignUpByTokenAndActivityId(@RequestParam String token, @RequestParam String activityId, List<Activitysign> activitySigns) {
         String data = TokenUtils.getDataByKey(token);
-        if (ObjectUtil.isNull(data)) {
+        if (ObjectUtil.isEmpty(data)) {
             // token不正确 返回204
             logger.error("--------token值错误---------》用户活动报名 15");
             return Result.error("204", "token值错误");
@@ -818,7 +828,7 @@ public class ActivityController extends BaseController {
                 logger.error("--------用户不存在---------》用户活动报名 15");
                 return Result.error("206", "用户不存在");
             }
-            if (ObjectUtil.isNull(activityId) || ObjectUtil.isNull(activitySigns)) {
+            if (ObjectUtil.isEmpty(activityId) || ObjectUtil.isNull(activitySigns)) {
                 //用户为空返回403
                 logger.error("--------参数异常---------》用户活动报名 15");
                 return Result.error("207", "参数异常");

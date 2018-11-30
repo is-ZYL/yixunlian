@@ -62,6 +62,11 @@ public class Result<T> {
         this.msg = msg;
     }
 
+    private Result(String msg, T data) {
+        this.data = data;
+        this.msg = msg;
+    }
+
     private Result(String code, String msg, T data) {
         this.code = code;
         this.msg = msg;
@@ -164,6 +169,17 @@ public class Result<T> {
     }
 
     /**
+     * 根据msg, 和 data 构建返回结果
+     *
+     * @param msg
+     * @param <T>
+     * @return
+     */
+    public static <T> Result<T> build(String msg, T data) {
+        return new Result<T>("204", msg, data);
+    }
+
+    /**
      * 失败的调用
      *
      * @param codeMsg
@@ -181,8 +197,8 @@ public class Result<T> {
      * @param <T>
      * @return
      */
-    public static <T> Result<T> error(String codeMsg, T data) {
-        return new Result<>("204", codeMsg, data);
+    public static <T> Result<T> error(String code, String codeMsg) {
+        return new Result<>(code, codeMsg);
     }
 
     /**
@@ -192,8 +208,8 @@ public class Result<T> {
      * @param <T>
      * @return
      */
-    public static <T> Result<T> error(String code, String codeMsg) {
-        return new Result<>(code, codeMsg);
+    public static <T> Result<T> error(String codeMsg, T data) {
+        return new Result<T>(codeMsg, data);
     }
 
     /**

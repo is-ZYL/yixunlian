@@ -768,6 +768,24 @@ public class UserService extends BaseService<User> {
         }
         return null;
     }
+
+    /**
+     * 批量更新用户归属关系
+     *
+     * @param resourceList
+     */
+    public Integer updateSelective(List<User> resourceList) {
+        int count = 0;
+        for (User user : resourceList) {
+            count += userService.updateSelective(user);
+        }
+        return count;
+    }
+
+
+
+
+
     /*-------------------------------测试--------------------------------------------*/
 
     /**

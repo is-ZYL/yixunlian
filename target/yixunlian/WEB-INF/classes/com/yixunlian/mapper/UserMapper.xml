@@ -110,17 +110,4 @@
         or memberid like concat( '%',#{maps.keyWord},'%')
         order by created desc
     </select>
-
-
-
-
-
-
-
-
-
-
-
-
-
 </mapper>

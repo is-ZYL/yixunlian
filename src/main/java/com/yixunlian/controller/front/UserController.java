@@ -1035,7 +1035,7 @@ public class UserController extends BaseController {
                 return Result.success("删除成功", Const.SUCCESS);
             }
             logger.error("----------activityId参数为空------------》用户逻辑删除参与的活动 16");
-            return Result.error(Const.FAIL);
+            return Result.error("activityId参数为空", Const.FAIL);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1066,9 +1066,13 @@ public class UserController extends BaseController {
                 logger.error("----------用户不存在------------》用户收藏活动 18");
                 return Result.error("206", "用户不存在");
             }
-            if (ObjectUtil.isNotNull(activityId)) {
+            if (ObjectUtil.notEmpty(activityId)) {
                 //保存到数据库
                 UCollection u = new UCollection(user.getUserId(), activityId);
+                UCollection uCollection = uCollectionService.queryOne(u);
+                if (ObjectUtil.isNotNull(uCollection)) {
+                    return Result.success(Const.SUCCESS);
+                }
                 uCollectionService.save(u);
                 return Result.success(Const.SUCCESS);
             }
@@ -1104,16 +1108,14 @@ public class UserController extends BaseController {
                 logger.error("----------用户不存在------------》检查当前用户是否收藏此活动 19");
                 return Result.error("206", "用户不存在");
             }
-            if (ObjectUtil.isNotNull(activityId)) {
+            if (ObjectUtil.notEmpty(activityId)) {
                 //保存到数据库
-                UCollection u = new UCollection(user.getUserId(), activityId);
+                UCollection u = new UCollection();
+                u.setUserId(user.getUserId());
+                u.setActivityId(activityId);
                 UCollection result = uCollectionService.queryOne(u);
                 //为空则未收藏当前活动 返回0反之返回1
-                if (ObjectUtil.isNotNull(result)) {
-                    return Result.success(Const.FAIL);
-                } else {
-                    return Result.success(Const.SUCCESS);
-                }
+                return null == result ? Result.success(Const.FAIL) : Result.success(Const.SUCCESS);
             }
             logger.error("----------activityId参数为空------------》检查当前用户是否收藏此活动 19");
             return Result.error("403", "参数异常");
@@ -1133,9 +1135,9 @@ public class UserController extends BaseController {
      * @return 0 取消失败 1取消成功
      */
     @PostMapping(value = "cancelActivityByActivityId")
-    public Result<Integer> cancelActivityByActivityId(@RequestParam String token, String activityId) {
+    public Result<?> cancelActivityByActivityId(@RequestParam String token, String activityId) {
         String data = TokenUtils.getDataByKey(token);
-        if (ObjectUtil.isNull(data)) {
+        if (ObjectUtil.isEmpty(data)) {
             // token不正确 返回204
             logger.error("----------token不正确------------》用户取消收藏活动 20");
             return Result.error("204", "token值错误");
@@ -1147,10 +1149,12 @@ public class UserController extends BaseController {
                 logger.error("----------用户不存在------------》用户取消收藏活动 20");
                 return Result.error("206", "用户不存在");
             }
-            if (ObjectUtil.isNotNull(activityId)) {
-                UCollection u = new UCollection(user.getUserId(), activityId);
-                uCollectionService.deleteByWhere(u);
-                return Result.success(Const.SUCCESS);
+            if (ObjectUtil.notEmpty(activityId)) {
+                UCollection u = new UCollection();
+                u.setUserId(user.getUserId());
+                u.setActivityId(activityId);
+                Integer integer = uCollectionService.deleteByWhere(u);
+                return 1 == integer ? Result.success(integer) : Result.error("204", "取消失败", null);
             }
             logger.error("----------activityId为空------------》用户取消收藏活动 20");
             return Result.error("403", "参数异常");
@@ -1287,7 +1291,7 @@ public class UserController extends BaseController {
      * @return 返回EasyUIResult
      */
     @GetMapping(value = "getCollectionActivityByToken")
-    public Result<PageInfo<Activity>> getCollectionActivityByToken(@RequestParam String token, @RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "10") Integer rows) {
+    public Result<List<Activity>> getCollectionActivityByToken(@RequestParam String token, @RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "10") Integer rows) {
         logger.info("----------------------》用户查看收藏的活动列表 22");
         String data = TokenUtils.getDataByKey(token);
         if (ObjectUtil.isNull(data)) {
@@ -1304,7 +1308,7 @@ public class UserController extends BaseController {
             //分页查询当前用户收藏的活动数据
             PageInfo<UCollection> list = uCollectionService.queryPageListByUser(page, rows, user);
             //根据活动数据查询出所有活动
-            PageInfo<Activity> result = activityService.queryPageListByActivity(list.getList());
+            List<Activity> result = activityService.queryPageListByActivity(list.getList());
             //结果封装
             return Result.success(result);
         } catch (IOException e) {

@@ -45,6 +45,16 @@ public class ActivityResult {
     private Integer joinTotal = 0;
 
     /**
+     * 签到此活动的人数
+     */
+    private Integer signInTotal = 0;
+
+    /**
+     * 成交此活动的人数
+     */
+    private Integer transactionTotal = 0;
+
+    /**
      * 报名此活动的用户id
      */
     private List<String> joinUids;

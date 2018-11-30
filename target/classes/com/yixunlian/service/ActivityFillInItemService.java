@@ -11,6 +11,7 @@
 package com.yixunlian.service;
 
 import com.github.abel533.entity.Example;
+import util.myutils.ListUtils;
 import util.myutils.ObjectUtil;
 import com.yixunlian.mapper.ActivityFillInItemMapper;
 import com.yixunlian.pojo.Activity;
@@ -103,11 +104,12 @@ public class ActivityFillInItemService extends BaseService<ActivityFillInItem> {
      */
     public List<ActivityFillInItem> queryItemByActivityId(String activityId) {
         Example e = new Example(ActivityFillInItem.class);
-        e.createCriteria()
-                .andEqualTo("type", 0)
-                .andEqualTo("type", 1)
-                .andEqualTo("activityId", activityId);
-        e.setDistinct(true);
-        return activityFillInItemMapper.selectByExample(e);
+
+        e.createCriteria().andEqualTo("type", 0);
+        List<ActivityFillInItem> itemList = activityFillInItemMapper.selectByExample(e);
+        e.createCriteria();
+        e.createCriteria().andEqualTo("activityId", activityId);
+        itemList.addAll(activityFillInItemMapper.selectByExample(e));
+        return ListUtils.removeDuplicate(itemList);
     }
 }

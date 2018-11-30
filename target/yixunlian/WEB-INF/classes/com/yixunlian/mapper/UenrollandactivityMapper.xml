@@ -13,6 +13,7 @@
         <result column="organizer_id" jdbcType="VARCHAR" property="organizerId"/>
         <result column="activitycategory_id" jdbcType="VARCHAR" property="activitycategoryId"/>
         <result column="deal_status" jdbcType="INTEGER" property="dealStatus"/>
+        <result column="transaction_num" jdbcType="DECIMAL" property="transactionNum"/>
         <result column="usersign_status" jdbcType="INTEGER" property="usersignStatus"/>
         <result column="payment_status" jdbcType="INTEGER" property="paymentStatus"/>
         <result column="payment_num" jdbcType="DECIMAL" property="paymentNum"/>
@@ -26,7 +27,7 @@
     </resultMap>
     <sql id="Base_Column_List">
     uAndactivityEnroll_id, user_id, u_nickname, u_sex, u_phone, head_url, change_head_url,
-    activity_id, organizer_id, activitycategory_id, deal_status, usersign_status, payment_status,
+    activity_id, organizer_id, activitycategory_id, deal_status, transaction_num,usersign_status, payment_status,
     payment_num, status, created, updated, remark
   </sql>
     <sql id="Blob_Column_List">

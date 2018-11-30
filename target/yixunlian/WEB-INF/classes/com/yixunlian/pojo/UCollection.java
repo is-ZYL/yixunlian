@@ -5,7 +5,6 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -34,14 +33,15 @@ public class UCollection extends BasePojo {
     }
 
     public UCollection(String userId, String activityId) {
-        this.init();
+        init();
         this.userId = userId;
         this.activityId = activityId;
     }
 
     /**
      * 收藏表
-     * @return collection_id 
+     *
+     * @return collection_id
      */
     public String getCollectionId() {
         return collectionId;
@@ -49,7 +49,8 @@ public class UCollection extends BasePojo {
 
     /**
      * 收藏表
-     * @param collectionId 
+     *
+     * @param collectionId
      */
     public void setCollectionId(String collectionId) {
         this.collectionId = collectionId == null ? null : collectionId.trim();
@@ -57,7 +58,8 @@ public class UCollection extends BasePojo {
 
     /**
      * 关联用户表
-     * @return user_id 
+     *
+     * @return user_id
      */
     public String getUserId() {
         return userId;
@@ -65,7 +67,8 @@ public class UCollection extends BasePojo {
 
     /**
      * 关联用户表
-     * @param userId 
+     *
+     * @param userId
      */
     public void setUserId(String userId) {
         this.userId = userId == null ? null : userId.trim();
@@ -73,7 +76,8 @@ public class UCollection extends BasePojo {
 
     /**
      * 关联活动表
-     * @return activity_id 
+     *
+     * @return activity_id
      */
     public String getActivityId() {
         return activityId;
@@ -81,7 +85,8 @@ public class UCollection extends BasePojo {
 
     /**
      * 关联活动表
-     * @param activityId 
+     *
+     * @param activityId
      */
     public void setActivityId(String activityId) {
         this.activityId = activityId == null ? null : activityId.trim();
@@ -92,10 +97,8 @@ public class UCollection extends BasePojo {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
 
-    public void init() {
+    public UCollection init() {
         this.collectionId = UUID.randomUUID().toString().replace("-", "");
-        Date date = new Date();
-        this.setCreated(date);
-        this.setUpdated(date);
+        return this;
     }
 }

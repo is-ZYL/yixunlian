@@ -70,6 +70,11 @@ public class Uenrollandactivity extends BasePojo {
     private Integer dealStatus;
 
     /**
+     * 每个用户的成交金额
+     */
+    private BigDecimal transactionNum;
+
+    /**
      * 签到状态，0为未签到，1表示已签到
      */
     private Integer usersignStatus;

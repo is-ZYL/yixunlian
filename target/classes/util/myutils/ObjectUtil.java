@@ -73,7 +73,7 @@ public class ObjectUtil {
      * @return
      */
     public static boolean isNotNull(Object obj) {
-        return null != obj && "" != obj || !"null".equals(obj);
+        return null != obj;
     }
 
     /**

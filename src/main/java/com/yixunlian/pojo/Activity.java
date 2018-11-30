@@ -170,15 +170,15 @@ public class Activity extends BasePojo {
     /**
      * 活动浏览量
      */
-    private Integer views;
+    private Integer views = 0;
     /**
      * 活动报名人数
      */
-    private Integer joinNum;
+    private Integer joinNum = 0;
     /**
      * 活动支付状态 0未支付 ,1 未支付
      */
-    private Integer paymentResult;
+    private Integer paymentResult = 0;
 
     public static Activity getActivity() {
         return new Activity();
@@ -186,11 +186,10 @@ public class Activity extends BasePojo {
 
     public Activity init() {
         this.activityId = UUID.randomUUID().toString().replace("-", "");
-        Date date = new Date();
-        this.setCreated(date);
-        this.setUpdated(date);
         //设置浏览量为0
         this.setViews(0);
+        //活动报名数量
+        this.setJoinNum(0);
         //活动报名状态，0为未开始，1为报名中，2为已经报名结束
         this.setActivitySignupstatus(0);
         //活动状态，0为活动未开始，1为活动进行中，2活动已经结束

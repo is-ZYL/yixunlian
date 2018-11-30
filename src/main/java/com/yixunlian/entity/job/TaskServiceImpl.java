@@ -187,20 +187,22 @@ public class TaskServiceImpl implements TaskService {
                 try {
                     if (resourceList.size() > 0) {
                         //更新所属当前会员的 所有会员的所属关系
-                        //  userService.updateSelective(resourceList);
+                        Integer updateCount = userService.updateSelective(resourceList);
+                        log.info("用户更新归属关系，共" + resourceList.size() + "条数据" + ",更新了" + updateCount + "条数据");
                     }
                 } catch (Exception e) {
                     log.log(Level.ALL, e.toString());
                 }
-                // memberDao.updateById(u);
+                userService.updateSelective(u);
             }
 
-            ///发送模板消息
+            //发送模板消息
             //if (u.getTermOfTrial() != null) {
             //    GregorianCalendar calendar = new GregorianCalendar();
             //    calendar.setTime(u.getTermOfTrial());
             //    calendar.add(Calendar.DAY_OF_MONTH, -dayNumber);
-            //    Date date = calendar.getTime();//获取当前时间前【dayNumber】天，dayNumber为续费提前提醒天数
+            //获取当前时间前【dayNumber】天，dayNumber为续费提前提醒天数
+            //    Date date = calendar.getTime();
             //    if (date.getTime() <= now.getTime()) {
             //        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             //        //发送模板消息
