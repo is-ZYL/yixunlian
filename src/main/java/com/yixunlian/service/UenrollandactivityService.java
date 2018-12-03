@@ -17,8 +17,8 @@ import com.yixunlian.mapper.UenrollandactivityMapper;
 import com.yixunlian.pojo.Activity;
 import com.yixunlian.pojo.OrganizerInfo;
 import com.yixunlian.pojo.Uenrollandactivity;
-import com.yixunlian.pojo.User;
 import com.yixunlian.service.baseservice.BaseService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import util.myutils.BigDecimalUtils;
 import util.myutils.ObjectUtil;
@@ -39,6 +39,7 @@ import java.util.Map;
  * @since 1.0.0
  */
 @Service
+@Slf4j
 public class UenrollandactivityService extends BaseService<Uenrollandactivity> {
 
     @Resource(name = "uenrollandactivityMapper")
@@ -79,7 +80,7 @@ public class UenrollandactivityService extends BaseService<Uenrollandactivity> {
      */
     public List<ActivityResult> queryTotalCountAndUser(Map<String, String> list, OrganizerInfo o) {
         List<ActivityResult> activityResults = new ArrayList<>();
-        for (Map.Entry m : list.entrySet()) {
+        for (Map.Entry<String, String> m : list.entrySet()) {
             Uenrollandactivity build = Uenrollandactivity.getUenrollAndActivity()
                     .toBuilder()
                     .organizerId(o.getUserId())
@@ -98,7 +99,6 @@ public class UenrollandactivityService extends BaseService<Uenrollandactivity> {
     /**
      * 根据活动id查询活动报名情况
      *
-     * @param u
      * @param activityId     活动id
      * @param dealStatus     用户每个活动收费对应的支付状态0，为未成交，1为已成交
      * @param usersignStatus 签到状态，0为未签到，1表示已签到
@@ -106,7 +106,7 @@ public class UenrollandactivityService extends BaseService<Uenrollandactivity> {
      * @param keywords       关键字搜索  手机号和姓名
      * @return
      */
-    public ActivityResult queryListByWhere(User u, String activityId, Integer dealStatus, Integer usersignStatus, Integer paymentStatus, String keywords) {
+    public ActivityResult queryListByWhere(String activityId, Integer dealStatus, Integer usersignStatus, Integer paymentStatus, String keywords) {
         Example e = new Example(Uenrollandactivity.class);
         Criteria criteria = e.createCriteria();
         if (ObjectUtil.notEmpty(activityId)) {
@@ -131,6 +131,9 @@ public class UenrollandactivityService extends BaseService<Uenrollandactivity> {
             criteria.andEqualTo("uNickname", keywords);
         }
         List<Uenrollandactivity> uenrollandactivities = uenrollandactivityMapper.selectByExample(e);
+
+        log.info("主办方查看用户报名信息：uen:{}", uenrollandactivities);
+
         ActivityResult result = ActivityResult.getActivityResult();
         //报名人数
         Integer joinTotal = uenrollandactivities.size();
@@ -146,7 +149,7 @@ public class UenrollandactivityService extends BaseService<Uenrollandactivity> {
         //dealStatus     用户每个活动收费对应的支付状态0，为未成交，1为已成交
         //usersignStatus 签到状态，0为未签到，1表示已签到
         //paymentStatus  支付提成给经理人的支付状态 0 未支付  1已支付
-
+        List<Uenrollandactivity> obj = new ArrayList<>();
         for (Uenrollandactivity ue : uenrollandactivities) {
             //已签到
             if (1 == ue.getUsersignStatus()) {
@@ -158,15 +161,17 @@ public class UenrollandactivityService extends BaseService<Uenrollandactivity> {
                 //计算成交总金额
                 transactionTotalAmount = BigDecimalUtils.safeAdd(transactionTotalAmount, ue.getTransactionNum());
             }
-
             //已成交
             if (1 == ue.getDealStatus()) {
                 transactionTotal++;
                 //计算成交总金额
                 BigDecimalUtils.safeAdd(transactionTotalAmount, ue.getTransactionNum());
             }
-
+            //添加至list中
+            obj.add(ue);
         }
-        return null;
+        //封装用户数据
+        result.setObj(obj);
+        return result;
     }
 }

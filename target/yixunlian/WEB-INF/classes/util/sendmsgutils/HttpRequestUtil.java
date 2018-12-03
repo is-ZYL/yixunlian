@@ -56,7 +56,6 @@ public class HttpRequestUtil {
         for (Map.Entry<String, String> entry : params.entrySet()) {
             postMethod.addParameter(entry.getKey(), entry.getValue());
         }
-
         //使用系统提供的默认的恢复策略,设置请求重试处理，用的是默认的重试处理：请求三次
         httpClient.getParams().setBooleanParameter("http.protocol.expect-continue", false);
 
@@ -65,7 +64,6 @@ public class HttpRequestUtil {
         try {
             //执行Http Post请求
             httpClient.executeMethod(postMethod);
-
             //返回处理结果
             result = postMethod.getResponseBodyAsString();
         } catch (HttpException e) {
@@ -79,7 +77,6 @@ public class HttpRequestUtil {
         } finally {
             //释放链接
             postMethod.releaseConnection();
-
             //关闭HttpClient实例
             if (httpClient != null) {
                 ((SimpleHttpConnectionManager) httpClient.getHttpConnectionManager()).shutdown();
@@ -105,23 +102,19 @@ public class HttpRequestUtil {
     public static String getRequest(String url, Map<String, String> params) {
         //构造HttpClient实例
         HttpClient client = new HttpClient();
-
         //拼接参数
         StringBuilder paramStr = new StringBuilder();
         for (String key : params.keySet()) {
             paramStr.append("&").append(key).append("=").append(params.get(key));
         }
         paramStr = new StringBuilder(paramStr.substring(1));
-
         //创建GET方法的实例
         GetMethod method = new GetMethod(url + "?" + paramStr);
-
         //接收返回结果
         String result = null;
         try {
             //执行HTTP GET方法请求
             client.executeMethod(method);
-
             //返回处理结果
             result = method.getResponseBodyAsString();
         } catch (HttpException e) {
@@ -135,7 +128,6 @@ public class HttpRequestUtil {
         } finally {
             //释放链接
             method.releaseConnection();
-
             //关闭HttpClient实例
             if (client != null) {
                 ((SimpleHttpConnectionManager) client.getHttpConnectionManager()).shutdown();

@@ -154,7 +154,7 @@ public class WxPayController extends BaseController {
         String timeStamp = "" + System.currentTimeMillis();// 时间
         String access = rService.get("accessToken");
         if (ObjectUtil.isNull(access)) {
-            access = WxUtil.getAt();
+            access = WxUtil.getAccessToken();
         }
         // 获取ticket
         String ur = "https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=" + access + "&type=jsapi";
@@ -173,7 +173,7 @@ public class WxPayController extends BaseController {
     public ResponseEntity<String> getCustomer() {
         String access = rService.get("accessToken");
         if (ObjectUtil.isNull(access)) {
-            access = WxUtil.getAt();
+            access = WxUtil.getAccessToken();
         }
         logger.info("access_token=" + access);
         String result2 = HttpKit.get("https://api.weixin.qq.com/cgi-bin/customservice/getkflist?access_token=" + access);

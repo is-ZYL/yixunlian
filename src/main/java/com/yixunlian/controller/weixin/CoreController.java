@@ -12,20 +12,13 @@ package com.yixunlian.controller.weixin;
 
 import com.yixunlian.controller.base.BaseController;
 import com.yixunlian.service.weixin.CoreService;
-import javafx.scene.text.TextBuilder;
 import org.apache.commons.lang3.StringUtils;
-import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 import util.express.util.SignUtil;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
 
 /**
  * 〈一句话功能简述〉<br>

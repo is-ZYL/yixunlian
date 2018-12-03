@@ -40,11 +40,6 @@ public class Uenrollandactivity extends BasePojo {
     private String uPhone;
 
     /**
-     * 报名用户微信头像
-     */
-    private String headUrl;
-
-    /**
      * 报名用户更改过后的头像
      */
     private String changeHeadUrl;
@@ -98,6 +93,17 @@ public class Uenrollandactivity extends BasePojo {
      * 备注
      */
     private String remark;
+
+    /**
+     * 活动邀约人
+     */
+    private String eventSharer;
+
+
+    /**
+     * 活动邀约人会员号
+     */
+    private String eventSharerMemberid;
 
     /**
      * 主办方对每个活动的每个报名用户的备注

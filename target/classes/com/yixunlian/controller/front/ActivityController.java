@@ -12,9 +12,7 @@ package com.yixunlian.controller.front;
 
 import com.github.pagehelper.PageInfo;
 import com.yixunlian.controller.base.BaseController;
-import com.yixunlian.entity.ActivityInfo;
-import com.yixunlian.entity.ActivityResult;
-import com.yixunlian.entity.Result;
+import com.yixunlian.entity.*;
 import com.yixunlian.entity.job.JobManage;
 import com.yixunlian.pojo.*;
 import com.yixunlian.service.*;
@@ -792,7 +790,7 @@ public class ActivityController extends BaseController {
                 return Result.error("209", "没有权限查看");
             }
             if (0 == activity.getOnlineStatus() || 2 == activity.getOnlineStatus()) {
-                ActivityResult result = ueService.queryListByWhere(u, activityId, dealStatus, usersignStatus, paymentStatus, keywords);
+                ActivityResult result = ueService.queryListByWhere(activityId, dealStatus, usersignStatus, paymentStatus, keywords);
                 return Result.success(result);
             }
             return Result.error("403", "活动异常");
@@ -807,14 +805,13 @@ public class ActivityController extends BaseController {
     /**
      * 15 根据token 用户活动报名
      *
-     * @param token         用户token值
-     * @param activitySigns 用户报名填写内容
-     * @param activityId    活动id
-     * @return 返回当前活动的报名详情
+     * @param activitySingInfo 活动报名参数
+     * @return 返回活动报名结果
      */
-    @GetMapping(value = "userActivitySignUpByTokenAndActivityId")
-    public Result userActivitySignUpByTokenAndActivityId(@RequestParam String token, @RequestParam String activityId, List<Activitysign> activitySigns) {
-        String data = TokenUtils.getDataByKey(token);
+    @PostMapping(value = "userActivitySignUpByTokenAndActivityId")
+    public Result userActivitySignUpByTokenAndActivityId(@RequestBody ActivitySingInfo activitySingInfo) {
+        logger.info("活动报名===token__activityId__activitySions,[{},{},{}]", activitySingInfo.getToken(), activitySingInfo.getActivityId(), activitySingInfo.getActivitySign());
+        String data = TokenUtils.getDataByKey(activitySingInfo.getToken());
         if (ObjectUtil.isEmpty(data)) {
             // token不正确 返回204
             logger.error("--------token值错误---------》用户活动报名 15");
@@ -828,18 +825,94 @@ public class ActivityController extends BaseController {
                 logger.error("--------用户不存在---------》用户活动报名 15");
                 return Result.error("206", "用户不存在");
             }
-            if (ObjectUtil.isEmpty(activityId) || ObjectUtil.isNull(activitySigns)) {
+            if (ObjectUtil.isEmpty(activitySingInfo.getActivityId()) || ObjectUtil.isNull(activitySingInfo.getActivitySign())) {
                 //用户为空返回403
                 logger.error("--------参数异常---------》用户活动报名 15");
                 return Result.error("207", "参数异常");
             }
             u = userService.queryById(u.getUserId());
-            return activityService.activitySignUp(u, activityId, activitySigns);
+            logger.info("活动报名，用户信息 u:{}", u);
+            return activityService.activitySignUp(u, activitySingInfo);
         } catch (IOException e) {
             e.printStackTrace();
         }
         // 出错500
         logger.error("--------服务器异常---------》用户活动报名 15");
+        return Result.error("500", "服务器异常");
+    }
+
+    /**
+     * 16 根据token 查询用户是否已经报名活动
+     *
+     * @param token      token
+     * @param activityId 活动id
+     * @return 返回 0 未报名  1 已报名
+     */
+    @GetMapping(value = "userIsActivitySignUpByTokenAndActivityId")
+    public Result<Integer> userIsActivitySignUpByTokenAndActivityId(@RequestParam String token, @RequestParam String activityId) {
+        String data = TokenUtils.getDataByKey(token);
+        if (ObjectUtil.isEmpty(data)) {
+            // token不正确 返回204
+            logger.error("--------token值错误---------》查询用户是否已经报名活动 16");
+            return Result.error("204", "token值错误");
+        }
+        //通过token值获取user对象
+        try {
+            User u = MAPPER.readValue(data, User.class);
+            if (ObjectUtil.isNull(u)) {
+                //用户为空返回403
+                logger.error("--------用户不存在---------》查询用户是否已经报名活动 16");
+                return Result.error("206", "用户不存在");
+            }
+            if (ObjectUtil.isEmpty(activityId)) {
+                //用户为空返回403
+                logger.error("--------参数异常---------》查询用户是否已经报名活动 16");
+                return Result.error("207", "参数异常");
+            }
+            return ueService.queryOneByUser(u.getUserId(), activityId) == null ? Result.success("未报名", 0) : Result.success("已报名", 1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // 出错500
+        logger.error("--------服务器异常---------》查询用户是否已经报名活动 16");
+        return Result.error("500", "服务器异常");
+    }
+
+    /**
+     * 17 根据token 主办方查询用户的报名信息
+     *
+     * @param token      token
+     * @param activityId 活动id
+     * @param userId     用户id
+     * @return 返回 当前用户的报名信息
+     */
+    @GetMapping(value = "organizerCheckUserInfoByToken")
+    public Result<ActivitySignUpInfo> organizerCheckUserInfoByToken(@RequestParam String token, @RequestParam String activityId, @RequestParam String userId) {
+        String data = TokenUtils.getDataByKey(token);
+        if (ObjectUtil.isEmpty(data)) {
+            // token不正确 返回204
+            logger.error("--------token值错误---------》主办方查询用户的报名信息 17");
+            return Result.error("204", "token值错误");
+        }
+        //通过token值获取user对象
+        try {
+            User u = MAPPER.readValue(data, User.class);
+            if (ObjectUtil.isNull(u)) {
+                //用户为空返回403
+                logger.error("--------用户不存在---------》主办方查询用户的报名信息 17");
+                return Result.error("206", "用户不存在");
+            }
+            if (ObjectUtil.isEmpty(activityId)) {
+                //用户为空返回403
+                logger.error("--------参数异常---------》主办方查询用户的报名信息 17");
+                return Result.error("207", "参数异常");
+            }
+            return activityService.queryActivitySignUpInfo(u.getUserId(), activityId, userId);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // 出错500
+        logger.error("--------服务器异常---------》主办方查询用户的报名信息 17");
         return Result.error("500", "服务器异常");
     }
 

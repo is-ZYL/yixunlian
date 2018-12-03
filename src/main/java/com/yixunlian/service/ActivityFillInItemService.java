@@ -10,17 +10,17 @@
  */
 package com.yixunlian.service;
 
-import com.github.abel533.entity.Example;
-import util.myutils.ListUtils;
-import util.myutils.ObjectUtil;
 import com.yixunlian.mapper.ActivityFillInItemMapper;
 import com.yixunlian.pojo.Activity;
 import com.yixunlian.pojo.ActivityFillInItem;
 import com.yixunlian.service.baseservice.BaseService;
 import org.springframework.stereotype.Service;
+import util.myutils.ObjectUtil;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 〈一句话功能简述〉<br>
@@ -103,13 +103,9 @@ public class ActivityFillInItemService extends BaseService<ActivityFillInItem> {
      * @return 返回 List<ActivityFillInItem>
      */
     public List<ActivityFillInItem> queryItemByActivityId(String activityId) {
-        Example e = new Example(ActivityFillInItem.class);
-
-        e.createCriteria().andEqualTo("type", 0);
-        List<ActivityFillInItem> itemList = activityFillInItemMapper.selectByExample(e);
-        e.createCriteria();
-        e.createCriteria().andEqualTo("activityId", activityId);
-        itemList.addAll(activityFillInItemMapper.selectByExample(e));
-        return ListUtils.removeDuplicate(itemList);
+        Map<String, Object> map = new HashMap<>(3);
+        map.put("activityId", activityId);
+        map.put("type", 0);
+        return this.activityFillInItemMapper.selectByActivityIdAndType(map);
     }
 }

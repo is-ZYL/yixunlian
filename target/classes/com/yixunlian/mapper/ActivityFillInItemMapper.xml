@@ -11,6 +11,15 @@
         <result column="remark" jdbcType="VARCHAR" property="remark"/>
     </resultMap>
     <sql id="Base_Column_List">
-    fill_in_item_id, activity_id, fill_in_item_name, created, updated, remark
+    fill_in_item_id, activity_id, fill_in_item_name, type,created, updated, remark
   </sql>
+
+    <!--查询活动报名填写项-->
+    <select id="selectByActivityIdAndType" resultMap="BaseResultMap" parameterType="java.util.Map">
+        select distinct
+        <include refid="Base_Column_List"/>
+        from
+        td_activity_fill_in_item as t
+        where t.type = #{map.type} or t.activity_id=#{map.activityId}
+    </select>
 </mapper>

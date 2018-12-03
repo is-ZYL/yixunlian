@@ -15,9 +15,7 @@ import com.github.abel533.entity.Example;
 import com.github.abel533.entity.Example.Criteria;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.yixunlian.entity.ActivityInfo;
-import com.yixunlian.entity.ActivityResult;
-import com.yixunlian.entity.Result;
+import com.yixunlian.entity.*;
 import com.yixunlian.mapper.ActivityMapper;
 import com.yixunlian.pojo.*;
 import com.yixunlian.service.baseservice.BaseService;
@@ -1045,43 +1043,52 @@ public class ActivityService extends BaseService<Activity> {
      * 用户报名活动
      *
      * @param u
-     * @param activityId
-     * @param activitySigns
+     * @param ac
      * @return
      */
-    public Result activitySignUp(User u, String activityId, List<Activitysign> activitySigns) {
+    public synchronized Result activitySignUp(User u, ActivitySingInfo ac) {
+        //检查用户信息是否合格
         boolean userIsOk = userService.checkUserIsOk(u, false);
-        Activity activity = super.queryById(activityId);
+        Activity activity = super.queryById(ac.getActivityId());
+        //检查活动是否合格
         boolean activityIsOk = checkActivityIsOk(activity);
+        //检查当前用户是否已经报名
+        Uenrollandactivity ue = ueService.queryOneByUser(u.getUserId(), activity.getActivityId());
+        if (ObjectUtil.isNotNull(ue)) {
+            return Result.error("405", "当前用户已经报名");
+        }
+
         if (!userIsOk) {
-            log.debug("报名活动，用户身份不合格,封号或者未激活[{},{},{}]", getClass(), 1008, u);
+            log.error("报名活动，用户身份不合格,封号或者未激活[{},{},{}]", getClass(), 1008, u);
             return Result.error("403", "用户身份不合格");
         }
         if (!activityIsOk) {
-            log.debug("报名活动，活动不符合条件[{},{},{}]", getClass(), 1012, activity);
-            return Result.error("403", "用户身份不合格");
+            log.error("报名活动，活动不符合条件[{},{},{}]", getClass(), 1012, activity);
+            return Result.error("403", "当前活动异常,请稍后再试");
         }
         //保存用户填写的报名填写项
-        for (Activitysign a : activitySigns) {
+        for (Activitysign a : ac.getActivitySign()) {
             //判断是否报名填写参数是否合格
             if (ObjectUtil.isNull(a.getFillInItemId()) || ObjectUtil.isNull(a.getFillInItemName()) || ObjectUtil.isNull(a.getFillInItemVal())) {
                 return Result.error("406", "报名填写内容异常");
             }
             a.setUserId(u.getUserId());
-            a.setActivityId(activityId);
-            a.setFillInItemId(UuidUtil.get32UUID());
+            a.setActivityId(activity.getActivityId());
+            a.setActivitySignid(UuidUtil.get32UUID());
             activitysignService.saveSelective(a);
         }
 
         //保存用户报名信息
         Uenrollandactivity uenrollandactivity = Uenrollandactivity.getUenrollAndActivity().toBuilder()
+                .uandactivityenrollId(UuidUtil.get32UUID())
                 .activitycategoryId(activity.getActivitycategoryId())
                 .activityId(activity.getActivityId())
                 .organizerId(activity.getUserId())
                 .status(0)
-                .changeHeadUrl(u.getChangeHeadUrl() == null ? u.getHeadUrl() : u.getChangeHeadUrl())
+                .changeHeadUrl(null == u.getChangeHeadUrl() ? u.getHeadUrl() : u.getChangeHeadUrl())
                 .dealStatus(0)
                 .paymentStatus(0)
+                .userId(u.getUserId())
                 .uSex(u.getuSex())
                 .uNickname(u.getuNickname())
                 .uPhone(u.getuPhone())
@@ -1103,7 +1110,7 @@ public class ActivityService extends BaseService<Activity> {
         // 活动报名状态:0为未开始
         // 活动状态:0为活动未开始
 
-        return a != null && 0 == a.getOnlineStatus() && a.getActivitySignupstatus() == 1 && a.getActivityStatus() == 0;
+        return a != null && 0 == a.getOnlineStatus() && a.getActivitySignupstatus() == 1 && a.getActivityStatus() == 0 && a.getJoinNum() < a.getActivityCountpersons();
     }
 
     /**
@@ -1131,6 +1138,24 @@ public class ActivityService extends BaseService<Activity> {
                 .andNotEqualTo("activityStatus", 2)
                 .andEqualTo("onlineStatus", 0);
         return activityMapper.selectByExample(e);
+    }
+
+    /**
+     * 主办方查询用户报名信息
+     *
+     * @param userId     主办方
+     * @param activityId 活动id
+     * @param userId1    用户id
+     */
+    public Result<ActivitySignUpInfo> queryActivitySignUpInfo(String userId, String activityId, String userId1) {
+        log.info("主办方id=="+userId);
+        if (ObjectUtil.isNull(organizerInfoService.queryById(userId))) {
+            return Result.error("403", "主办方id异常");
+        }
+        Uenrollandactivity ue = ueService.queryOneByUser(userId1, activityId);
+        Activitysign activitysign = activitysignService.queryOneByUser(userId1, activityId);
+        ActivitySignUpInfo ac = ActivitySignUpInfo.getActivitySignUpInfo().toBuilder().act(activitysign).uen(ue).build();
+        return Result.success("查询成功", ac);
     }
 }
 

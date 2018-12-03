@@ -137,7 +137,7 @@ public class UserController extends BaseController {
         // QRCodeUtil.encode(textt, "", "d:/WPS", true);
 
         //指定二维码图片，解析返回数据
-        //System.out.println(QRCodeUtil.decode("C:/Users/yuanyuana/Desktop/showqrcode.jpg"));
+        System.out.println(QRCodeUtil.decode("D:\\idea_workSpace\\sw-yxl\\src\\main\\webapp\\mobile\\image\\yxl-code.png"));
         //System.out.print(DigestUtils.md5Hex("123456").length());
         //查找用户id为空的数据
         //users.stream().filter(user -> "".equals(user.getUserId()));
@@ -240,11 +240,10 @@ public class UserController extends BaseController {
                 logger.info(user + "-----------------用户信息--------------------》注册");
                 //将验证码从redis中取出
                 String data = TokenUtils.getDataByuPhone(user.getuPhone());
-                if (ObjectUtil.isNull(data)) {
+                if (ObjectUtil.isEmpty(data)) {
                     logger.error(user.getuNickname() + "----------key值错误------------》注册");
                     return Result.build("201", "验证码不存在");
                 }
-                logger.error(data + "-------------------验证码------------------》注册");
                 User user1 = User.getInstance();
                 user1.setOpenId(user.getOpenId());
                 User user2 = userService.queryOne(user1);
@@ -2550,7 +2549,7 @@ public class UserController extends BaseController {
             //获取全局access_token
             String access = rService.get("accessToken");
             if (ObjectUtil.isNull(access)) {
-                access = WxUtil.getAt();
+                access = WxUtil.getAccessToken();
             }
            /* //获取ticket
             String ur = "https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=" + access + "&type=jsapi";
