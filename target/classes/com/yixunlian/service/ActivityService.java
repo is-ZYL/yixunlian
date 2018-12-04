@@ -510,7 +510,7 @@ public class ActivityService extends BaseService<Activity> {
     public List<ActivityResult> queryPublishedActivityList(User u, Integer page, Integer row) {
         OrganizerInfo organizerInfo = organ.queryOneByUser(u);
         //存放活动的集合
-        List<ActivityResult> activities = new LinkedList<>();
+        List<ActivityResult> activities = new ArrayList<>();
         //判断是否是活动主办方
         if (ObjectUtil.isNotNull(organizerInfo)) {
             Example example = new Example(Activity.class);
@@ -580,12 +580,12 @@ public class ActivityService extends BaseService<Activity> {
                             break;
                         }
                     }
-                    //封装数据
-                    activityResult.setObject(activity);
                     activityResult.setNeedsTotal(personNums);
                     activityResult.setUids(uids);
-                    activities.add(activityResult);
                 }
+                //封装数据
+                activityResult.setObject(activity);
+                activities.add(activityResult);
             }
         }
         return activities;
@@ -1148,12 +1148,12 @@ public class ActivityService extends BaseService<Activity> {
      * @param userId1    用户id
      */
     public Result<ActivitySignUpInfo> queryActivitySignUpInfo(String userId, String activityId, String userId1) {
-        log.info("主办方id=="+userId);
-        if (ObjectUtil.isNull(organizerInfoService.queryById(userId))) {
+        log.info("主办方id==" + userId);
+        if (ObjectUtil.isNull(organizerInfoService.queryOneByUId(userId))) {
             return Result.error("403", "主办方id异常");
         }
         Uenrollandactivity ue = ueService.queryOneByUser(userId1, activityId);
-        Activitysign activitysign = activitysignService.queryOneByUser(userId1, activityId);
+        List<Activitysign> activitysign = activitysignService.queryActivitysignsByUser(userId1, activityId);
         ActivitySignUpInfo ac = ActivitySignUpInfo.getActivitySignUpInfo().toBuilder().act(activitysign).uen(ue).build();
         return Result.success("查询成功", ac);
     }

@@ -46,7 +46,7 @@ public class ActivitysignService extends BaseService<Activitysign> {
      * @param activityId
      * @return
      */
-    public Activitysign queryOneByUser(User user, String activityId) {
+    public Activitysign queryActivitysignsByUser(User user, String activityId) {
         Activitysign activitysign = new Activitysign();
         activitysign.setActivityId(activityId);
         activitysign.setUserId(user.getUserId());
@@ -60,11 +60,11 @@ public class ActivitysignService extends BaseService<Activitysign> {
      * @param activityId
      * @return
      */
-    public Activitysign queryOneByUser(String userId, String activityId) {
+    public List<Activitysign> queryActivitysignsByUser(String userId, String activityId) {
         Activitysign activitysign = new Activitysign();
         activitysign.setActivityId(activityId);
         activitysign.setUserId(userId);
-        return super.queryOne(activitysign);
+        return super.queryListByWhere(activitysign);
     }
 
     /**
@@ -99,6 +99,5 @@ public class ActivitysignService extends BaseService<Activitysign> {
         }
         return uenrollandactivities;
     }
-
 
 }

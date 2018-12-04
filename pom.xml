@@ -85,6 +85,7 @@
             <groupId>com.github.abel533</groupId>
             <artifactId>mapper</artifactId>
         </dependency>
+        <!--二维码和图片处理-->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>

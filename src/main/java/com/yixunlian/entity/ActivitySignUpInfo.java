@@ -17,6 +17,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  * 〈一句话功能简述〉<br>
  * 〈用户填写的活动报名信息〉
@@ -32,7 +34,7 @@ import lombok.NoArgsConstructor;
 public class ActivitySignUpInfo {
 
     private Uenrollandactivity uen;
-    private Activitysign act;
+    private List<Activitysign> act;
 
     public static ActivitySignUpInfo getActivitySignUpInfo() {
         return new ActivitySignUpInfo();

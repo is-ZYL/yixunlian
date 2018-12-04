@@ -50,6 +50,17 @@ public class OrganizerInfoService extends BaseService<OrganizerInfo> {
     }
 
     /**
+     * 根据用户id查询主办方信息
+     *
+     * @param userId
+     * @return
+     */
+    public OrganizerInfo queryOneByUId(String userId) {
+        OrganizerInfo o = OrganizerInfo.getcInstance().toBuilder().userId(userId).build();
+        return super.queryOne(o);
+    }
+
+    /**
      * 保存活动主办方信息
      *
      * @param u

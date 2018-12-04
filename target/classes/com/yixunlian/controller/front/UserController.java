@@ -1227,7 +1227,7 @@ public class UserController extends BaseController {
             }
             if (ObjectUtil.isNotNull(activityId)) {
                 //根据活动id与用户id查询是否参加过此活动
-                Activitysign activitysign = activitysignService.queryOneByUser(user, activityId);
+                Activitysign activitysign = activitysignService.queryActivitysignsByUser(user, activityId);
                 if (ObjectUtil.isNotNull(activitysign)) {
                     //参加过返回1
                     return Result.success(Const.SUCCESS);
