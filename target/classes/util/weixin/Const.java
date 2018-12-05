@@ -15,6 +15,10 @@ public class Const {
     public static final String TOTAL_OPERATIONS_CENTER_ID = "6f65db38cda342d792f94c3ccc615d5b";
     public static final String CHARSET = "utf-8";
     /**
+     * 域名
+     */
+    public static final String DO_MAIN = "https://yxl58.com";
+    /**
      * 执行成功标识 返回1
      */
     public static final Integer SUCCESS = 1;

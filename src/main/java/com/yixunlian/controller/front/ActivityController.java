@@ -337,6 +337,9 @@ public class ActivityController extends BaseController {
                 return Result.error("207", "参数异常");
             }
             ActivityInfo result = activityService.queryActivityDetail(activityId);
+            if (ObjectUtil.isNull(result)) {
+                return Result.error("404", "无此活动数据");
+            }
             return Result.success(result);
         } catch (IOException e) {
             e.printStackTrace();

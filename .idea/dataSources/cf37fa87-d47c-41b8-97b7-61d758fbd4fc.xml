@@ -4152,7 +4152,7 @@
     </column>
     <column id="875" parent="302" name="status">
       <Position>6</Position>
-      <Comment>支付类型 0 : 1元认证，1:支付给平台 </Comment>
+      <Comment>支付类型 0 : 1元认证，1:支付给平台</Comment>
       <DataType>int(2)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>

@@ -11,6 +11,7 @@
 package com.yixunlian.job;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
@@ -29,9 +30,19 @@ import java.io.File;
 public class FileJob {
 
     /**
-     * 删除临时文件夹里的所有文件
+     * 删除临时文件夹里的所有文件，每月一号凌晨十二点执行
      */
+    @Scheduled(cron = "0 0/1 * * * ?")
     public void delFolder() {
+        File f = new File("C:\\file\\imgTemp");
+        deleatfangf(f);
+    }
+
+    /**
+     * 删除不需要
+     */
+    @Scheduled(cron = "0 0/1 * * * ?")
+    public void delQrcodeFile() {
         File f = new File("C:\\file\\imgTemp");
         deleatfangf(f);
     }

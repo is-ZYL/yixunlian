@@ -2006,7 +2006,7 @@ public class UserController extends BaseController {
             /*-----------------------逻辑代码-----------------------------------*/
             Qrcode qrcode = qrcodeService.queryOneByUser(user);
             // 跳转页面地址
-            String content = "http://yxl.lanzheng666.com/wx/perCenter_zyGL_recieveInvitate.html?shareToken=" + token;
+            String content = Const.DO_MAIN + "/wx/perCenter_zyGL_recieveInvitate.html?shareToken=" + token;
             // logo图片
             String imgPath = session.getServletContext().getRealPath("/") + "\\path\\156292698531720432.png";
             //存放地址

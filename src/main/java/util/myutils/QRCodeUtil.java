@@ -110,7 +110,8 @@ public class QRCodeUtil {
             Image image = src.getScaledInstance(width, height, Image.SCALE_SMOOTH);
             BufferedImage tag = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
             Graphics g = tag.getGraphics();
-            g.drawImage(image, 0, 0, null); // 绘制缩小后的图
+            // 绘制缩小后的图
+            g.drawImage(image, 0, 0, null);
             g.dispose();
             src = image;
         }

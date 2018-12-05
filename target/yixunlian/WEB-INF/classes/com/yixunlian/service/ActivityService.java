@@ -400,36 +400,47 @@ public class ActivityService extends BaseService<Activity> {
                 .andEqualTo("onlineStatus", 0)
                 .andNotEqualTo("activityStatus", 2)
                 .andNotEqualTo("activitySignupstatus", 2);
-
+        Criteria criteria1 = example.createCriteria()
+                .andEqualTo("onlineStatus", 0)
+                .andNotEqualTo("activityStatus", 2)
+                .andNotEqualTo("activitySignupstatus", 2);
         //根据省匹配
         if (ObjectUtil.notEmpty(provinceCitycode) && !"000000".equals(provinceCitycode)) {
             criteria.andEqualTo("provinceCitycode", provinceCitycode);
+            criteria1.andEqualTo("provinceCitycode", provinceCitycode);
         }
         //根据市/县匹配
         if (ObjectUtil.notEmpty(cityCitycode) && !"000000".equals(cityCitycode)) {
             criteria.andEqualTo("cityCitycode", cityCitycode);
+            criteria1.andEqualTo("cityCitycode", cityCitycode);
         }
         //根据区匹配
         if (ObjectUtil.notEmpty(areaCitycode) && !"000000".equals(areaCitycode)) {
             criteria.andEqualTo("areaCitycode", areaCitycode);
+            criteria1.andEqualTo("areaCitycode", areaCitycode);
         }
         //根据活动费用匹配
         if (null != activityChargestatus) {
             criteria.andEqualTo("activityChargestatus", activityChargestatus);
+            criteria1.andEqualTo("activityChargestatus", activityChargestatus);
         }
         //根据活动类型匹配
         if (null != activityType) {
             criteria.andEqualTo("activityType", activityType);
+            criteria1.andEqualTo("activityType", activityType);
         }
         //根据主办方名称/活动名称匹配
         if (ObjectUtil.notEmpty(searchVal)) {
             criteria.andLike("activityName", "%" + searchVal + "%");
-            criteria.andLike("userNickName", "%" + searchVal + "%");
+            criteria1.andLike("userNickName", "%" + searchVal + "%");
         }
         //根据创建时间进行升序排列
         example.setOrderByClause("created ASC");
         //分页
         PageHelper.startPage(page, row);
+        //去重
+        example.setDistinct(true);
+        example.or(criteria1);
         List<Activity> activities = activityMapper.selectByExample(example);
         List<ActivityInfo> activityInfos = new ArrayList<>();
         for (Activity a : activities) {
@@ -489,10 +500,11 @@ public class ActivityService extends BaseService<Activity> {
             //活动上下架情况，活动发布者上架为0，下架为1，草稿为4，管理员上架为2，下架为3 onlineStatus
             criteria.andEqualTo("onlineStatus", 1);
             criteria1.andEqualTo("onlineStatus", 3);
+            criteria.andEqualTo("userId", organizerInfo.getUserId());
             example.or(criteria);
-            PageHelper.startPage(page, row);
             example.setDistinct(true);
             example.setOrderByClause("created DESC");
+            PageHelper.startPage(page, row);
             List<Activity> activities = activityMapper.selectByExample(example);
             return new PageInfo<>(activities);
         }
@@ -517,6 +529,7 @@ public class ActivityService extends BaseService<Activity> {
             Criteria criteria = example.createCriteria();
             //活动上下架情况，活动发布者上架为0，下架为1，草稿为4，管理员上架为2，下架为3 onlineStatus
             criteria.andEqualTo("onlineStatus", 0);
+            criteria.andEqualTo("userId", organizerInfo.getUserId());
             PageHelper.startPage(page, row);
             List<Activity> activities1 = activityMapper.selectByExample(example);
             //循环得出当前活动的精准需求人数以及是否设置邀约提成
@@ -610,6 +623,7 @@ public class ActivityService extends BaseService<Activity> {
             //活动上下架情况，活动发布者上架为0，下架为1，草稿为4，管理员上架为2，下架为3 onlineStatus
             criteria.andEqualTo("onlineStatus", 1);
             criteria.andEqualTo("activityStatus", 1);
+            criteria.andEqualTo("userId", organizerInfo.getUserId());
             PageHelper.startPage(page, row);
             List<Activity> activities1 = activityMapper.selectByExample(example);
             //循环得出当前活动的精准需求人数以及是否设置邀约提成
@@ -651,14 +665,16 @@ public class ActivityService extends BaseService<Activity> {
     public List<ActivityResult> queryDraftsActivityList(User u, Integer page, Integer row) {
         OrganizerInfo organizerInfo = organ.queryOneByUser(u);
         //存放活动的集合
-        List<ActivityResult> activities = new LinkedList<>();
+        List<ActivityResult> activities = new ArrayList<>();
         //判断是否是活动主办方
         if (ObjectUtil.isNotNull(organizerInfo)) {
             Example example = new Example(Activity.class);
             Criteria criteria = example.createCriteria();
             //活动上下架情况，活动发布者上架为0，下架为1，草稿为4，管理员上架为2，下架为3 onlineStatus
             criteria.andEqualTo("onlineStatus", 4);
+            criteria.andEqualTo("userId", organizerInfo.getUserId());
             PageHelper.startPage(page, row);
+            example.setDistinct(true);
             List<Activity> activities1 = activityMapper.selectByExample(example);
             //循环得出当前活动的精准需求人数以及是否设置邀约提成
             for (Activity activity : activities1) {
@@ -666,13 +682,14 @@ public class ActivityService extends BaseService<Activity> {
                 //当前活动是否设置分享提成:0为否,1为是
                 if (null != activity.getActivityIsextract() && 1 == activity.getActivityIsextract()) {
                     List<Extractproject> e = ext.queryListByActivity(activity);
-                    if (ObjectUtil.isNull(e)) {
+                    if (ObjectUtil.isNull(e) && e.size() == 0) {
                         //说明该活动未设置项目提成
                         activityResult.setIsSetExtractProject(false);
                     }
                     //说明该活动已设置项目提成
                     activityResult.setIsSetExtractProject(true);
                 }
+                activityResult.setObject(activity);
                 activities.add(activityResult);
             }
         }
@@ -706,6 +723,7 @@ public class ActivityService extends BaseService<Activity> {
             Criteria criteria = example.createCriteria();
             //活动上下架情况，活动发布者上架为0，下架为1，草稿为4，管理员上架为2，下架为3 onlineStatus
             criteria.andEqualTo("onlineStatus", 0);
+            criteria.andEqualTo("userId", organizerInfo.getUserId());
             PageHelper.startPage(page, row);
             List<Activity> activities1 = activityMapper.selectByExample(example);
             Map<String, String> list = new HashMap<>();
@@ -768,11 +786,10 @@ public class ActivityService extends BaseService<Activity> {
      * @return
      */
     public String saveSelectiveByActivityInfoAndUser(User u, ActivityInfo activityInfo) {
-        log.debug("活动保存为草稿[{}]", activityInfo);
         //是否是活动更新
         boolean update = false;
         Activity activity = activityInfo.getActivity();
-        if (null != activity.getActivityId()) {
+        if (ObjectUtil.notEmpty(activity.getActivityId())) {
             update = true;
         }
         if (0 == activityInfo.getType()) {
@@ -1027,6 +1044,9 @@ public class ActivityService extends BaseService<Activity> {
      */
     public ActivityInfo queryActivityDetail(String activityId) {
         Activity activity = super.queryById(activityId);
+        if (ObjectUtil.isNull(activity)) {
+            return null;
+        }
         //收费项目list
         List<ActivityChargeItem> ci = ac.queryListByWhere(activity);
         //提成项目
@@ -1036,7 +1056,12 @@ public class ActivityService extends BaseService<Activity> {
         activity.setJoinNum(activityJoinNum);
         OrganizerInfo o = OrganizerInfo.getcInstance().toBuilder().userId(activity.getUserId()).build();
         o = organizerInfoService.queryOne(o);
-        return new ActivityInfo().toBuilder().activity(activity).organizerInfo(o).chargeItemList(ci).extractprojectList(ej).build();
+        //如果当前活动类型为草稿，则查询活动报名填写项
+        List<ActivityFillInItem> fillInItem = new ArrayList<>();
+        if (4 == activity.getOnlineStatus()) {
+            fillInItem = af.queryItemByActivityId(activityId);
+        }
+        return new ActivityInfo().toBuilder().activity(activity).organizerInfo(o).chargeItemList(ci).extractprojectList(ej).fillInItems(fillInItem).build();
     }
 
     /**
