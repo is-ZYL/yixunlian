@@ -68,6 +68,8 @@ public class ActivityController extends BaseController {
     private ActivitymusicurlService activitymusicurlService;
     @Resource(name = "activityFillInItemService")
     private ActivityFillInItemService activityFillInItemService;
+    @Resource(name = "activitysignService")
+    private ActivitysignService activitysignService;
     @Resource(name = "reportService")
     private ReportService reportService;
     @Resource(name = "userService")
@@ -916,6 +918,43 @@ public class ActivityController extends BaseController {
         }
         // 出错500
         logger.error("--------服务器异常---------》主办方查询用户的报名信息 17");
+        return Result.error("500", "服务器异常");
+    }
+
+    /**
+     * 6-2 根据token 查询当前活动的所有报名用户信息
+     *
+     * @param activityId 活动id
+     * @param token      token值
+     * @return 返回list  List<ActivityFillInItem>
+     */
+    @GetMapping(value = "getActivitySignListByActivityId")
+    public Result<List<ActivitySignUpInfo>> getActivitySignListByActivityId(@RequestParam String token, @RequestParam String activityId) {
+        String data = TokenUtils.getDataByKey(token);
+        if (ObjectUtil.isEmpty(data)) {
+            // token不正确 返回204
+            logger.error("--------token值错误---------》查询当前活动的所有报名用户信息 6-2");
+            return Result.error("204", "token值错误");
+        }
+        //通过token值获取user对象
+        try {
+            User u = MAPPER.readValue(data, User.class);
+            if (ObjectUtil.isNull(u)) {
+                //用户为空返回403
+                logger.error("--------用户不存在---------》查询当前活动的所有报名用户信息 6-2");
+                return Result.error("206", "用户不存在");
+            }
+            if (ObjectUtil.isNull(activityId)) {
+                //用户为空返回403
+                logger.error("--------参数异常  activityId is null---------》查询当前活动的所有报名用户信息 6-2");
+                return Result.error("207", "参数异常");
+            }
+            return activityService.queryActivitySignUpInfoList(u.getUserId(), activityId);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // 出错500
+        logger.error("--------服务器异常---------》查询当前活动的所有报名用户信息 6-2");
         return Result.error("500", "服务器异常");
     }
 

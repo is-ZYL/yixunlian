@@ -39,13 +39,14 @@ public class FileJob {
     }
 
     /**
-     * 删除不需要
+     * 删除不需要的
      */
     @Scheduled(cron = "0 0/1 * * * ?")
     public void delQrcodeFile() {
         File f = new File("C:\\file\\imgTemp");
         deleatfangf(f);
     }
+
 
     private void deleatfangf(File f) {
         if (f == null) {

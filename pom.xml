@@ -569,7 +569,7 @@
     <developers>
         <developer>
             <name>wxpay</name>
-            <email></email>
+            <email/>
             <url>https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=11_1</url>
         </developer>
     </developers>

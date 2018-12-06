@@ -257,9 +257,7 @@ public class Journalism extends BasePojo {
 
     public Journalism init() {
         this.journalismId = UUID.randomUUID().toString().replace("-", "");
-        Date date = new Date();
-        this.setCreated(date);
-        this.setUpdated(date);
         return this;
     }
+
 }

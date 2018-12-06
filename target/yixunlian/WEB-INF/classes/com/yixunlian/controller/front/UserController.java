@@ -237,7 +237,6 @@ public class UserController extends BaseController {
     public Result<String> userRegister(User user, @RequestParam("code") String code, @RequestParam String token) {
         try {
             if (ObjectUtil.isNotNull(user)) {
-                logger.info(user + "-----------------用户信息--------------------》注册");
                 //将验证码从redis中取出
                 String data = TokenUtils.getDataByuPhone(user.getuPhone());
                 if (ObjectUtil.isEmpty(data)) {
@@ -2460,74 +2459,6 @@ public class UserController extends BaseController {
         }
         logger.error("-----------服务器异常-----------》生成活动链接模板 45");
         // 出错500
-        return Result.error("500", "服务器异常");
-    }
-
-    /**
-     * 46 根据token 分页获取新闻列表
-     *
-     * @return 返回list
-     */
-    @GetMapping(value = "getJournalismListByToken")
-    public Result<PageInfo<Journalism>> getJournalismListByToken(@RequestParam String token, @RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "10") Integer rows) {
-        String data = TokenUtils.getDataByKey(token);
-        if (ObjectUtil.isNull(data)) {
-            logger.error("----------token值错误------------》分页获取新闻列表 46");
-            // token不正确 返回204
-            return Result.error("204", "token值错误");
-        }
-        try {
-            User user = MAPPER.readValue(data, User.class);
-            //用户为空返回403
-            if (ObjectUtil.isNull(user)) {
-                logger.error("----------用户为空------------》分页获取新闻列表 46");
-                return Result.error("206", "用户不存在");
-            }
-            JournalismService j = getService.getJournalismService();
-            PageInfo<Journalism> result = j.queryJournalismByWhere(page, rows);
-            return Result.success(result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        // 出错500
-        logger.error("----------服务器异常------------》分页获取新闻列表 46");
-        return Result.error("500", "服务器异常");
-    }
-
-    /* --------------------------------分享------------------------------------- */
-
-    /**
-     * 47 根据token 根据新闻id查询新闻详情
-     *
-     * @return 返回list
-     */
-    @GetMapping(value = "getJournalismByTokenAndId")
-    public Result<Journalism> getJournalismListByToken(@RequestParam String token, @RequestParam String journalismId) {
-        String data = TokenUtils.getDataByKey(token);
-        if (ObjectUtil.isNull(data)) {
-            logger.error("----------token值错误------------》根据新闻id查询新闻详情 47");
-            // token不正确 返回204
-            return Result.error("204", "token值错误");
-        }
-        try {
-            User user = MAPPER.readValue(data, User.class);
-            //用户为空返回403
-            if (ObjectUtil.isNull(user)) {
-                logger.error("----------用户为空------------》根据新闻id查询新闻详情 47");
-                return Result.error("206", "用户不存在");
-            }
-            if (ObjectUtil.isNotNull(journalismId)) {
-                JournalismService j = getService.getJournalismService();
-                Journalism result = j.queryById(journalismId);
-                return Result.success(result);
-            }
-            logger.error("----------journalismId为空------------》根据新闻id查询新闻详情 47");
-            return Result.error("参数异常");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        // 出错500
-        logger.error("----------服务器异常------------》根据新闻id查询新闻详情 47");
         return Result.error("500", "服务器异常");
     }
 

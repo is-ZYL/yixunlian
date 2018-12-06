@@ -68,6 +68,8 @@ public class ActivityController extends BaseController {
     private ActivitymusicurlService activitymusicurlService;
     @Resource(name = "activityFillInItemService")
     private ActivityFillInItemService activityFillInItemService;
+    @Resource(name = "activitysignService")
+    private ActivitysignService activitysignService;
     @Resource(name = "reportService")
     private ReportService reportService;
     @Resource(name = "userService")
@@ -919,4 +921,84 @@ public class ActivityController extends BaseController {
         return Result.error("500", "服务器异常");
     }
 
+    /**
+     * 18 根据token 查询当前活动的所有报名用户信息
+     *
+     * @param activityId 活动id
+     * @param token      token值
+     * @return 返回list  List<ActivityFillInItem>
+     */
+    @GetMapping(value = "getActivitySignListByActivityId")
+    public Result<List<ActivitySignUpInfo>> getActivitySignListByActivityId(@RequestParam String token, @RequestParam String activityId) {
+        String data = TokenUtils.getDataByKey(token);
+        if (ObjectUtil.isEmpty(data)) {
+            // token不正确 返回204
+            logger.error("--------token值错误---------》查询当前活动的所有报名用户信息 18");
+            return Result.error("204", "token值错误");
+        }
+        //通过token值获取user对象
+        try {
+            User u = MAPPER.readValue(data, User.class);
+            if (ObjectUtil.isNull(u)) {
+                //用户为空返回403
+                logger.error("--------用户不存在---------》查询当前活动的所有报名用户信息 18");
+                return Result.error("206", "用户不存在");
+            }
+            if (ObjectUtil.isNull(activityId)) {
+                //用户为空返回403
+                logger.error("--------参数异常  activityId is null---------》查询当前活动的所有报名用户信息 18");
+                return Result.error("207", "参数异常");
+            }
+            return activityService.queryActivitySignUpInfoList(u.getUserId(), activityId);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // 出错500
+        logger.error("--------服务器异常---------》查询当前活动的所有报名用户信息 18");
+        return Result.error("500", "服务器异常");
+    }
+
+    /**
+     * 19  根据token 活动主办方填写报名用户备注
+     *
+     * @param ue    报名用户信息
+     * @param token token值
+     * @return 返回 0 失败  1 成功
+     */
+    @PostMapping(value = "saveUenrollandactivityByActivityId")
+    public Result<Integer> saveUenrollandactivityByActivityId(@RequestParam String token, Uenrollandactivity ue) {
+        String data = TokenUtils.getDataByKey(token);
+        if (ObjectUtil.isEmpty(data)) {
+            // token不正确 返回204
+            logger.error("--------token值错误---------》活动主办方填写报名用户备注 19");
+            return Result.error("204", "token值错误");
+        }
+        //通过token值获取user对象
+        try {
+            User u = MAPPER.readValue(data, User.class);
+            if (ObjectUtil.isNull(u)) {
+                //用户为空返回403
+                logger.error("--------用户不存在---------》活动主办方填写报名用户备注 19");
+                return Result.error("206", "用户不存在");
+            }
+            if (ObjectUtil.isNull(ue)) {
+                //用户为空返回403
+                logger.error("--------参数异常  activityId is null---------》活动主办方填写报名用户备注 19");
+                return Result.error("207", "参数异常");
+            }
+            Uenrollandactivity uenrollandactivity;
+            try {
+                uenrollandactivity = Uenrollandactivity.getUenrollAndActivity().toBuilder().activityId(ue.getActivityId()).remar(ue.getRemar()).uandactivityenrollId(ue.getUandactivityenrollId()).build();
+            } catch (Exception e) {
+                return Result.error("207", "参数异常");
+            }
+            Integer result = ueService.updateSelective(uenrollandactivity);
+            return 0 == result ? Result.error(0) : Result.success(1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // 出错500
+        logger.error("--------服务器异常---------》查询当前活动的所有报名用户信息 18");
+        return Result.error("500", "服务器异常");
+    }
 }

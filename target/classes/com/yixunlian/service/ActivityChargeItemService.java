@@ -38,7 +38,7 @@ public class ActivityChargeItemService extends BaseService<ActivityChargeItem> {
     /**
      * 根据活动查询总成交金额
      *
-     * @param activity
+     * @param activity 活动
      * @return
      */
     public BigDecimal querySumMoneyByActivity(Activity activity) {

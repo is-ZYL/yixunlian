@@ -100,4 +100,29 @@ public class ActivitysignService extends BaseService<Activitysign> {
         return uenrollandactivities;
     }
 
+    /**
+     * 查询当前活动的所有报名用户
+     *
+     * @param activityId
+     * @return
+     */
+    public List<Activitysign> queryActivitysignsByActivityId(String activityId) {
+        Activitysign activitysign = new Activitysign();
+        activitysign.setActivityId(activityId);
+        return super.queryListByWhere(activitysign);
+    }
+
+    /**
+     * 查询当前活动指定用户的报名填写项
+     *
+     * @param userId
+     * @param activityId
+     * @return
+     */
+    public List<Activitysign> queryActivitysignsByActivityIdAndUserId(String userId, String activityId) {
+        Activitysign activitysign = new Activitysign();
+        activitysign.setActivityId(activityId);
+        activitysign.setUserId(userId);
+        return super.queryListByWhere(activitysign);
+    }
 }

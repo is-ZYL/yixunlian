@@ -66,8 +66,18 @@ public class UenrollandactivityService extends BaseService<Uenrollandactivity> {
      * @return
      */
     public List<Uenrollandactivity> queryListByActivity(Activity activity) {
-        Uenrollandactivity ue = Uenrollandactivity.getUenrollAndActivity();
-        ue.setActivityId(activity.getActivityId());
+        Uenrollandactivity ue = Uenrollandactivity.getUenrollAndActivity().toBuilder().activityId(activity.getActivityId()).build();
+        return super.queryListByWhere(ue);
+    }
+
+    /**
+     * 根据活动查询当前的报名等情况
+     *
+     * @param activityId
+     * @return
+     */
+    public List<Uenrollandactivity> queryListByActivity(String activityId) {
+        Uenrollandactivity ue = Uenrollandactivity.getUenrollAndActivity().toBuilder().activityId(activityId).build();
         return super.queryListByWhere(ue);
     }
 

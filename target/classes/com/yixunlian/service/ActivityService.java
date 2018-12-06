@@ -1182,5 +1182,31 @@ public class ActivityService extends BaseService<Activity> {
         ActivitySignUpInfo ac = ActivitySignUpInfo.getActivitySignUpInfo().toBuilder().act(activitysign).uen(ue).build();
         return Result.success("查询成功", ac);
     }
+
+    /**
+     * 根据活动id查询所有的报名信息
+     *
+     * @param userId
+     * @param activityId
+     * @return
+     */
+    public Result<List<ActivitySignUpInfo>> queryActivitySignUpInfoList(String userId, String activityId) {
+        log.info("主办方id==" + userId);
+        if (ObjectUtil.isNull(organizerInfoService.queryOneByUId(userId))) {
+            return Result.error("403", "主办方id异常");
+        }
+        //最终结果封装
+        List<ActivitySignUpInfo> activitySignUpInfos = new ArrayList<>();
+        //循环匹配当前用户的报名信息
+        List<Uenrollandactivity> ues = ueService.queryListByActivity(activityId);
+        for (Uenrollandactivity u : ues) {
+            //查询当前用户的报名填写项
+            List<Activitysign> activitysigns = activitysignService.queryActivitysignsByActivityIdAndUserId(u.getUserId(), activityId);
+            //封装结果集
+            ActivitySignUpInfo ac = ActivitySignUpInfo.getActivitySignUpInfo().toBuilder().act(activitysigns).uen(u).build();
+            activitySignUpInfos.add(ac);
+        }
+        return Result.success(activitySignUpInfos);
+    }
 }
 
