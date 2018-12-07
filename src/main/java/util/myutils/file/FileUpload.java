@@ -208,8 +208,7 @@ public class FileUpload {
 
     public static MultipartFile getMulFileByPath(String picPath) {
         FileItem fileItem = createFileItem(picPath);
-        MultipartFile mfile = new CommonsMultipartFile(fileItem);
-        return mfile;
+        return new CommonsMultipartFile(fileItem);
     }
 
     private static FileItem createFileItem(String filePath) {

@@ -85,6 +85,8 @@ public class ActivityService extends BaseService<Activity> {
     private ExtractprojectService extractprojectService;
     @Resource(name = "organizerInfoService")
     private OrganizerInfoService organizerInfoService;
+    @Resource(name = "transactionItemService")
+    private TransactionItemService transactionItemService;
 
     /**
      * 通过用户id查询参与的活动
@@ -1202,8 +1204,9 @@ public class ActivityService extends BaseService<Activity> {
         for (Uenrollandactivity u : ues) {
             //查询当前用户的报名填写项
             List<Activitysign> activitysigns = activitysignService.queryActivitysignsByActivityIdAndUserId(u.getUserId(), activityId);
+            List<TransactionItem> trans = transactionItemService.queryListByUidAndActivityId(u.getUserId(), activityId);
             //封装结果集
-            ActivitySignUpInfo ac = ActivitySignUpInfo.getActivitySignUpInfo().toBuilder().act(activitysigns).uen(u).build();
+            ActivitySignUpInfo ac = ActivitySignUpInfo.getActivitySignUpInfo().toBuilder().act(activitysigns).uen(u).trans(trans).build();
             activitySignUpInfos.add(ac);
         }
         return Result.success(activitySignUpInfos);

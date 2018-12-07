@@ -10,13 +10,14 @@
  */
 package com.yixunlian.service;
 
-import util.myutils.ObjectUtil;
 import com.yixunlian.mapper.OrganizerInfoMapper;
 import com.yixunlian.pojo.OrganizerInfo;
 import com.yixunlian.pojo.User;
 import com.yixunlian.service.baseservice.BaseService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import util.myutils.ObjectUtil;
+import util.myutils.Tools;
 import util.myutils.file.FileNameUtil;
 import util.myutils.file.FileUpload;
 
@@ -77,6 +78,7 @@ public class OrganizerInfoService extends BaseService<OrganizerInfo> {
         o.setDetailInfo(organizerInfo.getDetailInfo());
         o.setName(organizerInfo.getName());
         o.setUserId(u.getUserId());
+        o.setPassword(organizerInfo.getPassword());
         o.setPhone(organizerInfo.getPhone());
         return super.saveSelective(o);
     }
@@ -109,7 +111,7 @@ public class OrganizerInfoService extends BaseService<OrganizerInfo> {
      */
     private String getHeadUrl(User u, String headUrl) throws IOException {
         String toPath = "c:\\file\\img\\orginHead\\";
-        if (ObjectUtil.isNotNull(headUrl)) {
+        if (ObjectUtil.notEmpty(headUrl)) {
             //判断是否是网络图片
             if (headUrl.contains("http") || headUrl.contains("https")) {
                 //将网站上面的图片下载至本地
@@ -125,4 +127,18 @@ public class OrganizerInfoService extends BaseService<OrganizerInfo> {
         return headUrl;
     }
 
+    /**
+     * 检查主办方信息是否合格
+     *
+     * @param organizerInfo
+     * @return
+     */
+    public boolean checkOrganizerInfoIsOk(OrganizerInfo organizerInfo) {
+        if (ObjectUtil.isNull(organizerInfo)) {
+            return false;
+        }
+        return Tools.isMobile(organizerInfo.getPhone())
+                && ObjectUtil.notEmpty(organizerInfo.getDetailInfo())
+                && ObjectUtil.notEmpty(organizerInfo.getPassword());
+    }
 }

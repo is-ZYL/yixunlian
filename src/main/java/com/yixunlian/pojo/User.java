@@ -202,7 +202,6 @@ public class User extends BasePojo {
      * 是否封户，默认0，未封户，1为封户
      */
     private Integer closedUserStatus;
-
     /**
      * 资源人总数
      */

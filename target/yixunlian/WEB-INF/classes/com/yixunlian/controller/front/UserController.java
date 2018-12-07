@@ -234,55 +234,59 @@ public class UserController extends BaseController {
      * @return 返回token值
      */
     @PostMapping("userRegister")
-    public Result<String> userRegister(User user, @RequestParam("code") String code, @RequestParam String token) {
+    public Result<String> userRegister(User user, @RequestParam String code, @RequestParam String token) {
         try {
-            if (ObjectUtil.isNotNull(user)) {
-                //将验证码从redis中取出
-                String data = TokenUtils.getDataByuPhone(user.getuPhone());
-                if (ObjectUtil.isEmpty(data)) {
-                    logger.error(user.getuNickname() + "----------key值错误------------》注册");
-                    return Result.build("201", "验证码不存在");
-                }
-                User user1 = User.getInstance();
-                user1.setOpenId(user.getOpenId());
-                User user2 = userService.queryOne(user1);
-                if (ObjectUtil.isNull(user2)) {
-                    return Result.error("410", "当前用户未授权");
-                }
-                if (user2.getUserIsactivation() == 1) {
-                    return Result.error("203", "当前用户已经注册");
-                }
-                if (data.equals(code)) {
-                    //设置用户昵称
-                    user2.setuNickname(EmojiStringUtils.replaceEmoji(user.getuNickname()));
-                    user2.setuSex(user.getuSex());
-                    user2.setUtypeId("1");
-                    user2.setUtypeName("普通用户");
-                    user2.setProvinceCitycode(user.getProvinceCitycode());
-                    user2.setCityCitycode(user.getCityCitycode());
-                    user2.setAreaCitycode(user.getAreaCitycode());
-                    user2.setAddressName(user.getAddressName());
-                    user2.setuPhone(user.getuPhone());
-                    //初始化用户类型 普通用户（已注册未激活）
-                    user2.setUserIsactivation(1);
-                    //将密码设置为当前手机号，并md5加密
-                    user2.setPassword(DigestUtils.md5Hex(user.getuPhone()));
-                    userService.updateSelective(user2);
-                    //删除之前的token并获取新的token值
-                    TokenUtils.delToken(token);
-                    // 把用户信息放到rides中
-                    String resultToken = TokenUtils.setDataByUser(user2);
-                    logger.info(user.getuNickname() + "--------注册成功(更新用户信息)--------》注册");
-                    return Result.success("200", "注册成功", resultToken);
-                } else {
-                    // 验证码错误
-                    logger.error(user.getuNickname() + "----------验证码错误------------》注册");
-                    return Result.build("204", "验证码错误");
-                }
-            } else {
-                logger.error(user.getuNickname() + "----------参数异常------------------》注册");
-                return Result.build("403", "参数异常");
+            //判断参数是否合格
+            if (!userService.checkUserIsOkByRegister(user)) {
+                return Result.error("403", "参数异常");
             }
+            //将验证码从redis中取出
+            String data = TokenUtils.getDataByuPhone(user.getuPhone());
+            if (ObjectUtil.isEmpty(data)) {
+                logger.error(user.getuNickname() + "----------key值错误------------》注册");
+                return Result.build("201", "验证码不存在");
+            }
+            User user1 = User.getInstance();
+            user1.setOpenId(user.getOpenId());
+            User user2 = userService.queryOne(user1);
+            if (ObjectUtil.isNull(user2)) {
+                return Result.error("410", "当前用户未授权");
+            }
+            if (user2.getUserIsactivation() == 1) {
+                return Result.error("203", "当前用户已经注册");
+            }
+            Utype utype = utypeService.queryById(1);
+            if (ObjectUtil.isNull(utype)) {
+                return Result.build("404", "后台数据异常,请联系管理员");
+            }
+            if (data.equals(code)) {
+                //设置用户昵称
+                user2.setuNickname(EmojiStringUtils.replaceEmoji(user.getuNickname()));
+                user2.setuSex(user.getuSex());
+                user2.setUtypeId(utype.getUtypeId());
+                user2.setUtypeName(utype.getUserType());
+                user2.setProvinceCitycode(user.getProvinceCitycode());
+                user2.setCityCitycode(user.getCityCitycode());
+                user2.setAreaCitycode(user.getAreaCitycode());
+                user2.setAddressName(user.getAddressName());
+                user2.setuPhone(user.getuPhone());
+                //初始化用户类型 普通用户（已注册未激活）
+                user2.setUserIsactivation(1);
+                //将密码设置为当前手机号，并md5加密
+                user2.setPassword(DigestUtils.md5Hex(user.getuPhone()));
+                userService.updateSelective(user2);
+                //删除之前的token并获取新的token值
+                TokenUtils.delToken(token);
+                // 把用户信息放到rides中
+                String resultToken = TokenUtils.setDataByUser(user2);
+                logger.info(user.getuNickname() + "--------注册成功(更新用户信息)--------》注册");
+                return Result.success("200", "注册成功", resultToken);
+            } else {
+                // 验证码错误
+                logger.error(user.getuNickname() + "----------验证码错误------------》注册");
+                return Result.build("204", "验证码错误");
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -967,41 +971,6 @@ public class UserController extends BaseController {
         }
         // 出错500
         logger.error("----------服务器异常------------》用户获取我参与的活动列表 14");
-        return Result.error("500", "服务器异常");
-    }
-
-    /**
-     * 15 根据token 用户获取注册服务协议
-     *
-     * @param token token值
-     * @return 返回注册协议对象
-     */
-    @GetMapping(value = "getServiceAgreementByToken")
-    public Result<Systembulletin> getServiceAgreementByToken(@RequestParam String token) {
-        String data = TokenUtils.getDataByKey(token);
-        if (ObjectUtil.isNull(data)) {
-            // token不正确 返回204
-            logger.error("----------token不正确------------》用户获取注册服务协议 15");
-            return Result.error("204", "token值错误");
-        }
-        try {
-            User user = MAPPER.readValue(data, User.class);
-            //用户为空返回403
-            if (ObjectUtil.isNull(user)) {
-                logger.error("----------用户不存在------------》用户获取注册服务协议 15");
-                return Result.error("206", "用户不存在");
-            }
-            Systembulletin systembulletin = new Systembulletin();
-            systembulletin.setSystemStatus(Const.SERVICE_AGREEMENT);
-            //查询注册协议
-            systembulletinService.queryOne(systembulletin);
-            Systembulletin result = systembulletinService.queryOne(systembulletin);
-            return Result.success(result);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        // 出错500
-        logger.error("----------服务器异常------------》用户获取注册服务协议 15");
         return Result.error("500", "服务器异常");
     }
 

@@ -27,20 +27,36 @@ public class Const {
      */
     public static final Integer FAIL = 0;
     public static final String DISTRICT_AND_COUNTYAGENCY = "区县代理";
+
     /**
-     * 收益攻略常量
+     * 活动功能介绍和了解我们 0
+     */
+    public static final Integer ACTIVITY_INTRODUCTION = 0;
+
+    /**
+     * 收益攻略 1
      */
     public static final Integer INCOME_STRATEGY = 1;
+
     /**
-     * 用户服务协议常量
+     * 用户服务协议 2
      */
     public static final Integer SERVICE_AGREEMENT = 2;
     /**
-     * 资源攻略常量
+     * 资源攻略常量 3
      */
     public static final Integer RESOURCE_STRATEGY = 3;
-    // 请登录zz.253.com 获取创蓝API账号(非登录账号,示例:N1234567)
+
+    /**
+     * 关于我们 4
+     */
+    public static final Integer ABOUT_US = 4;
+    /**
+     * 请登录zz.253.com 获取创蓝API账号(非登录账号,示例:N1234567)
+     */
     public static String account = "N5676021";
-    // 请登录zz.253.com 获取创蓝API密码(非登录密码)
+    /**
+     * 请登录zz.253.com 获取创蓝API密码(非登录密码)
+     */
     public static String password = "kk778899!";
 }

@@ -25,7 +25,7 @@ public class Systembulletin extends BasePojo {
     private String resourceStrategyQrcodeurl;
 
     /**
-     * 系统发布的h5文件，0活动功能介绍，1会员收益攻略，2用户协议,3资源攻略，4 了解我们'
+     * 系统发布的h5文件，类型0活动功能介绍和了解我们，1会员收益攻略，2用户协议,3资源攻略,4关于我们
      */
     private Integer systemStatus;
 

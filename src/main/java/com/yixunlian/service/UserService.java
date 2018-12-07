@@ -29,6 +29,7 @@ import org.springframework.stereotype.Service;
 import util.myutils.DateUtils;
 import util.myutils.ListUtils;
 import util.myutils.ObjectUtil;
+import util.myutils.Tools;
 import util.weixin.Const;
 
 import javax.annotation.Resource;
@@ -397,6 +398,25 @@ public class UserService extends BaseService<User> {
             return user.getClosedUserStatus() == 0 && user.getUserIsactivation() == 2;
         }
         return false;
+    }
+
+    /**
+     * 判断用户填写参数是否合格
+     *
+     * @param user
+     * @return
+     */
+    public boolean checkUserIsOkByRegister(User user) {
+        if (ObjectUtil.isNull(user)) {
+            return false;
+        }
+        return ObjectUtil.notEmpty(user.getuNickname())
+                && ObjectUtil.isNotNull(user.getuSex())
+                && ObjectUtil.notEmpty(user.getProvinceCitycode())
+                && ObjectUtil.notEmpty(user.getCityCitycode())
+                && ObjectUtil.notEmpty(user.getAreaCitycode())
+                && ObjectUtil.notEmpty(user.getuPhone())
+                && Tools.isMobile(user.getuPhone());
     }
 
     /**

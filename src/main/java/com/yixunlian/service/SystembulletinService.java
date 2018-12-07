@@ -31,7 +31,4 @@ public class SystembulletinService extends BaseService<Systembulletin> {
     @Resource(name = "systembulletinMapper")
     private SystembulletinMapper systembulletinMapper;
 
-
-
-
 }

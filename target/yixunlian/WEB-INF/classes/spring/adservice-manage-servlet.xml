@@ -3,10 +3,20 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:task="http://www.springframework.org/schema/task"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+       http://www.springframework.org/schema/task
+        http://www.springframework.org/schema/task/spring-task-3.0.xsd">
     <mvc:default-servlet-handler/>
+    <!-- Controller的扫描包 -->
+    <context:component-scan base-package="com.yixunlian.controller"/>
+    <!--spring 管理定时任务-->
+    <task:annotation-driven scheduler="myScheduler"/>
+    <!--推荐配置线程池，若不配置多任务下会有问题-->
+    <task:scheduler id="myScheduler" pool-size="5"/>
+    <context:component-scan base-package="com.yixunlian.job"/>
     <!-- 注解驱动 -->
     <mvc:annotation-driven>
         <mvc:message-converters>
@@ -32,8 +42,6 @@
     <!-- 第三步：注册处理器映射器/处理器适配器 ，添加conversion-service属性-->
     <mvc:annotation-driven conversion-service="conversionService"/>
 
-    <!-- Controller的扫描包 -->
-    <context:component-scan base-package="com.yixunlian.controller"/>
     <!-- 定义试图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/"/>

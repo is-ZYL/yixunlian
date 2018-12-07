@@ -21,7 +21,6 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.web.bind.annotation.*;
 import util.myutils.ObjectUtil;
 import util.myutils.TokenUtils;
-import util.myutils.Tools;
 import util.myutils.file.FileUpload;
 
 import javax.annotation.Resource;
@@ -80,6 +79,8 @@ public class ActivityController extends BaseController {
     private UserandhobbyService userandhobbyService;
     @Resource(name = "uhobbyandactivitycategoryService")
     private UhobbyandactivitycategoryService uhobbyandactivitycategoryService;
+    @Resource(name = "transactionItemService")
+    private TransactionItemService transactionItemService;
 
     @PostMapping(value = "test111")
     public Result<String> test() {
@@ -157,6 +158,9 @@ public class ActivityController extends BaseController {
     @PostMapping("activityUserSaveInfo")
     public Result<Integer> activityUserSaveInfo(@RequestParam String token, OrganizerInfo organizerInfo) {
         logger.info("进入活动主办方，方法[{},{}]" + token, organizerInfo);
+        if (!organizerInfoService.checkOrganizerInfoIsOk(organizerInfo)) {
+            return Result.error("403", "参数异常");
+        }
         String data = TokenUtils.getDataByKey(token);
         if (ObjectUtil.isEmpty(data)) {
             // token不正确 返回204
@@ -176,20 +180,12 @@ public class ActivityController extends BaseController {
                 return Result.error("207", "已有活动主办方信息");
             }
             u = userService.queryById(u.getUserId());
-            if (ObjectUtil.isNotNull(organizerInfo)) {
-                if (!Tools.isMobile(organizerInfo.getPhone())) {
-                    logger.error("------手机号格式错误--------》保存活动主办方信息 2");
-                    return Result.error("403", "手机号格式错误");
-                }
-                Integer save = organizerInfoService.saveByOrganizerInfo(u, organizerInfo);
-                if (save > 0) {
-                    return Result.success("保存成功", SUCCESS);
-                }
-                logger.error("------保存至数据库异常--------》保存活动主办方信息 2");
-                return Result.error("209", "保存失败");
+            Integer save = organizerInfoService.saveByOrganizerInfo(u, organizerInfo);
+            if (save > 0) {
+                return Result.success("保存成功", SUCCESS);
             }
-            logger.error("----------参数为空------------》保存活动主办方信息 2");
-            return Result.error("403", "参数为空");
+            logger.error("------保存至数据库异常--------》保存活动主办方信息 2");
+            return Result.error("209", "保存失败");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -981,24 +977,66 @@ public class ActivityController extends BaseController {
                 logger.error("--------用户不存在---------》活动主办方填写报名用户备注 19");
                 return Result.error("206", "用户不存在");
             }
-            if (ObjectUtil.isNull(ue)) {
+            if (ObjectUtil.isNull(ue) && ObjectUtil.isEmpty(ue.getRemar())) {
                 //用户为空返回403
                 logger.error("--------参数异常  activityId is null---------》活动主办方填写报名用户备注 19");
                 return Result.error("207", "参数异常");
             }
-            Uenrollandactivity uenrollandactivity;
-            try {
-                uenrollandactivity = Uenrollandactivity.getUenrollAndActivity().toBuilder().activityId(ue.getActivityId()).remar(ue.getRemar()).uandactivityenrollId(ue.getUandactivityenrollId()).build();
-            } catch (Exception e) {
-                return Result.error("207", "参数异常");
+            //通过id查询主办方信息
+            Uenrollandactivity uenrollandactivity = ueService.queryById(ue.getUandactivityenrollId());
+
+            if (ObjectUtil.isNull(uenrollandactivity)) {
+                return Result.error("206", "主办方信息异常");
             }
+            if (ObjectUtil.notEmpty(uenrollandactivity.getRemar())) {
+                return Result.error("403", "当前用户备注已经添加，不允许重复添加");
+            }
+            uenrollandactivity.setRemar(ue.getRemar());
             Integer result = ueService.updateSelective(uenrollandactivity);
             return 0 == result ? Result.error(0) : Result.success(1);
         } catch (IOException e) {
             e.printStackTrace();
         }
         // 出错500
-        logger.error("--------服务器异常---------》查询当前活动的所有报名用户信息 18");
+        logger.error("--------服务器异常---------》活动主办方填写报名用户备注 19");
         return Result.error("500", "服务器异常");
     }
+
+    /**
+     * 20  根据token 活动主办方填写报名用户成交信息
+     *
+     * @param transactionItems 用户成交信息
+     * @return 返回 0 失败  1 成功
+     */
+    @PostMapping(value = "saveTransactionItemByActivityId")
+    public Result<Integer> saveTransactionItemByActivityId(@RequestParam("transactionItems[]") List<TransactionItem> transactionItems, @RequestParam String token) {
+        if (ObjectUtil.isNull(transactionItems)) {
+            //用户为空返回403
+            logger.error("--------参数异常  activityId is null---------》活动主办方填写报名用户成交信息 20");
+            return Result.error("207", "参数异常");
+        }
+        String data = TokenUtils.getDataByKey(token);
+        if (ObjectUtil.isEmpty(data)) {
+            // token不正确 返回204
+            logger.error("--------token值错误---------》活动主办方填写报名用户成交信息 20");
+            return Result.error("204", "token值错误");
+        }
+        //通过token值获取user对象
+        try {
+            User u = MAPPER.readValue(data, User.class);
+            if (ObjectUtil.isNull(u)) {
+                //用户为空返回403
+                logger.error("--------用户不存在---------》活动主办方填写报名用户成交信息 20");
+                return Result.error("206", "用户不存在");
+            }
+
+            return transactionItemService.saveSelectiveByTransactionItemList(u, transactionItems);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // 出错500
+        logger.error("--------服务器异常---------》活动主办方填写报名用户成交信息 20");
+        return Result.error("500", "服务器异常");
+    }
+
 }

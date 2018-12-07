@@ -41,12 +41,18 @@ public class FileJob {
     /**
      * 删除不需要的
      */
-    @Scheduled(cron = "0 0/1 * * * ?")
+    @Scheduled(cron = "0/2 * * * * ?")
     public void delQrcodeFile() {
-        File f = new File("C:\\file\\imgTemp");
-        deleatfangf(f);
+        System.out.println("job test111");
     }
 
+    /**
+     * 删除不需要的
+     */
+    @Scheduled(cron = "0/3 * * * * ?")
+    public void delQrcodeFile2() {
+        System.out.println("job test22222");
+    }
 
     private void deleatfangf(File f) {
         if (f == null) {

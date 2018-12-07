@@ -35,6 +35,11 @@ public class OrganizerInfo extends BasePojo {
     private String name;
 
     /**
+     * 主办方密码（用于pc端发布活动）
+     */
+    private String password;
+
+    /**
      * 手机号
      */
     private String phone;

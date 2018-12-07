@@ -11,6 +11,7 @@
 package com.yixunlian.entity;
 
 import com.yixunlian.pojo.Activitysign;
+import com.yixunlian.pojo.TransactionItem;
 import com.yixunlian.pojo.Uenrollandactivity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,7 +35,14 @@ import java.util.List;
 public class ActivitySignUpInfo {
 
     private Uenrollandactivity uen;
+    /**
+     * 用户填写的报名信息
+     */
     private List<Activitysign> act;
+    /**
+     * 用户的成交信息
+     */
+    private List<TransactionItem> trans;
 
     public static ActivitySignUpInfo getActivitySignUpInfo() {
         return new ActivitySignUpInfo();
