@@ -18,7 +18,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
 import java.io.IOException;
 
 /**
@@ -76,7 +75,7 @@ public class TokenUtils {
      * @return
      */
     public static String getCodeCountByUphone(String Uphone) {
-        String key = "COUNT" + Uphone;
+        String key = "COUNT_" + Uphone;
         return tokenUtils.rService.get(key);
     }
 

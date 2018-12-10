@@ -13,84 +13,146 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df1a58cd-3d14-4fef-b2d6-c1cb6ce604fa" name="Default" comment="'活动创建10%'">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/SystemController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/TransactionItemMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/TransactionItemMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/ActivitySponsorDistributeExtract.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/TransactionItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/service/TransactionItemService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/entity/UserTransactionInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chuanglan/sms/request/SmsVariableRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chuanglan/sms/request/SmsVariableRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/ActivityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/ActivityController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/entity/ActivitySignUpInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/entity/ActivitySignUpInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/WxConfigController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/WxConfigController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/entity/ActivityInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/entity/ActivityInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/entity/ActivitySingInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/entity/ActivitySingInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/entity/job/TaskServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/entity/job/TaskServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/job/FileJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/job/FileJob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/OrganizerInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/OrganizerInfoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/OrganizerInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/OrganizerInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/system/Systembulletin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/system/Systembulletin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/ActivityMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/ActivityMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/ExtractprojectMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/ExtractprojectMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/UenrollandactivityMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/UenrollandactivityMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Activity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/ActivitySponsorDistributeExtract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/ActivitySponsorDistributeExtract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Extractproject.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/TransactionItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/TransactionItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Uenrollandactivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Uenrollandactivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/service/ActivityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/service/ActivityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/service/OrganizerInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/service/OrganizerInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/service/SystembulletinService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/service/SystembulletinService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/service/ExtractprojectService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/service/TransactionItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/service/TransactionItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/service/UenrollandactivityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/service/UenrollandactivityService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/myutils/file/FileUpload.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/myutils/file/FileUpload.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yixunlian/service/baseservice/GetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yixunlian/service/baseservice/GetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/HttpUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/HttpUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/myutils/BigDecimalUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/myutils/BigDecimalUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/myutils/ObjectUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/myutils/ObjectUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/myutils/TokenUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/myutils/TokenUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/util/weixin/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/weixin/Const.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spring/adservice-manage-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring/adservice-manage-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/yixunlian.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chuanglan/sms/request/SmsVariableRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chuanglan/sms/request/SmsVariableRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/controller/front/ActivityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/controller/front/ActivityController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/controller/front/ActivityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/controller/front/ActivityController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/controller/front/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/controller/front/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/controller/front/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/controller/front/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/entity/ActivitySignUpInfo$ActivitySignUpInfoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/entity/ActivitySignUpInfo$ActivitySignUpInfoBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/entity/ActivitySignUpInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/entity/ActivitySignUpInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/entity/ActivitySignUpInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/entity/ActivitySignUpInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/job/FileJob.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/job/FileJob.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/job/FileJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/job/FileJob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/mapper/OrganizerInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/mapper/OrganizerInfoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/OrganizerInfo$OrganizerInfoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/OrganizerInfo$OrganizerInfoBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/OrganizerInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/OrganizerInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/OrganizerInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/OrganizerInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/system/Systembulletin.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/system/Systembulletin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/controller/weixin/WxPayController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/controller/weixin/WxPayController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/entity/ActivityInfo$ActivityInfoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/entity/ActivityInfo$ActivityInfoBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/entity/ActivityInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/entity/ActivityInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/entity/ActivityInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/entity/ActivityInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/entity/ActivitySingInfo$ActivitySingInfoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/entity/ActivitySingInfo$ActivitySingInfoBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/entity/ActivitySingInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/entity/ActivitySingInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/entity/ActivitySingInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/entity/ActivitySingInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/mapper/ActivityMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/mapper/ActivityMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/mapper/ExtractprojectMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/mapper/ExtractprojectMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/mapper/ExtractprojectMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/mapper/UenrollandactivityMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/mapper/UenrollandactivityMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/Activity$ActivityBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/Activity$ActivityBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/Activity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/Activity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/Activity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/ActivitySponsorDistributeExtract.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/ActivitySponsorDistributeExtract.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/ActivitySponsorDistributeExtract.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/ActivitySponsorDistributeExtract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/Extractproject$ExtractprojectBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/Extractproject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/Extractproject.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/Uenrollandactivity$UenrollandactivityBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/Uenrollandactivity$UenrollandactivityBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/Uenrollandactivity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/Uenrollandactivity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/Uenrollandactivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/pojo/Uenrollandactivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/service/ActivityService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/service/ActivityService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/service/ActivityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/service/ActivityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/service/OrganizerInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/service/OrganizerInfoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/service/OrganizerInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/service/OrganizerInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/service/SystembulletinService.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/service/SystembulletinService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/service/ExtractprojectService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/service/ExtractprojectService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/service/TransactionItemService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/service/TransactionItemService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/service/TransactionItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/service/TransactionItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/service/UenrollandactivityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/service/UenrollandactivityService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/service/UserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/spring/adservice-manage-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spring/adservice-manage-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/util/myutils/file/FileUpload.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/myutils/file/FileUpload.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/util/myutils/file/FileUpload.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/myutils/file/FileUpload.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/service/baseservice/GetService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/service/baseservice/GetService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yixunlian/service/baseservice/GetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yixunlian/service/baseservice/GetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/HttpUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/HttpUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/HttpUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/HttpUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/myutils/BigDecimalUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/myutils/BigDecimalUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/myutils/BigDecimalUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/myutils/BigDecimalUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/myutils/TokenUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/myutils/TokenUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/myutils/TokenUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/myutils/TokenUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/util/weixin/Const.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/weixin/Const.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/util/weixin/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/weixin/Const.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/yixunlian.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/weixin/WeiXinPayUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/weixin/WeiXinPayUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/weixin/WxUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/weixin/WxUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gm-parent/WEB-INF/classes/spring/adservice-manage-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian.war" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/META-INF/yixunlian.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/chuanglan/sms/request/SmsVariableRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/chuanglan/sms/request/SmsVariableRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/controller/front/ActivityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/controller/front/ActivityController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/controller/front/ActivityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/controller/front/ActivityController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/controller/front/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/controller/front/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/controller/front/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/controller/front/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/entity/ActivitySignUpInfo$ActivitySignUpInfoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/entity/ActivitySignUpInfo$ActivitySignUpInfoBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/entity/ActivitySignUpInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/entity/ActivitySignUpInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/entity/ActivitySignUpInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/entity/ActivitySignUpInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/job/FileJob.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/job/FileJob.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/job/FileJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/job/FileJob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/mapper/OrganizerInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/mapper/OrganizerInfoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/OrganizerInfo$OrganizerInfoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/OrganizerInfo$OrganizerInfoBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/OrganizerInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/OrganizerInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/OrganizerInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/OrganizerInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/system/Systembulletin.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/system/Systembulletin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/controller/weixin/WxPayController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/controller/weixin/WxPayController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/entity/ActivityInfo$ActivityInfoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/entity/ActivityInfo$ActivityInfoBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/entity/ActivityInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/entity/ActivityInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/entity/ActivityInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/entity/ActivityInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/entity/ActivitySingInfo$ActivitySingInfoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/entity/ActivitySingInfo$ActivitySingInfoBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/entity/ActivitySingInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/entity/ActivitySingInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/entity/ActivitySingInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/entity/ActivitySingInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/mapper/ActivityMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/mapper/ActivityMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/mapper/ExtractprojectMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/mapper/ExtractprojectMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/mapper/ExtractprojectMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/mapper/UenrollandactivityMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/mapper/UenrollandactivityMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/Activity$ActivityBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/Activity$ActivityBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/Activity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/Activity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/Activity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/ActivitySponsorDistributeExtract.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/ActivitySponsorDistributeExtract.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/ActivitySponsorDistributeExtract.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/ActivitySponsorDistributeExtract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/Extractproject$ExtractprojectBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/Extractproject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/Extractproject.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/Uenrollandactivity$UenrollandactivityBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/Uenrollandactivity$UenrollandactivityBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/Uenrollandactivity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/Uenrollandactivity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/Uenrollandactivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/pojo/Uenrollandactivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/ActivityService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/ActivityService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/ActivityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/ActivityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/OrganizerInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/OrganizerInfoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/OrganizerInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/OrganizerInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/SystembulletinService.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/SystembulletinService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/ExtractprojectService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/ExtractprojectService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/TransactionItemService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/TransactionItemService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/TransactionItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/TransactionItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/UenrollandactivityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/UenrollandactivityService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/UserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/spring/adservice-manage-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/spring/adservice-manage-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/util/myutils/file/FileUpload.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/util/myutils/file/FileUpload.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/util/myutils/file/FileUpload.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/util/myutils/file/FileUpload.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/baseservice/GetService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/baseservice/GetService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/baseservice/GetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/com/yixunlian/service/baseservice/GetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/util/HttpUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/util/HttpUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/util/HttpUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/util/HttpUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/util/myutils/BigDecimalUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/util/myutils/BigDecimalUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/util/myutils/BigDecimalUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/util/myutils/BigDecimalUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/util/myutils/TokenUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/util/myutils/TokenUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/util/myutils/TokenUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/util/myutils/TokenUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/util/weixin/Const.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/util/weixin/Const.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/util/weixin/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/util/weixin/Const.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/util/weixin/WeiXinPayUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/util/weixin/WeiXinPayUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/util/weixin/WxUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/WEB-INF/classes/util/weixin/WxUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/lib/httpclient-4.3.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/lib/mapper-4.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/WEB-INF/lib/persistence-api-1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/yixunlian/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/yixunlian/index.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/../文档All(1)/gm-common/target/" />
@@ -144,69 +206,7 @@
     <favorites_list name="yixunlian" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ActivityController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/ActivityController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="1018" column="39" lean-forward="true" selection-start-line="1018" selection-start-column="39" selection-end-line="1018" selection-end-column="39" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TransactionItem.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/TransactionItem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActivitySignUpInfo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/ActivitySignUpInfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Uenrollandactivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Uenrollandactivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2025">
-              <caret line="85" selection-start-line="85" selection-end-line="85" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TransactionItemService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/TransactionItemService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1925">
-              <caret line="86" selection-start-line="86" selection-end-line="86" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActivitySponsorDistributeExtract.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/ActivitySponsorDistributeExtract.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -220,25 +220,12 @@
       </list>
     </option>
   </component>
-  <component name="FindBugs-IDEA-Workspace">
-    <toolWindowEditorPreview>false</toolWindowEditorPreview>
-  </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find> </find>
-      <find>活动报名</find>
-      <find>junit</find>
-      <find>commons</find>
-      <find>接收到</find>
-      <find>报名</find>
-      <find>getUenrollandactivityDetailByToken</find>
-      <find>二维码</find>
-      <find>tool</find>
       <find>已发布</find>
       <find>活动专区</find>
       <find>草稿</find>
       <find>发布活动</find>
-      <find>Const</find>
       <find>活动详情</find>
       <find>spring-boot</find>
       <find>新闻</find>
@@ -255,6 +242,16 @@
       <find>提成</find>
       <find>Transient</find>
       <find>transactionItems</find>
+      <find>Const</find>
+      <find>短信</find>
+      <find>new DefaultHttpClient()</find>
+      <find>平台总收益</find>
+      <find>我的</find>
+      <find>报名</find>
+      <find>成交信息</find>
+      <find>organizerCheckUserInfoByToken</find>
+      <find>1</find>
+      <find>transactionnum</find>
     </findStrings>
     <replaceStrings>
       <replace>TokenUtils.getDataByKey(token)</replace>
@@ -299,24 +296,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/bulid.fxml" />
-        <option value="$PROJECT_DIR$/bulid.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/ActivityFillInItemMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/ActivityFillInItemService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/ActivityFillInItemMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/util/sendmsgutils/HttpRequestUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/util/RandomString.java" />
-        <option value="$PROJECT_DIR$/src/main/java/util/weixin/GetOrderNum.java" />
-        <option value="$PROJECT_DIR$/src/main/java/util/weixin/WxUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/entity/weixin/Token.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Activitysign.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mybatis-config.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/GraphicsService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gm/common/spring/exetend/converter/json/CallbackMappingJackson2HttpMessageConverter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/entity/ActivitySingInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/UenrollandactivityMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/entity/ActivitySignUpInformation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Uenrollandactivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/util/myutils/ListUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/util/myutils/QRCodeUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/ActivityChargeItemService.java" />
@@ -325,31 +307,46 @@
         <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/HomePageController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/AdvertisementimageMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Advertisementimage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/UenrollandactivityService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/ActivitysignService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/system/Systembulletin.java" />
-        <option value="$PROJECT_DIR$/src/main/java/util/weixin/Const.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/SystembulletinService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/UserMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/OrganizerInfoMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/OrganizerInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/util/myutils/file/FileUpload.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/OrganizerInfoService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/SystemController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/adservice-manage-servlet.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/job/FileJob.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/BasePojo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/TransactionItemMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/ActivityService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/entity/job/TaskServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/entity/ActivitySignUpInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/TransactionItemService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/myutils/TokenUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/weixin/Const.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/HttpUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/ActivitySponsorDistributeExtract.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/entity/ActivitySingInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/entity/ActivityInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Activity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/ActivityMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/baseservice/GetService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/myutils/BigDecimalUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/job/FileJob.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/TransactionItem.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/myutils/ObjectUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/baseservice/BaseService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/UenrollandactivityMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/entity/job/TaskServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Uenrollandactivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/WxConfigController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/entity/UserTransactionInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/ActivityController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/TransactionItemService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/ActivityService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/yixunlian/service/UenrollandactivityService.java" />
       </list>
     </option>
   </component>
@@ -380,7 +377,17 @@
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
-      <expand />
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="yixunlian" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="yixunlian" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
       <select />
     </treeState>
   </component>
@@ -388,10 +395,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1460" />
-    <option name="height" value="920" />
+    <option name="x" value="76" />
+    <option name="y" value="70" />
+    <option name="width" value="1386" />
+    <option name="height" value="788" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -401,6 +408,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -452,7 +460,28 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="yixunlian" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yixunlian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yixunlian" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="yixunlian" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yixunlian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yixunlian" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="yixunlian" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="yixunlian" type="b2602c69:ProjectViewProjectNode" />
@@ -472,12 +501,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="Tool&#9;PSI&#9;JAVA://util.myutils.Tools&#10;isPhone&#9;null&#9;null&#10;UserController&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/yuanyuana/Desktop/易迅连/项目代码/易迅连11/yixunlian/src/main/java/com/yixunlian/controller/front/UserController.java&#10;Tool&#9;PSI&#9;JAVA://util.myutils.Tools&#10;isPhone&#9;null&#9;null&#10;UserController&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
@@ -532,14 +560,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.yixunlian">
-    <configuration name="ActivityController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.yixunlian.controller.front.ActivityController" />
+  <component name="RunManager" selected="Application.BigDecimalUtils">
+    <configuration name="BigDecimalUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="util.myutils.BigDecimalUtils" />
       <module name="yixunlian" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.yixunlian.controller.front.*" />
+          <option name="PATTERN" value="util.myutils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -705,19 +733,19 @@
     </configuration>
     <list>
       <item itemvalue="Tomcat Server.yixunlian" />
-      <item itemvalue="Application.ActivityController" />
       <item itemvalue="Application.FormDate" />
       <item itemvalue="Application.DateUtils" />
       <item itemvalue="Application.RandomString" />
       <item itemvalue="Application.UserController" />
+      <item itemvalue="Application.BigDecimalUtils" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.BigDecimalUtils" />
         <item itemvalue="Application.UserController" />
         <item itemvalue="Application.RandomString" />
         <item itemvalue="Application.DateUtils" />
         <item itemvalue="Application.FormDate" />
-        <item itemvalue="Application.ActivityController" />
       </list>
     </recent_temporary>
   </component>
@@ -822,6 +850,11 @@
       <workItem from="1544060092061" duration="19841000" />
       <workItem from="1544146257267" duration="27665000" />
       <workItem from="1544180443236" duration="6000" />
+      <workItem from="1544334044417" duration="4871000" />
+      <workItem from="1544346097087" duration="589000" />
+      <workItem from="1544351719291" duration="1930000" />
+      <workItem from="1544353766924" duration="4158000" />
+      <workItem from="1544406206518" duration="28923000" />
     </task>
     <servers />
   </component>
@@ -858,9 +891,9 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1218490000" />
+    <option name="totallyTimeSpent" value="1258961000" />
   </component>
-  <component name="TodoView" selected-index="3">
+  <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
     </todo-panel>
@@ -873,47 +906,48 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49924356" weight="0.328152" />
       <window_info anchor="bottom" id="FindBugs-IDEA" order="7" weight="0.21588947" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info anchor="bottom" id="Java Enterprise" order="9" weight="0.328152" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.4236006" side_tool="true" weight="0.18480138" />
-      <window_info anchor="bottom" id="Application Servers" order="10" weight="0.32868758" />
+      <window_info anchor="bottom" id="Application Servers" order="10" weight="0.328152" />
       <window_info anchor="right" id="Maven Projects" order="7" weight="0.16641453" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="12" weight="0.329849" />
-      <window_info anchor="bottom" x="1045" y="545" width="1680" height="301" id="Run" order="1" sideWeight="0.5869894" weight="0.5198618" />
-      <window_info anchor="bottom" id="Spring" order="13" weight="0.329849" />
-      <window_info anchor="bottom" id="Terminal" order="14" weight="0.328152" />
       <window_info id="Designer" order="1" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.4982699" visible="true" weight="0.23600605" />
-      <window_info id="Web" order="3" sideWeight="0.5017301" side_tool="true" weight="0.25366747" />
       <window_info anchor="bottom" id="Tail" order="15" />
       <window_info anchor="right" id="Database" order="6" weight="0.2322239" />
-      <window_info anchor="right" id="SciView" order="8" weight="0.32980332" />
       <window_info id="Structure" order="0" sideWeight="0.5017301" side_tool="true" weight="0.25366747" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.24962178" />
       <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="2" sideWeight="0.5017301" side_tool="true" weight="0.13161875" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49924356" weight="0.4818653" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49924356" weight="0.328152" />
       <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.5763994" weight="0.2746114" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info anchor="bottom" id="Java Enterprise" order="9" weight="0.328152" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.328152" />
+      <window_info anchor="bottom" x="1045" y="545" width="1680" height="301" id="Run" order="1" sideWeight="0.5869894" weight="0.36787564" />
+      <window_info anchor="bottom" id="Spring" order="13" weight="0.329849" />
+      <window_info anchor="bottom" id="Terminal" order="14" weight="0.328152" />
+      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.4982699" weight="0.2602118" />
+      <window_info id="Web" order="3" sideWeight="0.5017301" side_tool="true" weight="0.25366747" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.328152" />
+      <window_info anchor="right" id="SciView" order="8" weight="0.32980332" />
+      <window_info id="Favorites" order="2" sideWeight="0.5017301" side_tool="true" weight="0.13161875" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection Results" order="16" weight="0.3298791" />
       <window_info anchor="bottom" id="Database Console" order="16" weight="0.3298791" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.328152" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32980332" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection Results" order="16" weight="0.3298791" />
+      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32980332" />
     </layout>
     <layout-to-restore>
       <window_info anchor="bottom" id="Application Servers" order="10" weight="0.32868758" />
       <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="bottom" x="1045" y="545" width="1680" height="301" id="Run" order="1" sideWeight="0.5960666" weight="0.15889464" />
       <window_info anchor="bottom" id="Spring" order="13" weight="0.329849" />
       <window_info anchor="bottom" id="Database Console" order="16" weight="0.3298791" />
-      <window_info anchor="bottom" x="1045" y="545" width="1680" height="301" id="Run" order="1" sideWeight="0.5960666" weight="0.15889464" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.328152" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.24962178" />
       <window_info id="UI Designer" order="5" />
@@ -925,7 +959,6 @@
       <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.57488656" weight="0.23143351" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49924356" weight="0.328152" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="Tail" order="15" />
       <window_info anchor="bottom" id="Java Enterprise" order="9" weight="0.328152" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.329849" />
@@ -939,7 +972,7 @@
       <window_info id="Structure" order="1" sideWeight="0.5017301" side_tool="true" weight="0.25366747" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32980332" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.328152" />
+      <window_info anchor="bottom" id="Tail" order="15" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3851468" />
     </layout-to-restore>
   </component>
@@ -968,7 +1001,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="882" />
+      <option name="time" value="887" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
@@ -981,167 +1014,192 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_CONFIG_DIR$/extensions/com.intellij.database/data/extractors/JSON-Groovy.json.groovy">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.5/httpclient-4.5.5-sources.jar!/org/apache/http/client/utils/URIBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="50" column="27" lean-forward="true" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
+        <state relative-caret-position="25">
+          <caret line="78" column="18" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.3.4.RELEASE/spring-aop-4.3.4.RELEASE-sources.jar!/org/springframework/aop/support/annotation/AnnotationClassFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="55" column="14" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/sql/yixunlian19.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="555" column="18" lean-forward="true" selection-start-line="555" selection-start-column="18" selection-end-line="555" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/myutils/QRCodeUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/myutils/TokenUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
-          <caret line="148" column="30" lean-forward="true" selection-start-line="148" selection-start-column="30" selection-end-line="148" selection-end-column="30" />
+          <caret line="89" column="29" lean-forward="true" selection-start-line="89" selection-start-column="29" selection-end-line="89" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Journalism.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/weixin/Const.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+        <state relative-caret-position="179">
+          <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.5/httpclient-4.5.5-sources.jar!/org/apache/http/client/HttpClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="60" column="59" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="59" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/Result.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="130" column="7" lean-forward="true" selection-start-line="130" selection-start-column="7" selection-end-line="130" selection-end-column="7" />
+        <state relative-caret-position="184">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/JournalismService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/job/BeanUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/ActivitySponsorDistributeExtract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="24" column="7" lean-forward="true" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Activitysign.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-221">
+          <caret line="29" column="11" lean-forward="true" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/ActivitySingInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="353">
-          <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+          <caret line="47" column="7" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/SysUserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="42" column="42" lean-forward="true" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Extractproject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext-transaction.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/ExtractprojectService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/UmoneyMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="8" column="48" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/ActivityMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="77" column="62" selection-start-line="77" selection-start-column="41" selection-end-line="77" selection-end-column="62" />
+        <state relative-caret-position="450">
+          <caret line="44" column="83" selection-start-line="44" selection-start-column="83" selection-end-line="44" selection-end-column="83" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/ActivityMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/baseservice/GetService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="356">
+          <caret line="104" selection-start-line="104" selection-end-line="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="145" column="7" lean-forward="true" selection-start-line="145" selection-start-column="7" selection-end-line="145" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/ActivityInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="28" selection-start-line="28" selection-end-line="31" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/AdvertisementimageMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="7" column="88" lean-forward="true" selection-start-line="7" selection-start-column="88" selection-end-line="7" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/HomePageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="60" column="40" lean-forward="true" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Advertisementimage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="829">
-          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/ActivityChargeItemService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/UenrollandactivityService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="119" column="41" lean-forward="true" selection-start-line="119" selection-start-column="41" selection-end-line="119" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/SystembulletinService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="22" column="2" lean-forward="true" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="26" column="28" lean-forward="true" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/OrganizerInfoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="23" column="31" lean-forward="true" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/UserMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="9" column="15" lean-forward="true" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/OrganizerInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="67" column="12" lean-forward="true" selection-start-line="67" selection-start-column="12" selection-end-line="67" selection-end-column="12" />
+        <state relative-caret-position="284">
+          <caret line="36" column="15" lean-forward="true" selection-start-line="36" selection-start-column="15" selection-end-line="36" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="411" column="9" selection-start-line="411" selection-start-column="9" selection-end-line="411" selection-end-column="9" />
+        <state relative-caret-position="51">
+          <caret line="795" selection-start-line="795" selection-end-line="795" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/myutils/file/FileUpload.java">
+    <entry file="jar://D:/java/src.zip!/java/math/BigInteger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1623">
-          <caret line="69" column="83" lean-forward="true" selection-start-line="69" selection-start-column="83" selection-end-line="69" selection-end-column="83" />
+        <state relative-caret-position="138">
+          <caret line="1189" column="72" lean-forward="true" selection-start-line="1189" selection-start-column="72" selection-end-line="1189" selection-end-column="72" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/OrganizerInfoService.java">
+    <entry file="jar://D:/java/src.zip!/java/math/BigDecimal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="68" column="14" lean-forward="true" selection-start-line="68" selection-start-column="14" selection-end-line="68" selection-end-column="14" />
+        <state relative-caret-position="25">
+          <caret line="1269" column="71" lean-forward="true" selection-start-line="1269" selection-start-column="71" selection-end-line="1269" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/myutils/BigDecimalUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="179" selection-start-line="179" selection-end-line="179" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/ActivityChargeItemService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="44" column="90" lean-forward="true" selection-start-line="44" selection-start-column="90" selection-end-line="44" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="1421" column="18" lean-forward="true" selection-start-line="1421" selection-start-column="18" selection-end-line="1421" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Taxrevenue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/TaxrevenueService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="35" column="56" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/job/JobTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1152,198 +1210,178 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/adservice-manage-servlet.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/job/JobManage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="19" column="17" lean-forward="true" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+        <state relative-caret-position="-821">
+          <caret line="114" column="39" lean-forward="true" selection-start-line="114" selection-start-column="39" selection-end-line="114" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/system/Systembulletin.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/job/UserJob.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/SystemController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="52" column="114" lean-forward="true" selection-start-line="52" selection-start-column="114" selection-end-line="52" selection-end-column="114" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2341#2357#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/ActivitysignService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="117" column="20" lean-forward="true" selection-start-line="117" selection-start-column="20" selection-end-line="117" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/weixin/Const.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="49" column="7" lean-forward="true" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="975" lean-forward="true" selection-start-line="975" selection-end-line="975" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/job/FileJob.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="20" column="10" lean-forward="true" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
-          <folding>
-            <element signature="e#932#933#0" expanded="true" />
-            <element signature="e#967#968#0" expanded="true" />
-            <element signature="e#1081#1082#0" expanded="true" />
-            <element signature="e#1126#1127#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/BasePojo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Taxrevenue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/myutils/ObjectUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-641">
-          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="146" column="47" selection-start-line="146" selection-start-column="43" selection-end-line="146" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/TransactionItemMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="7" column="98" lean-forward="true" selection-start-line="7" selection-start-column="98" selection-end-line="7" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/ActivityService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="1192" column="14" lean-forward="true" selection-start-line="1192" selection-start-column="14" selection-end-line="1192" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/TransactionItemMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Activitysign.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-71">
-          <caret line="20" column="7" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/ActivitySignUpInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Uenrollandactivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2025">
-          <caret line="85" selection-start-line="85" selection-end-line="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/job/TaskService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="13" column="31" lean-forward="true" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/ScheduleJob.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="47" column="7" lean-forward="true" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
+        <state relative-caret-position="154">
+          <caret line="35" column="6" lean-forward="true" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/job/QuartzJobFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
+        <state relative-caret-position="379">
           <caret line="31" column="13" lean-forward="true" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/job/TaskListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="37" column="13" lean-forward="true" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
+        <state relative-caret-position="79">
+          <caret line="25" column="3" lean-forward="true" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/job/TaskService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/job/FileJob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="58" column="19" lean-forward="true" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/myutils/ObjectUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="130" column="6" lean-forward="true" selection-start-line="130" selection-start-column="6" selection-end-line="130" selection-end-column="6" />
+          <folding>
+            <element signature="e#2204#2205#0" expanded="true" />
+            <element signature="e#2273#2274#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/ActivitySignUpInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="44" column="40" lean-forward="true" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/mapper/UenrollandactivityMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="27" column="16" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/controller/weixin/WxPayController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="40" column="35" lean-forward="true" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/WxConfigController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="31" column="37" lean-forward="true" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/job/TaskServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="50" column="7" lean-forward="true" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
+        <state relative-caret-position="325">
+          <caret line="72" column="32" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/TransactionItemService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/ActivityFillInItemService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1925">
-          <caret line="86" selection-start-line="86" selection-end-line="86" />
+        <state relative-caret-position="659">
+          <caret line="46" column="26" lean-forward="true" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/ActivitysignService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="92" column="35" lean-forward="true" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/TransactionItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="19" column="13" lean-forward="true" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/OrganizerInfoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="57" column="7" lean-forward="true" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/baseservice/BaseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="156" lean-forward="true" selection-start-line="156" selection-end-line="156" />
+          <folding>
+            <element signature="e#1176#1177#0" expanded="true" />
+            <element signature="e#1228#1229#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/entity/UserTransactionInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/ActivitySponsorDistributeExtract.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/TransactionItemService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+        <state relative-caret-position="105">
+          <caret line="48" column="6" lean-forward="true" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/TransactionItem.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/UenrollandactivityService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        <state relative-caret-position="151">
+          <caret line="65" column="7" lean-forward="true" selection-start-line="65" selection-start-column="7" selection-end-line="65" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/pojo/Uenrollandactivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="49" column="30" lean-forward="true" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/service/ActivityService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="1139" column="50" lean-forward="true" selection-start-line="1139" selection-start-column="50" selection-end-line="1139" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/yixunlian/controller/front/ActivityController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="1018" column="39" lean-forward="true" selection-start-line="1018" selection-start-column="39" selection-end-line="1018" selection-end-column="39" />
+        <state relative-caret-position="401">
+          <caret line="925" column="48" lean-forward="true" selection-start-line="925" selection-start-column="48" selection-end-line="925" selection-end-column="48" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />

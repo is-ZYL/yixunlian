@@ -18,10 +18,12 @@ import com.github.pagehelper.PageInfo;
 import com.yixunlian.entity.*;
 import com.yixunlian.mapper.ActivityMapper;
 import com.yixunlian.pojo.*;
+import com.yixunlian.pojo.system.SysUser;
 import com.yixunlian.service.baseservice.BaseService;
 import com.yixunlian.service.baseservice.GetService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import util.myutils.BigDecimalUtils;
 import util.myutils.ListUtils;
 import util.myutils.ObjectUtil;
 import util.myutils.UuidUtil;
@@ -65,24 +67,16 @@ public class ActivityService extends BaseService<Activity> {
     private UhobbyandactivitycategoryService uhAndAcCategoryService;
     @Resource(name = "organizerInfoService")
     private OrganizerInfoService organ;
-    @Resource(name = "extractprojectService")
-    private ExtractprojectService ex;
     @Resource(name = "uenrollandactivityService")
     private UenrollandactivityService ueService;
     @Resource(name = "activityChargeItemService")
     private ActivityChargeItemService ac;
-    @Resource(name = "extractprojectService")
-    private ExtractprojectService ext;
     @Resource(name = "reportService")
     private ReportService rep;
     @Resource(name = "activityFillInItemService")
     private ActivityFillInItemService af;
-    @Resource(name = "extractprojectService")
-    private ExtractprojectService ep;
     @Resource(name = "activitysignService")
     private ActivitysignService activitysignService;
-    @Resource(name = "extractprojectService")
-    private ExtractprojectService extractprojectService;
     @Resource(name = "organizerInfoService")
     private OrganizerInfoService organizerInfoService;
     @Resource(name = "transactionItemService")
@@ -538,12 +532,8 @@ public class ActivityService extends BaseService<Activity> {
             for (Activity activity : activities1) {
                 ActivityResult activityResult = new ActivityResult();
                 //当前活动是否设置分享提成:0为否,1为是
-                if (null != activity.getActivityIsextract() && activity.getActivityIsextract() == 1) {
-                    List<Extractproject> e = ext.queryListByActivity(activity);
-                    //设置该活动是否设置项目提成
-                    boolean isSetExtractProject = ObjectUtil.isNotNull(e);
-                    activityResult.setIsSetExtractProject(isSetExtractProject);
-                }
+                //设置该活动是否设置项目提成
+                activityResult.setIsSetExtractProject(null != activity.getActivityIsextract() && activity.getActivityIsextract() == 1);
                 //根据当前活动查询在活动区域的用户
                 List<User> users = this.queryUsersByActivity(activity);
                 for (User user1 : users) {
@@ -602,8 +592,9 @@ public class ActivityService extends BaseService<Activity> {
                 activityResult.setObject(activity);
                 activities.add(activityResult);
             }
+            return activities;
         }
-        return activities;
+        return null;
     }
 
     /**
@@ -645,15 +636,14 @@ public class ActivityService extends BaseService<Activity> {
                     BigDecimal money = ac.querySumMoneyByActivity(activity);
                     //设置成交总金额
                     activityResult.setTransactionTotalAmount(money);
-                    //查询出当前活动的总提成
-                    BigDecimal decimal = ext.queryProjectRateSumByActivityId(activity.getActivityId());
                     //设置发放提成总金额(保留两位小数)
-                    activityResult.setCommissionTotalAmount(money.multiply(decimal).setScale(2, BigDecimal.ROUND_HALF_UP));
+                    activityResult.setCommissionTotalAmount(BigDecimalUtils.safeMultiply(money, activity.getRoyaltyRatio()));
                 }
                 activities.add(activityResult);
             }
+            return activities;
         }
-        return activities;
+        return null;
     }
 
     /**
@@ -682,20 +672,13 @@ public class ActivityService extends BaseService<Activity> {
             for (Activity activity : activities1) {
                 ActivityResult activityResult = new ActivityResult();
                 //当前活动是否设置分享提成:0为否,1为是
-                if (null != activity.getActivityIsextract() && 1 == activity.getActivityIsextract()) {
-                    List<Extractproject> e = ext.queryListByActivity(activity);
-                    if (ObjectUtil.isNull(e) && e.size() == 0) {
-                        //说明该活动未设置项目提成
-                        activityResult.setIsSetExtractProject(false);
-                    }
-                    //说明该活动已设置项目提成
-                    activityResult.setIsSetExtractProject(true);
-                }
+                activityResult.setIsSetExtractProject(null != activity.getActivityIsextract() && 1 == activity.getActivityIsextract());
                 activityResult.setObject(activity);
                 activities.add(activityResult);
             }
+            return activities;
         }
-        return activities;
+        return null;
     }
 
     /**
@@ -826,22 +809,14 @@ public class ActivityService extends BaseService<Activity> {
             super.updateSelective(activity);
             //删除之前的数据
             ac.deleteByWhere(ActivityChargeItem.getInstance().toBuilder().activityId(activity.getActivityId()).build());
-            ext.deleteByWhere(Extractproject.getExtractproject().toBuilder().activityId(activity.getActivityId()).build());
             af.deleteByWhere(ActivityFillInItem.getInstance().toBuilder().activityId(activity.getActivityId()).build());
         }
         List<ActivityChargeItem> c;
-        List<Extractproject> e;
         //保存收费项目
         if (null != activity.getActivityChargestatus() && 1 == activity.getActivityChargestatus()) {
             c = activityInfo.getChargeItemList();
             Integer i = ac.saveSelective(activity, c);
             log.info("活动保存--共保存收费项目——" + i + "——条");
-        }
-        //保存提成项目
-        if (null != activity.getActivityIsextract() && 1 == activity.getActivityIsextract()) {
-            e = activityInfo.getExtractprojectList();
-            Integer i = ext.saveSelective(activity, e);
-            log.info("活动保存--共保存提成项目——" + i + "——条");
         }
         //保存报名填写项
         List<ActivityFillInItem> f = activityInfo.getFillInItems();
@@ -869,18 +844,11 @@ public class ActivityService extends BaseService<Activity> {
         activity.setUserId(u.getUserId());
         Integer result = super.updateSelective(activity);
         List<ActivityChargeItem> c;
-        List<Extractproject> e;
         //保存收费项目
         if (null != activity.getActivityChargestatus() && 1 == activity.getActivityChargestatus()) {
             c = activityInfo.getChargeItemList();
             Integer i = ac.saveSelective(activity, c);
             log.info("活动保存--共保存收费项目——" + i + "——条");
-        }
-        //保存提成项目
-        if (null != activity.getActivityIsextract() && 1 == activity.getActivityIsextract()) {
-            e = activityInfo.getExtractprojectList();
-            Integer i = ext.saveSelective(activity, e);
-            log.info("活动保存--共保存提成项目——" + i + "——条");
         }
         //保存报名填写项
         List<ActivityFillInItem> f = activityInfo.getFillInItems();
@@ -963,7 +931,7 @@ public class ActivityService extends BaseService<Activity> {
             }
             //判断复杂的字段是否符合
             if (checkActivityPayment(activityChargestatus, activityIsextract,
-                    activityChargemethod, paymentResult, activityInfo.getExtractprojectList(),
+                    activityChargemethod, paymentResult,
                     activityInfo.getChargeItemList())) {
                 return Result.success(1);
             }
@@ -981,20 +949,15 @@ public class ActivityService extends BaseService<Activity> {
      * @param activityChargestatus 活动费用，0为免费，1，收费
      * @param activityChargemethod 活动费用支付方式 0为平台代收，1为线下支付
      * @param paymentResult        平台代收支付结果
-     * @param extractprojectList
      * @return
      */
-    private Boolean checkActivityPayment(String activityChargestatus, String activityIsextract, String activityChargemethod, String paymentResult, List<Extractproject> extractprojectList, List<ActivityChargeItem> chargeItemList) {
+    private Boolean checkActivityPayment(String activityChargestatus, String activityIsextract, String activityChargemethod, String paymentResult, List<ActivityChargeItem> chargeItemList) {
         //判断收费项目是否合格
         boolean flag = false;
         //活动为收费
         if ("1".equals(activityChargestatus) && checkChargeItem(chargeItemList)) {
             //且为平台代收 已支付
             if ("0".equals(activityChargemethod) && "1".equals(paymentResult)) {
-                flag = true;
-            }
-            //如果有提成，判断提成项目
-            if ("1".equals(activityIsextract) && checkExtractProject(extractprojectList)) {
                 flag = true;
             }
             flag = true;
@@ -1021,24 +984,6 @@ public class ActivityService extends BaseService<Activity> {
     }
 
     /**
-     * 判断活动提成项目是否合格
-     *
-     * @param extractprojectList
-     * @return
-     */
-    private boolean checkExtractProject(List<Extractproject> extractprojectList) {
-        boolean extractProject = false;
-        if (extractprojectList.size() > 0) {
-            for (Extractproject e : extractprojectList) {
-                if (!e.getProjectName().isEmpty() && e.getProjectRate() != null) {
-                    extractProject = true;
-                }
-            }
-        }
-        return extractProject;
-    }
-
-    /**
      * 根据活动id查询活动详情
      *
      * @param activityId
@@ -1051,8 +996,6 @@ public class ActivityService extends BaseService<Activity> {
         }
         //收费项目list
         List<ActivityChargeItem> ci = ac.queryListByWhere(activity);
-        //提成项目
-        List<Extractproject> ej = ep.queryListByActivity(activity);
         //查询活动的报名人数
         Integer activityJoinNum = ueService.queryTotalCount(Uenrollandactivity.getUenrollAndActivity().toBuilder().activityId(activityId).build());
         activity.setJoinNum(activityJoinNum);
@@ -1063,7 +1006,7 @@ public class ActivityService extends BaseService<Activity> {
         if (4 == activity.getOnlineStatus()) {
             fillInItem = af.queryItemByActivityId(activityId);
         }
-        return new ActivityInfo().toBuilder().activity(activity).organizerInfo(o).chargeItemList(ci).extractprojectList(ej).fillInItems(fillInItem).build();
+        return new ActivityInfo().toBuilder().activity(activity).organizerInfo(o).chargeItemList(ci).fillInItems(fillInItem).build();
     }
 
     /**
@@ -1071,9 +1014,10 @@ public class ActivityService extends BaseService<Activity> {
      *
      * @param u
      * @param ac
+     * @param shareUser
      * @return
      */
-    public synchronized Result activitySignUp(User u, ActivitySingInfo ac) {
+    public synchronized Result activitySignUp(User u, ActivitySingInfo ac, User shareUser) {
         //检查用户信息是否合格
         boolean userIsOk = userService.checkUserIsOk(u, false);
         Activity activity = super.queryById(ac.getActivityId());
@@ -1083,6 +1027,17 @@ public class ActivityService extends BaseService<Activity> {
         Uenrollandactivity ue = ueService.queryOneByUser(u.getUserId(), activity.getActivityId());
         if (ObjectUtil.isNotNull(ue)) {
             return Result.error("405", "当前用户已经报名");
+        }
+
+        //邀约人
+        SysUser sysUserResource = null;
+        if (ObjectUtil.isNull(shareUser)) {
+            try {
+                sysUserResource = userService.getSysUserResource(shareUser);
+            } catch (Exception e) {
+                log.info("平台数据异常{}", e.getMessage());
+                return Result.error("404", "平台数据异常");
+            }
         }
 
         if (!userIsOk) {
@@ -1119,7 +1074,10 @@ public class ActivityService extends BaseService<Activity> {
                 .uSex(u.getuSex())
                 .uNickname(u.getuNickname())
                 .uPhone(u.getuPhone())
-                .usersignStatus(0).build();
+                .usersignStatus(0)
+                .eventSharerId(sysUserResource.getUserId())
+                .eventSharerMemberid(sysUserResource.getName())
+                .build();
         activity.setJoinNum(activity.getJoinNum() + 1);
         super.updateSelective(activity);
         Integer result = ueService.saveSelective(uenrollandactivity);
@@ -1175,13 +1133,15 @@ public class ActivityService extends BaseService<Activity> {
      * @param userId1    用户id
      */
     public Result<ActivitySignUpInfo> queryActivitySignUpInfo(String userId, String activityId, String userId1) {
-        log.info("主办方id==" + userId);
+        log.info("客户id[{},{},{}]", userId, userId1, activityId);
         if (ObjectUtil.isNull(organizerInfoService.queryOneByUId(userId))) {
             return Result.error("403", "主办方id异常");
         }
-        Uenrollandactivity ue = ueService.queryOneByUser(userId1, activityId);
+        Uenrollandactivity ue = ueService.queryOneByUser(userId, userId1, activityId);
+        log.info("客户信息[]", ue);
         List<Activitysign> activitysign = activitysignService.queryActivitysignsByUser(userId1, activityId);
-        ActivitySignUpInfo ac = ActivitySignUpInfo.getActivitySignUpInfo().toBuilder().act(activitysign).uen(ue).build();
+        List<TransactionItem> transactionItems = transactionItemService.queryListByUidAndActivityId(userId1, activityId);
+        ActivitySignUpInfo ac = ActivitySignUpInfo.getActivitySignUpInfo().toBuilder().act(activitysign).uen(ue).trans(transactionItems).build();
         return Result.success("查询成功", ac);
     }
 

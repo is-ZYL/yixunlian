@@ -132,7 +132,7 @@ public class ObjectUtil {
      * @param list
      * @return
      */
-    public static boolean isNotNull(List<Object> list) {
+    public static boolean isNotNull(List list) {
         return null != list && !list.isEmpty();
     }
 
@@ -142,8 +142,8 @@ public class ObjectUtil {
      * @param list list
      * @return
      */
-    public static boolean isNull(List<Object> list) {
-        return null == list || list.isEmpty() ;
+    public static boolean isNull(List list) {
+        return null == list || list.isEmpty();
     }
 
     /**

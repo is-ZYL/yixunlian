@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.UUID;
 
@@ -23,12 +24,10 @@ public class Activity extends BasePojo {
      * 活动表
      */
     @Id
-    @NonNull
     private String activityId;
     /**
      * 关联用户表
      */
-    @NonNull
     private String userId;
     /**
      * 主办方名称
@@ -135,6 +134,11 @@ public class Activity extends BasePojo {
      * 是否设置提成0，为否，1为是
      */
     private Integer activityIsextract;
+
+    /**
+     * 提成比例
+     */
+    private BigDecimal royaltyRatio;
     /**
      * 活动详情，上传h5
      */

@@ -31,7 +31,20 @@ import java.util.List;
 @AllArgsConstructor
 @Builder(toBuilder = true)
 public class ActivitySingInfo {
+    /**
+     * 当前报名用户token
+     */
     private String token;
+    /**
+     * 活动id
+     */
     private String activityId;
+    /**
+     * 活动报名分享人token
+     */
+    private String activityShareToken;
+    /**
+     * 报名填写项信息
+     */
     private List<Activitysign> activitySign;
 }

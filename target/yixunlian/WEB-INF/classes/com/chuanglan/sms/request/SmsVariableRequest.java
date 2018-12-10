@@ -57,10 +57,10 @@ public class SmsVariableRequest {
         this.params = params;
         this.report = report;
     }
-    //	public SmsVarableRequest(String account, String password, String msg, String params, String sendtime) {
+    //	public SmsVarableRequest(String ACCOUNT, String PASSWORD, String msg, String params, String sendtime) {
 //		super();
-//		this.account = account;
-//		this.password = password;
+//		this.ACCOUNT = ACCOUNT;
+//		this.PASSWORD = PASSWORD;
 //		this.msg = msg;
 //		this.params = params;
 //		this.sendtime = sendtime;

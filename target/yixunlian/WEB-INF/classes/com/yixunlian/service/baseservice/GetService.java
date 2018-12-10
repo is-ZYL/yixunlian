@@ -89,8 +89,6 @@ public class GetService {
     private JournalismService journalismService;
     @Resource(name = "organizerInfoService")
     private OrganizerInfoService organizerInfoService;
-    @Resource(name = "extractprojectService")
-    private ExtractprojectService extractprojectService;
     @Resource(name = "activityChargeItemService")
     private ActivityChargeItemService activityChargeItemService;
     @Resource(name = "uenrollandactivityService")
@@ -102,10 +100,6 @@ public class GetService {
 
     public UenrollandactivityService getUeService() {
         return ueService;
-    }
-
-    public ExtractprojectService getExtractprojectService() {
-        return extractprojectService;
     }
 
     public OrganizerInfoService getOrganizerInfoService() {

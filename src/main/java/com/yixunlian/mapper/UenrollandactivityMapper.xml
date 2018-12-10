@@ -16,7 +16,7 @@
         <result column="payment_status" jdbcType="INTEGER" property="paymentStatus"/>
         <result column="payment_num" jdbcType="DECIMAL" property="paymentNum"/>
         <result column="status" jdbcType="INTEGER" property="status"/>
-        <result column="event_sharer" jdbcType="VARCHAR" property="eventSharer"/>
+        <result column="event_sharer_id" jdbcType="VARCHAR" property="eventSharerId"/>
         <result column="event_sharer_memberid" jdbcType="VARCHAR" property="eventSharerMemberid"/>
         <result column="created" jdbcType="TIMESTAMP" property="created"/>
         <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
@@ -24,10 +24,10 @@
     </resultMap>
     <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.yixunlian.pojo.Uenrollandactivity">
         <result column="remar" jdbcType="LONGVARCHAR" property="remar"/>
+        <result column="is_operation" jdbcType="INTEGER" property="isOperation"/>
     </resultMap>
     <sql id="Base_Column_List">
-        uAndactivityEnroll_id, user_id, u_nickname, u_sex, u_phone, change_head_url, activity_id, organizer_id, activitycategory_id, deal_status, transaction_num, usersign_status, payment_status, payment_num, status, event_sharer, event_sharer_memberid, created, updated, remark
-    </sql>
+        uAndactivityEnroll_id, user_id, u_nickname, u_sex, u_phone, change_head_url, activity_id, organizer_id, activitycategory_id, deal_status, transaction_num, usersign_status, payment_status, payment_num, status, event_sharer_id, event_sharer_memberid, created, updated, remark, is_operation </sql>
     <sql id="Blob_Column_List">
         remar
     </sql>

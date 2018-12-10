@@ -97,8 +97,7 @@ public class Uenrollandactivity extends BasePojo {
     /**
      * 活动邀约人
      */
-    private String eventSharer;
-
+    private String eventSharerId;
 
     /**
      * 活动邀约人会员号
@@ -109,6 +108,11 @@ public class Uenrollandactivity extends BasePojo {
      * 主办方对每个活动的每个报名用户的备注
      */
     private String remar;
+
+    /**
+     * 主办发是否操作过当前用户的数据 只允许操作一次  0 未操作  1 已操作
+     */
+    private Integer isOperation = 0;
 
     public static Uenrollandactivity getUenrollAndActivity() {
         return new Uenrollandactivity();

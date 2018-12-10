@@ -70,9 +70,7 @@ public class TaskServiceImpl implements TaskService {
     @Scheduled(cron = "0 0/3 * * * ? ")
     public void activityStatusChangeTask() {
         Date now = new Date();//获取当前时间
-//        List<YxlActivity> activitySnap = new ArrayList<>();//存储要变更活动
-
-        //活动状态判断与定时修改
+        //活动状态判断与定时修改  //存储要变更活动
         List<Activity> activities = new ArrayList<>();
         try {
             //排除活动草稿，下架和活动结束状态

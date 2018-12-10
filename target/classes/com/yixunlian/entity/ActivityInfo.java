@@ -48,10 +48,6 @@ public class ActivityInfo {
      * 收费项目list
      */
     private List<ActivityChargeItem> chargeItemList;
-    /**
-     * 提成项目
-     */
-    private List<Extractproject> extractprojectList;
 
     /**
      * 活动报名填写项

@@ -41,7 +41,7 @@ public class FileJob {
     /**
      * 删除不需要的
      */
-    @Scheduled(cron = "0/2 * * * * ?")
+    // @Scheduled(cron = "0/2 * * * * ?")
     public void delQrcodeFile() {
         System.out.println("job test111");
     }
@@ -49,7 +49,7 @@ public class FileJob {
     /**
      * 删除不需要的
      */
-    @Scheduled(cron = "0/3 * * * * ?")
+    //@Scheduled(cron = "0/3 * * * * ?")
     public void delQrcodeFile2() {
         System.out.println("job test22222");
     }

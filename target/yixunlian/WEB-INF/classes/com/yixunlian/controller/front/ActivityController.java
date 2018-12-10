@@ -103,6 +103,12 @@ public class ActivityController extends BaseController {
         return Result.success("ok");
     }
 
+    @PostMapping(value = "test444")
+    public Result<String> test3(@RequestParam("transactionItems[]") List<TransactionItem> transactionItems, @RequestParam String token) {
+        logger.info("消息接收成功：[{},{}]", token, transactionItems);
+        return Result.success("ok");
+    }
+
     /**
      * 1 活动主办方更改信息
      *
@@ -787,7 +793,10 @@ public class ActivityController extends BaseController {
                 return Result.error("207", "参数异常");
             }
             Activity activity = activityService.queryById(activityId);
-            if (ObjectUtil.isNotNull(activity) && !activity.getUserId().equals(u.getUserId())) {
+            if (ObjectUtil.isNull(activity)) {
+                return Result.error("404", "活动异常,未找到当前活动信息");
+            }
+            if (!activity.getUserId().equals(u.getUserId())) {
                 return Result.error("209", "没有权限查看");
             }
             if (0 == activity.getOnlineStatus() || 2 == activity.getOnlineStatus()) {
@@ -813,6 +822,7 @@ public class ActivityController extends BaseController {
     public Result userActivitySignUpByTokenAndActivityId(@RequestBody ActivitySingInfo activitySingInfo) {
         logger.info("活动报名===token__activityId__activitySions,[{},{},{}]", activitySingInfo.getToken(), activitySingInfo.getActivityId(), activitySingInfo.getActivitySign());
         String data = TokenUtils.getDataByKey(activitySingInfo.getToken());
+        String shareData = TokenUtils.getDataByKey(activitySingInfo.getActivityShareToken());
         if (ObjectUtil.isEmpty(data)) {
             // token不正确 返回204
             logger.error("--------token值错误---------》用户活动报名 15");
@@ -821,6 +831,7 @@ public class ActivityController extends BaseController {
         //通过token值获取user对象
         try {
             User u = MAPPER.readValue(data, User.class);
+            User shareUser = MAPPER.readValue(shareData, User.class);
             if (ObjectUtil.isNull(u)) {
                 //用户为空返回403
                 logger.error("--------用户不存在---------》用户活动报名 15");
@@ -833,7 +844,11 @@ public class ActivityController extends BaseController {
             }
             u = userService.queryById(u.getUserId());
             logger.info("活动报名，用户信息 u:{}", u);
-            return activityService.activitySignUp(u, activitySingInfo);
+            //查询活动邀约人
+            if (ObjectUtil.isNotNull(shareUser)) {
+                shareUser = userService.queryById(shareUser.getUserId());
+            }
+            return activityService.activitySignUp(u, activitySingInfo, shareUser);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -963,6 +978,7 @@ public class ActivityController extends BaseController {
      */
     @PostMapping(value = "saveUenrollandactivityByActivityId")
     public Result<Integer> saveUenrollandactivityByActivityId(@RequestParam String token, Uenrollandactivity ue) {
+        logger.info("添加备注{}", ue);
         String data = TokenUtils.getDataByKey(token);
         if (ObjectUtil.isEmpty(data)) {
             // token不正确 返回204
@@ -979,7 +995,7 @@ public class ActivityController extends BaseController {
             }
             if (ObjectUtil.isNull(ue) && ObjectUtil.isEmpty(ue.getRemar())) {
                 //用户为空返回403
-                logger.error("--------参数异常  activityId is null---------》活动主办方填写报名用户备注 19");
+                logger.error("--------参数异常 ---------》活动主办方填写报名用户备注 19");
                 return Result.error("207", "参数异常");
             }
             //通过id查询主办方信息
@@ -1005,17 +1021,17 @@ public class ActivityController extends BaseController {
     /**
      * 20  根据token 活动主办方填写报名用户成交信息
      *
-     * @param transactionItems 用户成交信息
+     * @param userTransactionInfo 用户成交信息
      * @return 返回 0 失败  1 成功
      */
     @PostMapping(value = "saveTransactionItemByActivityId")
-    public Result<Integer> saveTransactionItemByActivityId(@RequestParam("transactionItems[]") TransactionItem[] transactionItems) {
-        if (ObjectUtil.isNull(transactionItems)) {
+    public Result<Integer> saveTransactionItemByActivityId(@RequestBody UserTransactionInfo userTransactionInfo) {
+        if (ObjectUtil.isNull(userTransactionInfo)) {
             //用户为空返回403
-            logger.error("--------参数异常  activityId is null---------》活动主办方填写报名用户成交信息 20");
+            logger.error("--------参数异常 ---------》活动主办方填写报名用户成交信息 20");
             return Result.error("207", "参数异常");
         }
-        String data = TokenUtils.getDataByKey("123");
+        String data = TokenUtils.getDataByKey(userTransactionInfo.getToken());
         if (ObjectUtil.isEmpty(data)) {
             // token不正确 返回204
             logger.error("--------token值错误---------》活动主办方填写报名用户成交信息 20");
@@ -1029,9 +1045,7 @@ public class ActivityController extends BaseController {
                 logger.error("--------用户不存在---------》活动主办方填写报名用户成交信息 20");
                 return Result.error("206", "用户不存在");
             }
-
-            //return transactionItemService.saveSelectiveByTransactionItemList(u, transactionItems);
-            return null;
+            return transactionItemService.saveSelectiveByTransactionItemList(u, userTransactionInfo);
         } catch (IOException e) {
             e.printStackTrace();
         }

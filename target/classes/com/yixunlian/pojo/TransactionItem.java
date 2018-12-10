@@ -52,5 +52,4 @@ public class TransactionItem extends BasePojo {
      */
     private String remark;
 
-
 }

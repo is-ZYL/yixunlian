@@ -33,7 +33,6 @@ import util.myutils.Tools;
 import util.weixin.Const;
 
 import javax.annotation.Resource;
-import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.*;
 
@@ -74,8 +73,6 @@ public class UserService extends BaseService<User> {
     private ResourceUpgradingService resUpgradingService;
     @Resource(name = "memberupdateextractService")
     private MemberupdateextractService memUpdateEService;
-    @Resource(name = "extractprojectService")
-    private ExtractprojectService extractprojectService;
     @Resource(name = "sysUserService")
     private SysUserService sysUserService;
     @Resource(name = "roleService")
@@ -752,6 +749,29 @@ public class UserService extends BaseService<User> {
     }
 
     /**
+     * 根据用户查询运营中心
+     *
+     * @param user
+     * @throws Exception
+     */
+    public SysUser getSysUserResource(User user) throws Exception {
+        Role role = roleService.queryOneByRoleName(Const.OPERATION_CENTER, Const.OPERATION_CENTER_ID);
+        if (ObjectUtil.isNull(role)) {
+            role = roleService.queryOneByRoleName(Const.TOTAL_OPERATIONS_CENTER, Const.TOTAL_OPERATIONS_CENTER_ID);
+        }
+        if (ObjectUtil.isNotNull(role)) {
+            SysUser sysUser = sysUserService.querySysUserByRole(user, role);
+            if (ObjectUtil.isNotNull(sysUser)) {
+                return sysUser;
+            } else {
+                throw new Exception("系统管理员异常，设置用户归属关系时找不到系统管理员信息");
+            }
+        } else {
+            throw new Exception("运营中心异常，设置用户归属关系时找不到运营中心");
+        }
+    }
+
+    /**
      * 查询有会员天数的会员
      *
      * @return
@@ -771,22 +791,6 @@ public class UserService extends BaseService<User> {
             }
         }
         return users;
-    }
-
-    /**
-     * 根据活动,用户计算活动提成金额
-     *
-     * @param user
-     * @param a
-     * @return
-     */
-    public BigDecimal calculationActivityCommission(User user, Activity a) {
-        if (ObjectUtil.isNotNull(a) && a.getActivityIsextract() == 1) {
-            //查询活动提成记录
-            List<Extractproject> extractprojects = extractprojectService.queryListByActivity(a);
-
-        }
-        return null;
     }
 
     /**

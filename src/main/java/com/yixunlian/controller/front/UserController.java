@@ -10,6 +10,10 @@
  */
 package com.yixunlian.controller.front;
 
+import com.alibaba.fastjson.JSON;
+import com.chuanglan.sms.request.SmsSendRequest;
+import com.chuanglan.sms.response.SmsSendResponse;
+import com.chuanglan.sms.util.ChuangLanSmsUtil;
 import com.github.pagehelper.PageInfo;
 import com.sun.istack.internal.NotNull;
 import com.yixunlian.controller.base.BaseController;
@@ -23,10 +27,10 @@ import com.yixunlian.service.baseservice.GetService;
 import net.sf.json.JSONObject;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -404,34 +408,34 @@ public class UserController extends BaseController {
             //手机号不合格
             return Result.build("403", "手机号码格式错误");
         }
-           /* //记录当前用户获取验证码的次数
-            String totalCount = TokenUtils.getCodeCountByUphone(uPhone, rService);
-            logger.info("用户获取验证码次数为=====" + totalCount);
-            if (ObjectUtil.isNotNull(totalCount) && Integer.parseInt(totalCount) > 20) {
-                return Result.error("今日可获取验证码次数为0");
-            }*/
+        //记录当前用户获取验证码的次数
+        String totalCount = TokenUtils.getCodeCountByUphone(uPhone);
+        if (ObjectUtil.isNotNull(totalCount) && Integer.parseInt(totalCount) > Integer.parseInt(Const.SEND_MESSAGE_ACCOUNT)) {
+            return Result.error("今日可获取验证码次数为0");
+        }
+        logger.info("用户获取验证码次数为=====" + totalCount);
         int i = (int) ((Math.random() * 9 + 1) * 100000);
         //短信发送的URL 请登录zz.253.com 获取完整的URL接口信息
-        //String smsSingleRequestServerUrl = "http://smssh1.253.com/msg/send/json";
+        String smsSingleRequestServerUrl = "http://smssh1.253.com/msg/send/json";
         //// 设置您要发送的内容：其中“【】”中括号为运营商签名符号，多签名内容前置添加提交
-        //String msg = "【易讯连】您好,您的验证码是" + i + "在5分钟内有效，若非本人操作，请忽略！";
+        String msg = "【易讯连】您好,您的验证码是" + i + "在5分钟内有效，若非本人操作，请忽略！";
         ////状态报告
-        //String report = "true";
-        //SmsSendRequest smsSingleRequest = new SmsSendRequest(Const.account, Const.password, msg, uPhone, report);
-        //String requestJson = JSON.toJSONString(smsSingleRequest);
-        //System.out.println("before request string is: " + requestJson);
-        //String response = ChuangLanSmsUtil.sendSmsByPost(smsSingleRequestServerUrl, requestJson);
-        //System.out.println("response after request result is :" + response);
-        //SmsSendResponse smsSingleResponse = JSON.parseObject(response, SmsSendResponse.class);
-        //System.out.println("response  toString is :" + smsSingleResponse);
+        String report = "true";
+        SmsSendRequest smsSingleRequest = new SmsSendRequest(Const.ACCOUNT, Const.PASSWORD, msg, uPhone, report);
+        String requestJson = JSON.toJSONString(smsSingleRequest);
+        System.out.println("before request string is: " + requestJson);
+        String response = ChuangLanSmsUtil.sendSmsByPost(smsSingleRequestServerUrl, requestJson);
+        System.out.println("response after request result is :" + response);
+        SmsSendResponse smsSingleResponse = JSON.parseObject(response, SmsSendResponse.class);
+        System.out.println("response  toString is :" + smsSingleResponse);
         //将验证码存到redis中 五分钟有效
         rService.set("CHECK" + uPhone, i + "", FIVE_MINUTE);
         System.out.println(uPhone + "-------------------------------" + i);
         //   发送成功
-        //int i1 = Integer.parseInt(totalCount);
-        //i1++;
+        int i1 = Integer.parseInt(totalCount);
+        i1++;
         ////   将获取验证码次数存到redis中  保存一天
-        //this.rService.set("COUNT" + uPhone, i1 + "", DateUtils.getSecondsNextEarlyMorning().intValue());
+        this.rService.set("COUNT_" + uPhone, i1 + "", REDIS_TIME);
         return Result.success("发送成功", i);
     }
 
@@ -2461,7 +2465,7 @@ public class UserController extends BaseController {
             String param = "{\"expire_seconds\": 2592000, \"action_name\": \"QR_STR_SCENE\", \"action_info\": {\"scene\": {\"token\": " + token + "}}}";
             StringEntity entity = new StringEntity(param, "utf-8");
             HttpPost httpPost = new HttpPost(postUrl);
-            HttpClient httpClient = new DefaultHttpClient();
+            CloseableHttpClient httpClient = HttpClientBuilder.create().build();
             httpPost.setEntity(entity);
             HttpResponse response = httpClient.execute(httpPost);
             String str = EntityUtils.toString(response.getEntity(), "utf-8");

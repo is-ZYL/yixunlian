@@ -102,7 +102,7 @@ public class BigDecimalUtils {
                 r = r.subtract((null == b ? BigDecimal.ZERO : b));
             }
         }
-        return isZero ? (r.compareTo(BigDecimal.ZERO) == -1 ? BigDecimal.ZERO : r) : r;
+        return isZero ? (r.compareTo(BigDecimal.ZERO) < 0 ? BigDecimal.ZERO : r) : r;
     }
 
     /**
@@ -156,7 +156,7 @@ public class BigDecimalUtils {
             return defaultValue;
         }
         try {
-            return BigDecimal.valueOf(b1.doubleValue()).divide(BigDecimal.valueOf(b2.doubleValue()), 2, BigDecimal.ROUND_HALF_UP);
+            return BigDecimal.valueOf(b1.doubleValue()).divide(BigDecimal.valueOf(b2.doubleValue()), 2, BigDecimal.ROUND_DOWN);
         } catch (Exception e) {
             return defaultValue;
         }
@@ -175,7 +175,6 @@ public class BigDecimalUtils {
         if (null == b1 || null == b2) {
             return BigDecimal.ZERO;
         }
-        return BigDecimal.valueOf(b1.doubleValue()).multiply(BigDecimal.valueOf(b2.doubleValue())).setScale(2, BigDecimal.ROUND_HALF_UP);
+        return BigDecimal.valueOf(b1.doubleValue()).multiply(BigDecimal.valueOf(b2.doubleValue())).setScale(2, BigDecimal.ROUND_DOWN);
     }
-
 }

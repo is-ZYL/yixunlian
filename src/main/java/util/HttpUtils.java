@@ -16,7 +16,8 @@ import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.CoreConnectionPNames;
 import util.express.Response;
@@ -294,11 +295,10 @@ public class HttpUtils {
     //private static final Log logger = Logs.get();
 
     private static HttpClient wrapClient(String host) {
-        HttpClient httpClient = new DefaultHttpClient();
+        CloseableHttpClient httpClient = HttpClientBuilder.create().build();
         if (host.startsWith("https://")) {
             sslClient(httpClient);
         }
-
         return httpClient;
     }
 

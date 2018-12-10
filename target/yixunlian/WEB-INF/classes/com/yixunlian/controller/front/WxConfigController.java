@@ -14,8 +14,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletResponse;
-
 /**
  * 〈一句话功能简述〉<br>
  * 〈测试〉
@@ -28,11 +26,11 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping({"/"})
 public class WxConfigController {
 
-    @RequestMapping({"MP_verify_wjyXmLOYK9QUnsq8.txt"})
+    @RequestMapping({"MP_verify_y6ngrDCYzSHzUiI2.txt"})
     @ResponseBody
     private String returnConfigFile() {
         //把MP_verify_xxxxxx.txt中的内容返回
-        return "wjyXmLOYK9QUnsq8";
+        return "y6ngrDCYzSHzUiI2";
     }
 }
 

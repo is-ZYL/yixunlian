@@ -48,14 +48,24 @@ public class UenrollandactivityService extends BaseService<Uenrollandactivity> {
     /**
      * 根据用户id，活动id查询报名信息
      *
-     * @param sharegetId
+     * @param userId
      * @param activityId
      * @return
      */
-    public Uenrollandactivity queryOneByUser(String sharegetId, String activityId) {
-        Uenrollandactivity uenrollandactivity = Uenrollandactivity.getUenrollAndActivity();
-        uenrollandactivity.setActivityId(activityId);
-        uenrollandactivity.setUserId(sharegetId);
+    public Uenrollandactivity queryOneByUser(String userId, String activityId) {
+        Uenrollandactivity uenrollandactivity = Uenrollandactivity.getUenrollAndActivity().toBuilder().activityId(activityId).userId(userId).build();
+        return super.queryOne(uenrollandactivity);
+    }
+
+    /**
+     * 根据用户id，活动id查询报名信息
+     *
+     * @param userId
+     * @param activityId
+     * @return
+     */
+    public Uenrollandactivity queryOneByUser(String organizerId, String userId, String activityId) {
+        Uenrollandactivity uenrollandactivity = Uenrollandactivity.getUenrollAndActivity().toBuilder().activityId(activityId).userId(userId).organizerId(organizerId).build();
         return super.queryOne(uenrollandactivity);
     }
 
@@ -184,4 +194,5 @@ public class UenrollandactivityService extends BaseService<Uenrollandactivity> {
         result.setObj(obj);
         return result;
     }
+
 }

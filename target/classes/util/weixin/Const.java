@@ -3,11 +3,14 @@ package util.weixin;
 /**
  * 微信常量
  *
- * @author a55660000
+ * @author yuanyuana
  */
 public class Const {
-    public static final String APPID = "wx024d6482076f88eb";
-    public static final String APPSECRET = "8ea53bd830e19b9a157a94b93d0bc80b";
+    public static final String APPID = "wxf7b88064864a0989";
+    public static final String APPSECRET = "3fbb44f203e197457c98cd42d53f98af";
+    /**
+     * 商户平台账号
+     */
     public static final String MCH_ID = "1356646602";
     public static final String OPERATION_CENTER = "运营中心";
     public static final String OPERATION_CENTER_ID = "3f9660f63a6b4d4cbf51a2bc455ca497";
@@ -54,9 +57,15 @@ public class Const {
     /**
      * 请登录zz.253.com 获取创蓝API账号(非登录账号,示例:N1234567)
      */
-    public static String account = "N5676021";
+    public final static String ACCOUNT = "N5676021";
     /**
      * 请登录zz.253.com 获取创蓝API密码(非登录密码)
      */
-    public static String password = "kk778899!";
+    public final static String PASSWORD = "kk778899!";
+
+    /**
+     * 用户单日发送短信次数
+     */
+    public final static String SEND_MESSAGE_ACCOUNT = "20";
+
 }

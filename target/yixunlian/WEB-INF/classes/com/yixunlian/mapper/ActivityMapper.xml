@@ -42,17 +42,18 @@
         <result column="created" jdbcType="TIMESTAMP" property="created"/>
         <result column="updated" jdbcType="TIMESTAMP" property="updated"/>
         <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="royalty_ratio" jdbcType="DECIMAL" property="royaltyRatio"/>
     </resultMap>
     <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.yixunlian.pojo.Activity">
         <result column="undercarriage_reason" jdbcType="LONGVARCHAR" property="undercarriageReason"/>
     </resultMap>
     <sql id="Base_Column_List">
-    activity_id, user_id, user_nick_name, activity_name,ctivitycategory_id,activitycategory_name,activitysign_starttime,activitysign_endtime,activitystart_time, activityend_time, activity_countpersons,activity_chargestatus, activity_chargemethod, activity_type,address_name,
-precision_demand_address_name, province_citycode, city_citycode,citycode, area_citycode, precision_demand_province_id, precision_demand_city_id,precision_demand_area_id, lng, lat, activity_coverImgurl,activity_isextract, activity_detailsurl,activitymusic_id, online_status, activity_signupstatus, activity_status, activity_qrcode,share_abstract, views, join_num, payment_result,created, updated, remark
-  </sql>
+        activity_id, user_id, user_nick_name, activity_name, ctivitycategory_id, activitycategory_name, activitysign_starttime, activitysign_endtime, activitystart_time, activityend_time, activity_countpersons, activity_chargestatus, activity_chargemethod, activity_type, address_name,
+        precision_demand_address_name, province_citycode, city_citycode, citycode, area_citycode, precision_demand_province_id, precision_demand_city_id, precision_demand_area_id, lng, lat, activity_coverImgurl, activity_isextract, activity_detailsurl, activitymusic_id, online_status, activity_signupstatus, activity_status, activity_qrcode, share_abstract, views, join_num, payment_result, created, updated, remark
+    </sql>
 
     <sql id="Blob_Column_List">
-    undercarriage_reason
+        undercarriage_reason
     </sql>
 
     <select id="queryActivityListByMaps" parameterType="java.util.Map" resultMap="BaseResultMap">

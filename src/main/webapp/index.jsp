@@ -9,7 +9,7 @@
 <body>
 <h2>Hello World!</h2>
 <label for="id">点我</label>
-<form action="${pageContext.request.contextPath}/app/front/activity/test111" method="get">
+<form action="${pageContext.request.contextPath}/app/front/activity/test444" method="get">
     <input type="datetime" id="id" name="date">
     <input type="submit" onclick="ok()" value="test">
 </form>
